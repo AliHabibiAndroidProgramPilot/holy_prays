@@ -2,18 +2,113 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_bg_background"
     tools:context=".ui.MainActivity">
+
+    <View
+        android:id="@+id/top_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@drawable/top_action_bar_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="24dp"
+        android:contentDescription="@string/setting_icon"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_green"
+        app:layout_constraintBottom_toBottomOf="@+id/top_action_bar"
+        app:layout_constraintStart_toStartOf="@id/top_action_bar"
+        app:layout_constraintTop_toTopOf="@+id/top_action_bar" />
+
+    <ImageView
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="24dp"
+        android:contentDescription="@string/setting_icon"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_green"
+        app:layout_constraintBottom_toBottomOf="@+id/top_action_bar"
+        app:layout_constraintEnd_toEndOf="@id/top_action_bar"
+        app:layout_constraintTop_toTopOf="@+id/top_action_bar" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/iran_sans_medium"
+        android:text="@string/top_app_message"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textDirection="rtl"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/top_action_bar"
+        app:layout_constraintEnd_toEndOf="@+id/top_action_bar"
+        app:layout_constraintStart_toStartOf="@id/top_action_bar"
+        app:layout_constraintTop_toTopOf="@id/top_action_bar" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/iran_sans_regular"
+        android:text="@string/main_name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textDirection="rtl"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/top_action_bar"
+        app:layout_constraintEnd_toEndOf="@+id/top_action_bar"
+        app:layout_constraintStart_toStartOf="@+id/top_action_bar"
+        app:layout_constraintTop_toTopOf="@id/top_action_bar" />
+
+    <ImageView
+        android:id="@+id/day_pray_text_frame"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/day_pray_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/top_action_bar" />
+
+    <TextView
+        android:id="@+id/txt_day_of_week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/iran_sans_regular"
+        android:textColor="@color/black"
+        android:textDirection="rtl"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/day_pray_text_frame"
+        app:layout_constraintStart_toStartOf="@+id/day_pray_text_frame"
+        app:layout_constraintTop_toTopOf="@+id/day_pray_text_frame"
+        tools:text="ذکر روز دوشنبه" />
+
+    <TextView
+        android:id="@+id/txt_day_pray"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/nabi_arabic"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textDirection="rtl"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/day_pray_text_frame"
+        app:layout_constraintEnd_toEndOf="@id/day_pray_text_frame"
+        app:layout_constraintStart_toStartOf="@+id/day_pray_text_frame"
+        tools:text="یا قاضی ال احاجات" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
