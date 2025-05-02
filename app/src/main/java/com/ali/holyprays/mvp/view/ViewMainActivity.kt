@@ -3,7 +3,6 @@ package com.ali.holyprays.mvp.view
 import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.WindowManager
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.ali.holyprays.R

@@ -75,6 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_marginTop="20dp"
+        android:contentDescription="@string/day_pray_text_frame"
         android:scaleType="fitXY"
         android:src="@drawable/day_pray_frame"
         app:layout_constraintEnd_toEndOf="parent"

@@ -17,4 +17,5 @@
     <string name="saturday_pray">یا رَبِّ الْعالَمِین</string>
     <string name="day_sunday">ذکر روز یک شنبه</string>
     <string name="sunday_pray">یا ذَالجَلالِ وَ اْلاِکْرام</string>
+    <string name="day_pray_text_frame">day pray text frame</string>
 </resources>
