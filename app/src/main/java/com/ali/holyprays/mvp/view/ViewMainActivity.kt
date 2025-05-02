@@ -29,11 +29,10 @@ class ViewMainActivity(
         window.navigationBarColor = Color.rgb(240, 234, 210)
     }
 
-    fun setEachDayPray() {
+    fun setEachDayPray(dayOfWeekValue: Int) {
         val dayOfTheWeekText = binding.txtDayOfWeek
         val dayPrayText = binding.txtDayPray
-        val currentDayOfTheWeek = LocalDate.now().dayOfWeek.value
-        when (currentDayOfTheWeek) {
+        when (dayOfWeekValue) {
             1 -> {
                 dayOfTheWeekText.setText(R.string.day_monday) // Monday
                 dayPrayText.setText(R.string.monday_pray)

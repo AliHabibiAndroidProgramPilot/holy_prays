@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), ActivityUtils {
         val model = ModelMainActivity()
         val view = ViewMainActivity(this, this)
         setContentView(view.binding.root)
-        presenter = PresenterMainActivity(view, model, this)
+        presenter = PresenterMainActivity(view, model)
         presenter.presenterOnCreate()
     }
 

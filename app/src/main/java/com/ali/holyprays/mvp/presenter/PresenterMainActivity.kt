@@ -8,12 +8,11 @@ import com.ali.holyprays.mvp.view.ViewMainActivity
 class PresenterMainActivity(
     private val view: ViewMainActivity,
     private val model: ModelMainActivity,
-    private val utils: ActivityUtils
 ) : ActivityLifecycle {
 
     override fun presenterOnCreate() {
         view.setInsets()
-        view.setEachDayPray()
+        view.setEachDayPray(model.currentSystemDayOfWeek())
     }
 
     override fun presenterOnDestroy() {}
