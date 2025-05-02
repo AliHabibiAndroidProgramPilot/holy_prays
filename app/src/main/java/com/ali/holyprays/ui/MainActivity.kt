@@ -1,6 +1,7 @@
 package com.ali.holyprays.ui
 
 import android.os.Bundle
+import android.view.Window
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.ali.holyprays.mvp.ext.ActivityUtils
@@ -26,4 +27,6 @@ class MainActivity : AppCompatActivity(), ActivityUtils {
         presenter.presenterOnDestroy()
         super.onDestroy()
     }
+
+    override fun takeWindow(): Window = this.window
 }

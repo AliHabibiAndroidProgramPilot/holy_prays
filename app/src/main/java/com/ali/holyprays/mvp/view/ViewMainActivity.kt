@@ -1,7 +1,9 @@
 package com.ali.holyprays.mvp.view
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.WindowManager
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.ali.holyprays.R
@@ -22,6 +24,9 @@ class ViewMainActivity(
             view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        // Set Right Color For Status Bar
+        val window = utils.takeWindow()
+        window!!.statusBarColor = Color.rgb(221, 229, 182)
     }
 
     fun setEachDayPray() {
