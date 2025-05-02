@@ -26,6 +26,7 @@ class ViewMainActivity(
         // Set Right Color For Status Bar
         val window = utils.takeWindow()
         window!!.statusBarColor = Color.rgb(221, 229, 182)
+        window.navigationBarColor = Color.rgb(240, 234, 210)
     }
 
     fun setEachDayPray() {
