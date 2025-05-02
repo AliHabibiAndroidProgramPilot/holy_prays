@@ -8,7 +8,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.ali.holyprays.R
 import com.ali.holyprays.databinding.ActivityMainBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
-import java.time.LocalDate
 
 class ViewMainActivity(
     context: Context,
