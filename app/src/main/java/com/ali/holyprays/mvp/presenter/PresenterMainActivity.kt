@@ -1,4 +1,20 @@
 package com.ali.holyprays.mvp.presenter
 
-class PresenterMainActivity {
+import com.ali.holyprays.mvp.ext.ActivityLifecycle
+import com.ali.holyprays.mvp.ext.ActivityUtlis
+import com.ali.holyprays.mvp.model.ModelMainActivity
+import com.ali.holyprays.mvp.view.ViewMainActivity
+
+class PresenterMainActivity(
+    private val view: ViewMainActivity,
+    private val model: ModelMainActivity,
+    private val utils: ActivityUtlis
+) : ActivityLifecycle {
+
+    override fun presenterOnCreate() {
+        view.setInsets()
+    }
+
+    override fun presenterOnDestroy() {}
+
 }

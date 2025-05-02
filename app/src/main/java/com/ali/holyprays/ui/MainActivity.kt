@@ -3,19 +3,28 @@ package com.ali.holyprays.ui
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.ali.holyprays.R
+import com.ali.holyprays.mvp.ext.ActivityUtlis
+import com.ali.holyprays.mvp.model.ModelMainActivity
+import com.ali.holyprays.mvp.presenter.PresenterMainActivity
+import com.ali.holyprays.mvp.view.ViewMainActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ActivityUtlis {
+
+    private lateinit var presenter: PresenterMainActivity
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        val model = ModelMainActivity()
+        val view = ViewMainActivity(this, this)
+        setContentView(view.binding.root)
+        presenter = PresenterMainActivity(view, model, this)
+        presenter.presenterOnCreate()
+    }
+
+    override fun onDestroy() {
+        presenter.presenterOnDestroy()
+        super.onDestroy()
     }
 }
