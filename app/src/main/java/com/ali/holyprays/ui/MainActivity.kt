@@ -3,13 +3,12 @@ package com.ali.holyprays.ui
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.ali.holyprays.R
-import com.ali.holyprays.mvp.ext.ActivityUtlis
+import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.model.ModelMainActivity
 import com.ali.holyprays.mvp.presenter.PresenterMainActivity
 import com.ali.holyprays.mvp.view.ViewMainActivity
 
-class MainActivity : AppCompatActivity(), ActivityUtlis {
+class MainActivity : AppCompatActivity(), ActivityUtils {
 
     private lateinit var presenter: PresenterMainActivity
 

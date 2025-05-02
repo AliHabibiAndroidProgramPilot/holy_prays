@@ -3,4 +3,18 @@
     <string name="setting_icon">setting icon</string>
     <string name="top_app_message">دعا و منتخب قرآن</string>
     <string name="main_name">وقف مرحوم حسن احسانی</string>
+    <string name="day_monday">ذکر روز دوشنبه</string>
+    <string name="monday_pray">یا قاضیَ الحاجات</string>
+    <string name="day_tuesday">ذکر روز سه شنبه</string>
+    <string name="tuesday_pray">یا أَرْحَمَ الرَّاحِمِین</string>
+    <string name="day_wednesday">ذکر روز چهار شنبه</string>
+    <string name="wednesday_pray">یا حَیُّ یا قَیّومُ</string>
+    <string name="day_thursday">ذکر روز پنج شنبه</string>
+    <string name="thursday_pray">لا إِلهَ إِلَّا اللَّهُ المَلِک الحقّ المُبین</string>
+    <string name="day_friday">ذکر روز جمعه</string>
+    <string name="friday_pray">الّلهُمَّ صَلِّ عَلَی مُحَمَّدٍ وَآلِ مُحَمَّدٍ</string>
+    <string name="day_saturday">ذکر روز شنبه</string>
+    <string name="saturday_pray">یا رَبِّ الْعالَمِین</string>
+    <string name="day_sunday">ذکر روز یک شنبه</string>
+    <string name="sunday_pray">یا ذَالجَلالِ وَ اْلاِکْرام</string>
 </resources>

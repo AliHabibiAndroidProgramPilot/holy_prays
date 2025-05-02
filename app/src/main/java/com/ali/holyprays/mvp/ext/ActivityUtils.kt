@@ -1,4 +1,4 @@
 package com.ali.holyprays.mvp.ext
 
-interface ActivityUtlis {
+interface ActivityUtils {
 }
