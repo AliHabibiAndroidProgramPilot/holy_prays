@@ -18,4 +18,11 @@
     <string name="day_sunday">ذکر روز یک شنبه</string>
     <string name="sunday_pray">یا ذَالجَلالِ وَ اْلاِکْرام</string>
     <string name="day_pray_text_frame">day pray text frame</string>
+    <string name="prays">دعا ها</string>
+    <string name="sore">سوره ها</string>
+    <string name="namaz_taghibat">تعقیبات</string>
+    <string name="namaz">نماز ها</string>
+    <string name="ramdan_pray">ماه رمضان</string>
+    <string name="zirat">زیارات</string>
+    <string name="week_zirat">زیارات هفته</string>
 </resources>

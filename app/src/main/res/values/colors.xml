@@ -3,6 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="actionBar_color">#DDE5B6</color>
+    <color name="low_white">#26FFFFFF</color>
     <color name="main_bg_gradient_start">#ADC178</color>
     <color name="main_bg_gradient_end">#F0EAD2</color>
+    <color name="dark_green">#12581a</color>
 </resources>
