@@ -11,7 +11,6 @@ class PresenterCategoryPrayActivity(
 
     override fun presenterOnCreate() {
         view.setInsets()
-//        view.test()
     }
 
     override fun presenterOnDestroy() {}

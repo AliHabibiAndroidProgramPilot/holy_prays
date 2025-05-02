@@ -126,6 +126,7 @@
         app:layout_constraintTop_toBottomOf="@+id/day_pray_text_frame">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_prays"
             android:layout_width="0dp"
             android:layout_height="110dp"
             android:layout_columnWeight="1"
@@ -135,6 +136,7 @@
             android:maxHeight="110dp"
             android:maxLines="1"
             android:padding="0dp"
+            android:tag="@string/prays"
             android:text="@string/prays"
             android:textColor="@color/dark_green"
             android:textSize="16sp"
@@ -147,6 +149,7 @@
             app:strokeWidth="2.5dp" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_ramadan"
             android:layout_width="0dp"
             android:layout_height="110dp"
             android:layout_columnWeight="1"
@@ -156,6 +159,7 @@
             android:maxHeight="110dp"
             android:maxLines="1"
             android:padding="0dp"
+            android:tag="@string/ramdan_pray"
             android:text="@string/ramdan_pray"
             android:textColor="@color/dark_green"
             android:textSize="16sp"
@@ -168,6 +172,7 @@
             app:strokeWidth="2.5dp" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_zirat"
             android:layout_width="0dp"
             android:layout_height="110dp"
             android:layout_columnWeight="1"
@@ -177,6 +182,7 @@
             android:maxHeight="110dp"
             android:maxLines="1"
             android:padding="0dp"
+            android:tag="@string/zirat"
             android:text="@string/zirat"
             android:textColor="@color/dark_green"
             android:textSize="16sp"
@@ -189,6 +195,7 @@
             app:strokeWidth="2.5dp" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_sore"
             android:layout_width="0dp"
             android:layout_height="110dp"
             android:layout_columnWeight="1"
@@ -198,6 +205,7 @@
             android:maxHeight="110dp"
             android:maxLines="1"
             android:padding="0dp"
+            android:tag="@string/sore"
             android:text="@string/sore"
             android:textColor="@color/dark_green"
             android:textSize="16sp"
@@ -210,6 +218,7 @@
             app:strokeWidth="2.5dp" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_taghibat"
             android:layout_width="0dp"
             android:layout_height="110dp"
             android:layout_columnWeight="1"
@@ -219,6 +228,7 @@
             android:maxHeight="110dp"
             android:maxLines="1"
             android:padding="0dp"
+            android:tag="@string/namaz_taghibat"
             android:text="@string/namaz_taghibat"
             android:textColor="@color/dark_green"
             android:textSize="16sp"
@@ -231,6 +241,7 @@
             app:strokeWidth="2.5dp" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_week_zirat"
             android:layout_width="0dp"
             android:layout_height="110dp"
             android:layout_columnWeight="1"
@@ -240,6 +251,7 @@
             android:maxHeight="110dp"
             android:maxLines="1"
             android:padding="0dp"
+            android:tag="@string/week_zirat"
             android:text="@string/week_zirat"
             android:textColor="@color/dark_green"
             android:textSize="16sp"
@@ -252,6 +264,7 @@
             app:strokeWidth="2.5dp" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_namaz"
             android:layout_width="0dp"
             android:layout_height="110dp"
             android:layout_column="1"
@@ -262,6 +275,7 @@
             android:maxHeight="110dp"
             android:maxLines="1"
             android:padding="0dp"
+            android:tag="@string/namaz"
             android:text="@string/namaz"
             android:textColor="@color/dark_green"
             android:textSize="16sp"

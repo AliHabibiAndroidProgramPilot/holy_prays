@@ -1,5 +1,7 @@
 package com.ali.holyprays.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Window
 import androidx.activity.enableEdgeToEdge
@@ -19,7 +21,7 @@ class MainActivity : AppCompatActivity(), ActivityUtils {
         val model = ModelMainActivity()
         val view = ViewMainActivity(this, this)
         setContentView(view.binding.root)
-        presenter = PresenterMainActivity(view, model)
+        presenter = PresenterMainActivity(view, model, this)
         presenter.presenterOnCreate()
     }
 
@@ -29,4 +31,10 @@ class MainActivity : AppCompatActivity(), ActivityUtils {
     }
 
     override fun takeWindow(): Window = this.window
+
+    override fun startAnotherActivity(intent: Intent) {
+        startActivity(intent)
+    }
+
+    override fun takeContext() = this
 }

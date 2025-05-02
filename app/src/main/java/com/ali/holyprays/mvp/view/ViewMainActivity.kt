@@ -1,6 +1,7 @@
 package com.ali.holyprays.mvp.view
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.view.LayoutInflater
 import androidx.core.view.ViewCompat
@@ -8,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.ali.holyprays.R
 import com.ali.holyprays.databinding.ActivityMainBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
+import com.ali.holyprays.ui.CategoryPrayActivity
 
 class ViewMainActivity(
     context: Context,
@@ -65,6 +67,25 @@ class ViewMainActivity(
             7 -> {
                 dayOfTheWeekText.setText(R.string.day_sunday) // Sunday
                 dayPrayText.setText(R.string.sunday_pray)
+            }
+        }
+    }
+
+    fun intentToCategoryPrayActivity(packageContext: Context) {
+        listOf(
+            binding.btnPrays,
+            binding.btnRamadan,
+            binding.btnZirat,
+            binding.btnSore,
+            binding.btnTaghibat,
+            binding.btnWeekZirat,
+            binding.btnNamaz
+        ).forEach { button ->
+            button.setOnClickListener {
+                val tagValue: String = it.tag.toString()
+                val intent = Intent(packageContext, CategoryPrayActivity::class.java)
+                intent.putExtra("TAG_VALUE", tagValue)
+                utils.startAnotherActivity(intent)
             }
         }
     }

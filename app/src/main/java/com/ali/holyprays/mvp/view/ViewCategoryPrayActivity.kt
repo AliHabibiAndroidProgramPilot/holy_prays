@@ -1,16 +1,13 @@
 package com.ali.holyprays.mvp.view
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.ali.holyprays.databinding.ActivityCategoryPrayBinding
-import com.ali.holyprays.mvp.ext.ActivityUtils
 
 class ViewCategoryPrayActivity(
     context: Context,
-    private val utils: ActivityUtils
 ) {
 
     val binding: ActivityCategoryPrayBinding =
@@ -23,9 +20,5 @@ class ViewCategoryPrayActivity(
             insets
         }
     }
-
-    /*fun test() {
-        Log.e("Hello", "hge;llo")
-    }*/
 
 }

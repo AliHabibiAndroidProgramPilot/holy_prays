@@ -8,7 +8,7 @@ import com.ali.holyprays.mvp.model.ModelCategoryPrayActivity
 import com.ali.holyprays.mvp.presenter.PresenterCategoryPrayActivity
 import com.ali.holyprays.mvp.view.ViewCategoryPrayActivity
 
-class CategoryPrayActivity : AppCompatActivity(), ActivityUtils {
+class CategoryPrayActivity : AppCompatActivity() {
 
     private lateinit var presente: PresenterCategoryPrayActivity
 
@@ -16,7 +16,7 @@ class CategoryPrayActivity : AppCompatActivity(), ActivityUtils {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val model = ModelCategoryPrayActivity()
-        val view = ViewCategoryPrayActivity(this, this)
+        val view = ViewCategoryPrayActivity(this)
         setContentView(view.binding.root)
         presente = PresenterCategoryPrayActivity(view, model)
         presente.presenterOnCreate()
