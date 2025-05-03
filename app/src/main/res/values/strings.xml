@@ -25,4 +25,5 @@
     <string name="ramdan_pray">ماه رمضان</string>
     <string name="zirat">زیارات</string>
     <string name="week_zirat">زیارات هفته</string>
+    <string name="back_navigation_icon">back navigation icon</string>
 </resources>
