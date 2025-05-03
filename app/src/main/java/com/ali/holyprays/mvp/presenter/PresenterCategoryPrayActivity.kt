@@ -11,6 +11,7 @@ class PresenterCategoryPrayActivity(
 
     override fun presenterOnCreate() {
         view.setInsets()
+        view.navigationBackHandler()
     }
 
     override fun presenterOnDestroy() {}

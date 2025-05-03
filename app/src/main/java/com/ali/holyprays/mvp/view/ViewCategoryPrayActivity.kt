@@ -27,4 +27,14 @@ class ViewCategoryPrayActivity(
         window.navigationBarColor = Color.rgb(240, 234, 210)
     }
 
+    fun navigationBackHandler() {
+        binding.icToolbarNavigationBack.setOnClickListener {
+            utils.takeBackPressedDispatchers()?.onBackPressed()
+        }
+    }
+
+    fun setToolbarTopText() {
+
+    }
+
 }

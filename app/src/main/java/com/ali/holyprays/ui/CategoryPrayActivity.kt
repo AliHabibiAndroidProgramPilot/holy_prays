@@ -3,6 +3,7 @@ package com.ali.holyprays.ui
 import android.content.Context
 import android.os.Bundle
 import android.view.Window
+import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.ali.holyprays.mvp.ext.ActivityUtils
@@ -32,5 +33,7 @@ class CategoryPrayActivity : AppCompatActivity(), ActivityUtils {
     override fun takeWindow(): Window = this.window
 
     override fun takeContext(): Context = this
+
+    override fun takeBackPressedDispatchers(): OnBackPressedDispatcher = onBackPressedDispatcher
 
 }
