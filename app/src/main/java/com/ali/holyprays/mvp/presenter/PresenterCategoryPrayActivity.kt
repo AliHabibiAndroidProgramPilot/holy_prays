@@ -13,6 +13,7 @@ class PresenterCategoryPrayActivity(
         view.setInsets()
         view.navigationBackHandler()
         view.setToolbarTopText()
+        view.setupMainRecycler()
     }
 
     override fun presenterOnDestroy() {}

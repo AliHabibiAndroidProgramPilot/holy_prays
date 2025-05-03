@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="18dp"
+    android:layout_marginTop="10dp"
     android:background="@drawable/pray_list_items_bg"
     android:gravity="center_horizontal|start"
     android:layoutDirection="rtl"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="4dp">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -32,7 +32,7 @@
         android:textSize="18sp"
         tools:text="سوره واقعه" />
 
-    <!--<TextView
+    <TextView
         android:id="@+id/txt_pray_detail"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
@@ -46,6 +46,6 @@
         android:textSize="14sp"
         android:textStyle="italic"
         android:visibility="invisible"
-        tools:text="آیه 12 الی 78" />-->
+        tools:text="آیه 12 الی 78" />
 
 </LinearLayout>
