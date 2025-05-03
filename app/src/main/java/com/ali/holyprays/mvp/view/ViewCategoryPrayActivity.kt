@@ -16,6 +16,8 @@ class ViewCategoryPrayActivity(
     val binding: ActivityCategoryPrayBinding =
         ActivityCategoryPrayBinding.inflate(LayoutInflater.from(context))
 
+    private lateinit var categoryTextTitle: String
+
     fun setInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -34,7 +36,9 @@ class ViewCategoryPrayActivity(
     }
 
     fun setToolbarTopText() {
-
+        val intent = utils.takeActivityIntentExtra()
+        categoryTextTitle = intent?.getStringExtra("TAG_VALUE") ?: "null intent!"
+        binding.txtCategory.text = categoryTextTitle
     }
 
 }

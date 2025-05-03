@@ -10,4 +10,5 @@ interface ActivityUtils {
     fun takeContext(): Context
     fun startAnotherActivity(intent: Intent) {}
     fun takeBackPressedDispatchers(): OnBackPressedDispatcher? { return null }
+    fun takeActivityIntentExtra(): Intent? { return null }
 }
