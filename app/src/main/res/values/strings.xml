@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Holy Prays</string>
-    <string name="setting_icon">setting icon</string>
     <string name="top_app_message">دعا و منتخب قرآن</string>
     <string name="main_name">وقف مرحوم حسن احسانی</string>
     <string name="day_monday">ذکر روز دوشنبه</string>
@@ -26,4 +25,5 @@
     <string name="zirat">زیارات</string>
     <string name="week_zirat">زیارات هفته</string>
     <string name="back_navigation_icon">back navigation icon</string>
+    <string name="recycler_item_logo">recycler item logo</string>
 </resources>
