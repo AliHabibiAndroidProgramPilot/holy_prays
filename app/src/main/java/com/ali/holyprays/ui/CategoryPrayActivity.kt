@@ -1,13 +1,16 @@
 package com.ali.holyprays.ui
 
+import android.content.Context
 import android.os.Bundle
+import android.view.Window
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.model.ModelCategoryPrayActivity
 import com.ali.holyprays.mvp.presenter.PresenterCategoryPrayActivity
 import com.ali.holyprays.mvp.view.ViewCategoryPrayActivity
 
-class CategoryPrayActivity : AppCompatActivity() {
+class CategoryPrayActivity : AppCompatActivity(), ActivityUtils {
 
     private lateinit var presente: PresenterCategoryPrayActivity
 
@@ -15,7 +18,7 @@ class CategoryPrayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val model = ModelCategoryPrayActivity()
-        val view = ViewCategoryPrayActivity(this)
+        val view = ViewCategoryPrayActivity(this, this)
         presente = PresenterCategoryPrayActivity(view, model)
         presente.presenterOnCreate()
         setContentView(view.binding.root)
@@ -25,4 +28,9 @@ class CategoryPrayActivity : AppCompatActivity() {
         presente.presenterOnDestroy()
         super.onDestroy()
     }
+
+    override fun takeWindow(): Window = this.window
+
+    override fun takeContext(): Context = this
+
 }
