@@ -32,7 +32,7 @@
         android:textSize="18sp"
         tools:text="سوره واقعه" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/txt_pray_detail"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
@@ -46,6 +46,6 @@
         android:textSize="14sp"
         android:textStyle="italic"
         android:visibility="invisible"
-        tools:text="آیه 12 الی 78" />
+        tools:text="آیه 12 الی 78" />-->
 
 </LinearLayout>
