@@ -12,7 +12,7 @@ class PresenterMainActivity(
 ) : ActivityLifecycle {
 
     override fun presenterOnCreate() {
-        view.setInsets()
+        view.setInsetsAndUiColor()
         view.setEachDayPray(model.currentSystemDayOfWeek())
         view.intentToCategoryPrayActivity(utils.takeContext())
     }

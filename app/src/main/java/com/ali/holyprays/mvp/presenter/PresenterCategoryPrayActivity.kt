@@ -10,7 +10,7 @@ class PresenterCategoryPrayActivity(
 ) : ActivityLifecycle {
 
     override fun presenterOnCreate() {
-        view.setInsets()
+        view.setInsetsAndUiColors()
         view.navigationBackHandler()
         view.setToolbarTopText()
         view.setupMainRecycler()

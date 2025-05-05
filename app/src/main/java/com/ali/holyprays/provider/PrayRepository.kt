@@ -1,5 +1,6 @@
 package com.ali.holyprays.provider
 
+// TODO(Can Change To Class?)
 object PrayRepository {
 
     fun providePrayByCategory(category: PrayCategories): List<PrayDataModel> {
