@@ -11,7 +11,6 @@
     android:padding="4dp">
 
     <ImageView
-        android:id="@+id/imageView2"
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:layout_margin="5dp"
@@ -29,21 +28,21 @@
         android:fontFamily="@font/iran_sans_regular"
         android:textAlignment="viewStart"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="15sp"
         tools:text="سوره واقعه" />
 
     <TextView
         android:id="@+id/txt_pray_detail"
-        android:layout_width="125dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|start"
         android:layout_margin="5dp"
-        android:ellipsize="middle"
+        android:padding="2dp"
         android:fontFamily="@font/iran_sans_regular"
-        android:gravity="center"
-        android:textAlignment="center"
+        android:gravity="start"
+        android:textAlignment="viewStart"
         android:textColor="@android:color/secondary_text_light"
-        android:textSize="14sp"
+        android:textSize="11sp"
         android:textStyle="italic"
         android:visibility="invisible"
         tools:text="آیه 12 الی 78" />

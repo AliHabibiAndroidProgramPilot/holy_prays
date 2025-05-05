@@ -16,11 +16,14 @@ class PrayListRecyclerAdapter(private val prayList: List<PrayDataModel>) :
     ) : ViewHolder(binding.root) {
 
         fun setData(pray: PrayDataModel) {
-            binding.txtPrayTitle.text = pray.prayName
-            if (pray.prayDetail != null) {
+            if (pray.prayDetail.isNullOrEmpty()) {
+                binding.txtPrayDetail.visibility = View.INVISIBLE
+                binding.txtPrayDetail.text = null
+            } else {
                 binding.txtPrayDetail.visibility = View.VISIBLE
                 binding.txtPrayDetail.text = pray.prayDetail
             }
+            binding.txtPrayTitle.text = pray.prayName
         }
 
     }
