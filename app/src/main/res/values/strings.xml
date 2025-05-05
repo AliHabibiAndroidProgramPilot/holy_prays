@@ -18,12 +18,19 @@
     <string name="sunday_pray">یا ذَالجَلالِ وَ اْلاِکْرام</string>
     <string name="day_pray_text_frame">day pray text frame</string>
     <string name="prays">دعا ها</string>
+    <string name="prays_tag">PRAYS</string>
     <string name="sore">سوره ها</string>
+    <string name="sore_tag">SORE</string>
     <string name="namaz_taghibat">تعقیبات</string>
+    <string name="namaz_taghibat_tag">NAMAZ_TAGHIBAT</string>
     <string name="namaz">نماز ها</string>
+    <string name="namaz_tag">NAMAZ</string>
     <string name="ramdan_pray">ماه رمضان</string>
+    <string name="ramdan_pray_tag">RAMADAN_PRAY</string>
     <string name="zirat">زیارات</string>
+    <string name="zirat_tag">ZIARAT</string>
     <string name="week_zirat">زیارات هفته</string>
+    <string name="week_zirat_tag">WEEK_ZIARAT</string>
     <string name="back_navigation_icon">back navigation icon</string>
     <string name="recycler_item_logo">recycler item logo</string>
 </resources>

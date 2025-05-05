@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.ali.holyprays.R
 import com.ali.holyprays.databinding.ActivityMainBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
+import com.ali.holyprays.provider.PrayCategories
 import com.ali.holyprays.ui.CategoryPrayActivity
 
 class ViewMainActivity(
@@ -84,9 +85,9 @@ class ViewMainActivity(
             binding.btnNamaz
         ).forEach { button ->
             button.setOnClickListener {
-                val tagValue: String = it.tag.toString()
+                val category: PrayCategories = PrayCategories.valueOf(it.tag.toString().uppercase())
                 val intent = Intent(packageContext, CategoryPrayActivity::class.java)
-                intent.putExtra("TAG_VALUE", tagValue)
+                intent.putExtra("EXTRA_CATEGORY", category.name)
                 utils.startAnotherActivity(intent)
             }
         }

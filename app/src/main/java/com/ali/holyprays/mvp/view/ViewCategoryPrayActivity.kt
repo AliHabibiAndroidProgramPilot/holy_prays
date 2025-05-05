@@ -25,12 +25,18 @@ class ViewCategoryPrayActivity(
 
     private val context = utils.takeContext()
 
-    private var categoryTextTitle: String =
-        utils.takeActivityIntentExtra()!!.getStringExtra("TAG_VALUE")!!
+    // Converts Intent String Extra Value (Buttons Tag) Into Matched Enum Instance
+    private var categoryTitle: PrayCategories =
+        utils.takeActivityIntentExtra()!!.getStringExtra("EXTRA_CATEGORY")?.let {
+            PrayCategories.valueOf(it)
+        } ?: error("Category is Missing -> Buttons tag and string intent problem!")
 
     // Put One Of Enum Instance In category Variable
     private var category: PrayCategories =
-        PrayCategories.provideCategoryFromText(utils.takeActivityResources()!!, categoryTextTitle)!!
+        PrayCategories.provideCategoryFromText(
+            utils.takeActivityResources()!!,
+            categoryTitle.name
+        )!!
 
     fun setInsetsAndUiColors() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
@@ -50,7 +56,8 @@ class ViewCategoryPrayActivity(
     }
 
     fun setToolbarTopText() {
-        binding.txtCategory.text = categoryTextTitle
+        val resources = utils.takeActivityResources()
+        binding.txtCategory.text = resources?.getText(category.stringResId)
     }
 
     fun setupMainRecycler() {

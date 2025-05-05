@@ -16,7 +16,7 @@ enum class PrayCategories(val stringResId: Int) {
     companion object {
         fun provideCategoryFromText(resources: Resources, category: String): PrayCategories? {
             return entries.find { enumItem ->
-                resources.getString(enumItem.stringResId) == category
+                enumItem.name == category
             }
         }
     }
