@@ -1,6 +1,5 @@
 package com.ali.holyprays.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Window
 import androidx.activity.enableEdgeToEdge
@@ -30,10 +29,6 @@ class MainActivity : AppCompatActivity(), ActivityUtils {
     }
 
     override fun takeWindow(): Window = this.window
-
-    override fun startAnotherActivity(intent: Intent) {
-        startActivity(intent)
-    }
 
     override fun takeContext() = this
 }

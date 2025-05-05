@@ -3,6 +3,7 @@ package com.ali.holyprays.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.ali.holyprays.databinding.PrayListRecyclerItemBinding

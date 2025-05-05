@@ -88,7 +88,7 @@ class ViewMainActivity(
                 val category: PrayCategories = PrayCategories.valueOf(it.tag.toString().uppercase())
                 val intent = Intent(packageContext, CategoryPrayActivity::class.java)
                 intent.putExtra("EXTRA_CATEGORY", category.name)
-                utils.startAnotherActivity(intent)
+                context.startActivity(intent)
             }
         }
     }

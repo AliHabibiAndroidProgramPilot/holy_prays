@@ -9,7 +9,6 @@ import androidx.activity.OnBackPressedDispatcher
 interface ActivityUtils {
     fun takeWindow(): Window? { return null }
     fun takeContext(): Context
-    fun startAnotherActivity(intent: Intent) {}
     fun takeBackPressedDispatchers(): OnBackPressedDispatcher? { return null }
     fun takeActivityIntentExtra(): Intent? { return null }
     fun takeActivityResources(): Resources? { return null }
