@@ -33,4 +33,5 @@
     <string name="week_zirat_tag">WEEK_ZIARAT</string>
     <string name="back_navigation_icon">back navigation icon</string>
     <string name="recycler_item_logo">recycler item logo</string>
+    <string name="header_footer">header_footer</string>
 </resources>

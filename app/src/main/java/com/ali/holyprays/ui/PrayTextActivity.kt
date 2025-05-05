@@ -2,6 +2,7 @@ package com.ali.holyprays.ui
 
 import android.content.Context
 import android.os.Bundle
+import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.ali.holyprays.R
@@ -19,7 +20,7 @@ class PrayTextActivity : AppCompatActivity(), ActivityUtils {
         enableEdgeToEdge()
         val model = ModelPrayTextActivity()
         val view = ViewPrayTextActivity(this, this)
-        setContentView(R.layout.activity_pray_text)
+        setContentView(view.binding.root)
         presenter = PresenterPrayTextActivity(view, model, this)
         presenter.presenterOnCreate()
     }
@@ -30,4 +31,6 @@ class PrayTextActivity : AppCompatActivity(), ActivityUtils {
     }
 
     override fun takeContext(): Context = this
+
+    override fun takeBackPressedDispatchers(): OnBackPressedDispatcher = onBackPressedDispatcher
 }

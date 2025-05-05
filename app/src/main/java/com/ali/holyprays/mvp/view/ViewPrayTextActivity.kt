@@ -30,4 +30,10 @@ class ViewPrayTextActivity(
         window.navigationBarColor = ContextCompat.getColor(context, R.color.main_bg_gradient_end)
     }
 
+    fun navigationBackHandler() {
+        binding.icToolbarNavigationBack.setOnClickListener {
+            utils.takeBackPressedDispatchers()!!.onBackPressed()
+        }
+    }
+
 }

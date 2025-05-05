@@ -12,7 +12,8 @@ class PresenterPrayTextActivity(
 ) : ActivityLifecycle {
 
     override fun presenterOnCreate() {
-
+        view.setInsetsAndUiColor()
+        view.navigationBackHandler()
     }
 
     override fun presenterOnDestroy() {}
