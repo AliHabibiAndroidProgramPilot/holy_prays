@@ -1,15 +1,18 @@
 package com.ali.holyprays.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.ali.holyprays.databinding.PrayListRecyclerItemBinding
 import com.ali.holyprays.provider.PrayDataModel
 
-class PrayListRecyclerAdapter(private val prayList: List<PrayDataModel>) :
+class PrayListRecyclerAdapter(
+    private val prayList: List<PrayDataModel>,
+    private val context: Context
+) :
     Adapter<PrayListRecyclerAdapter.PrayListViewHolder>() {
 
     inner class PrayListViewHolder(
@@ -25,6 +28,9 @@ class PrayListRecyclerAdapter(private val prayList: List<PrayDataModel>) :
                 binding.txtPrayDetail.text = pray.prayDetail
             }
             binding.txtPrayTitle.text = pray.prayName
+            binding.root.setOnClickListener {
+
+            }
         }
 
     }
