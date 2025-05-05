@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    android:padding="4dp"
+    android:textDirection="rtl">
+
+    <TextView
+        android:id="@+id/txt_pray_arabic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/nabi_arabic"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:text="یا الله و ال ذی" />
+
+    <TextView
+        android:id="@+id/txt_pray_translation_persian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/iran_sans_regular"
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_light"
+        android:textSize="12sp"
+        tools:text="یا الله و ال ذی" />
+
+    <ImageView
+        android:layout_width="260dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/divider"
+        android:scaleType="centerInside"
+        android:src="@drawable/text_divider" />
+
+</LinearLayout>

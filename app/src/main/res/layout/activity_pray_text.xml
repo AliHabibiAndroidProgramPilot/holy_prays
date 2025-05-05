@@ -60,6 +60,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        tools:listitem="@layout/pray_text_recycler_item"
         android:layoutDirection="rtl" />
 
 </RelativeLayout>

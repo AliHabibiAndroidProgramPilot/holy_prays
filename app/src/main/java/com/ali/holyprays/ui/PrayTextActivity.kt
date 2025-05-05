@@ -2,10 +2,10 @@ package com.ali.holyprays.ui
 
 import android.content.Context
 import android.os.Bundle
+import android.view.Window
 import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.ali.holyprays.R
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.model.ModelPrayTextActivity
 import com.ali.holyprays.mvp.presenter.PresenterPrayTextActivity
@@ -31,6 +31,8 @@ class PrayTextActivity : AppCompatActivity(), ActivityUtils {
     }
 
     override fun takeContext(): Context = this
+
+    override fun takeWindow(): Window = this.window
 
     override fun takeBackPressedDispatchers(): OnBackPressedDispatcher = onBackPressedDispatcher
 }
