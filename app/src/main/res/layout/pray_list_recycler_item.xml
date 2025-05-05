@@ -8,6 +8,7 @@
     android:gravity="center_horizontal|start"
     android:layoutDirection="rtl"
     android:orientation="horizontal"
+    android:id="@+id/main_back"
     android:padding="4dp">
 
     <ImageView

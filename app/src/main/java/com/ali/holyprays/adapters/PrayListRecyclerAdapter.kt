@@ -1,6 +1,7 @@
 package com.ali.holyprays.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.ali.holyprays.databinding.PrayListRecyclerItemBinding
 import com.ali.holyprays.provider.PrayDataModel
+import com.ali.holyprays.ui.PrayTextActivity
 
 class PrayListRecyclerAdapter(
     private val prayList: List<PrayDataModel>,
@@ -19,6 +21,12 @@ class PrayListRecyclerAdapter(
         private val binding: PrayListRecyclerItemBinding
     ) : ViewHolder(binding.root) {
 
+        private val clickAction = View.OnClickListener {
+            Intent(context, PrayTextActivity::class.java).also {
+                context.startActivity(it)
+            }
+        }
+
         fun setData(pray: PrayDataModel) {
             if (pray.prayDetail.isNullOrEmpty()) {
                 binding.txtPrayDetail.visibility = View.INVISIBLE
@@ -28,9 +36,8 @@ class PrayListRecyclerAdapter(
                 binding.txtPrayDetail.text = pray.prayDetail
             }
             binding.txtPrayTitle.text = pray.prayName
-            binding.root.setOnClickListener {
-
-            }
+            binding.mainBack.setOnClickListener(clickAction)
+            binding.txtPrayTitle.setOnClickListener(clickAction)
         }
 
     }

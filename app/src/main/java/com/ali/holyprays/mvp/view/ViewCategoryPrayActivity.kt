@@ -64,7 +64,7 @@ class ViewCategoryPrayActivity(
         binding.prayListRecycler.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         val prayNameList = providePrayNameList()
-        binding.prayListRecycler.adapter = PrayListRecyclerAdapter(prayNameList)
+        binding.prayListRecycler.adapter = PrayListRecyclerAdapter(prayNameList, context)
     }
 
     private fun providePrayNameList(): List<PrayDataModel> {
