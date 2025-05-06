@@ -78,7 +78,7 @@ object PrayRepository {
                         "sore/persian/al_rahman_p.txt",
                         null
                     ),
-                    PrayDataModel(3, "واقعه", null, "sore/vaghe.txt", "sore/persian/vaghe_p", null),
+                    PrayDataModel(3, "واقعه", null, "sore/vaghe.txt", "sore/persian/vaghe_p.txt", null),
                     PrayDataModel(
                         4,
                         "جمعه",
@@ -169,7 +169,7 @@ object PrayRepository {
                         "sore/persian/falagh_p.txt",
                         null
                     ),
-                    PrayDataModel(17, "ناس", null, "sore/naas.txt", "sore/naas_p.txt", null)
+                    PrayDataModel(17, "ناس", null, "sore/naas.txt", "sore/persian/naas_p.txt", null)
                 )
             }
 
