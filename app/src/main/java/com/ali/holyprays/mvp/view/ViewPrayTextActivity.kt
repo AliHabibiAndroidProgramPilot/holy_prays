@@ -51,13 +51,14 @@ class ViewPrayTextActivity(
     }
 
     fun setToolbarText() {
-        val sore = "سوره"
-        binding.txtPrayName.text = sore.plus(" ${pray?.prayName}")
+        binding.txtPrayName.text = pray?.prayName
     }
 
     fun setupRecyclerViewData(arabicTextList: List<String>, persianTextList: List<String>) {
         binding.prayTextRecycler.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        val test = arabicTextList
+        val test2 = persianTextList
         binding.prayTextRecycler.adapter = PrayTextRecyclerAdapter(arabicTextList, persianTextList)
     }
 

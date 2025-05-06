@@ -69,19 +69,26 @@ object PrayRepository {
 
             PrayCategories.SORE -> {
                 listOf(
-                    PrayDataModel(1, "یس", null, "sore/yase.txt", "sore/persian/yase_p.txt", null),
+                    PrayDataModel(1, "سوره یس", null, "sore/yase.txt", "sore/persian/yase_p.txt", null),
                     PrayDataModel(
                         2,
-                        "الرحمن",
+                        "سوره الرحمن",
                         null,
                         "sore/al_rahman.txt",
                         "sore/persian/al_rahman_p.txt",
                         null
                     ),
-                    PrayDataModel(3, "واقعه", null, "sore/vaghe.txt", "sore/persian/vaghe_p.txt", null),
+                    PrayDataModel(
+                        3,
+                        "سوره واقعه",
+                        null,
+                        "sore/vaghe.txt",
+                        "sore/persian/vaghe_p.txt",
+                        null
+                    ),
                     PrayDataModel(
                         4,
-                        "جمعه",
+                        "سوره جمعه",
                         null,
                         "sore/jome.txt",
                         "sore/persian/jome_p.txt",
@@ -89,7 +96,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         5,
-                        "تبارک(ملک)",
+                        "سوره تبارک(ملک)",
                         null,
                         "sore/tabarak_melk.txt",
                         "sore/persian/tabarak_melk_p.txt",
@@ -98,7 +105,7 @@ object PrayRepository {
                     PrayDataModel(6, "نبا", null, "sore/naba.txt", "sore/persian/naba_p.txt", null),
                     PrayDataModel(
                         7,
-                        "اعلی",
+                        "سوره اعلی",
                         null,
                         "sore/aali.txt",
                         "sore/persian/aali_p.txt",
@@ -106,7 +113,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         8,
-                        "شمس",
+                        "شوره شمس",
                         null,
                         "sore/shams.txt",
                         "sore/persian/shams_p.txt",
@@ -114,7 +121,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         9,
-                        "قدر",
+                        "سوره قدر",
                         null,
                         "sore/ghadr.txt",
                         "sore/persian/ghadr_p.txt",
@@ -122,7 +129,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         10,
-                        "زلزال",
+                        "سوره زلزال",
                         null,
                         "sore/zalzal.txt",
                         "sore/persian/zalzal_p.txt",
@@ -130,7 +137,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         11,
-                        "عادیات",
+                        "سوره عادیات",
                         null,
                         "sore/adiyat.txt",
                         "sore/persian/adiyat_p.txt",
@@ -138,7 +145,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         12,
-                        "کافرون",
+                        "سوره کافرون",
                         null,
                         "sore/kaferon.txt",
                         "sore/persian/kaferon_p.txt",
@@ -146,7 +153,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         13,
-                        "نصر",
+                        "سوره نصر",
                         null,
                         "sore/nasr.txt",
                         "sore/persian/nasr_p.txt",
@@ -154,36 +161,99 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         14,
-                        "توحید",
+                        "سوره توحید",
                         null,
                         "sore/towhid.txt",
                         "sore/persian/towhid_p.txt",
                         null
                     ),
-                    PrayDataModel(15, "عصر", null, "sore/asr.txt", "sore/persian/asr_p.txt", null),
+                    PrayDataModel(15, "سوره عصر", null, "sore/asr.txt", "sore/persian/asr_p.txt", null),
                     PrayDataModel(
                         16,
-                        "فلق",
+                        "سوره فلق",
                         null,
                         "sore/falagh.txt",
                         "sore/persian/falagh_p.txt",
                         null
                     ),
-                    PrayDataModel(17, "ناس", null, "sore/naas.txt", "sore/persian/naas_p.txt", null)
+                    PrayDataModel(17, "سوره ناس", null, "sore/naas.txt", "sore/persian/naas_p.txt", null)
                 )
             }
 
             PrayCategories.NAMAZ_TAGHIBAT -> {
                 listOf(
-                    PrayDataModel(1, "تعقیبات مشترکه", null, null, null, null),
-                    PrayDataModel(2, "تعقیبات نماز صبح", null, null, null, null),
-                    PrayDataModel(3, "تعقیبات نماز ظهر", null, null, null, null),
-                    PrayDataModel(4, "تعقیبات نمز عصر", null, null, null, null),
-                    PrayDataModel(5, "تعقیبات نماز مغرب", null, null, null, null),
-                    PrayDataModel(6, "نماز غفلیه", null, null, null, null),
-                    PrayDataModel(7, "تعقیبات نماز اعشا", null, null, null, null),
-                    PrayDataModel(8, "آمن الرسول", null, null, null, null),
-                    PrayDataModel(9, "وان یکاد", "آیه حفظ از چشم زخم", null, null, null)
+                    PrayDataModel(
+                        1,
+                        "تعقیبات مشترکه",
+                        null,
+                        "namaz_taghibat/taghibat_moshtarake.txt",
+                        "namaz_taghibat/persian/taghibat_moshtarake_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        2,
+                        "تعقیبات نماز صبح",
+                        null,
+                        "namaz_taghibat/taghibat_namaz_sobh.txt",
+                        "namaz_taghibat/persian/taghibat_namaz_sobh_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        3,
+                        "تعقیبات نماز ظهر",
+                        null,
+                        "namaz_taghibat/taghibat_namaz_zohr.txt",
+                        "namaz_taghibat/persian/taghibat_namaz_zohr_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        4,
+                        "تعقیبات نماز عصر",
+                        null,
+                        "namaz_taghibat/taghibat_namaz_asr.txt",
+                        "namaz_taghibat/persian/taghibat_namaz_asr_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        5,
+                        "تعقیبات نماز مغرب",
+                        null,
+                        "namaz_taghibat/taghibat_namaz_maghreb.txt",
+                        "namaz_taghibat/persian/taghibat_namaz_maghreb_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        6,
+                        "نماز غفلیه",
+                        null,
+                        "namaz_taghibat/namaz_ghefliye.txt",
+                        "namaz_taghibat/persian/namaz_ghefliye_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        7,
+                        "تعقیبات نماز اعشا",
+                        null,
+                        "namaz_taghibat/taghibat_namaz_asha.txt",
+                        "namaz_taghibat/persian/taghibat_namaz_asha_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        8,
+                        "آمن الرسول",
+                        null,
+                        "namaz_taghibat/amen_al_rasoul.txt",
+                        "namaz_taghibat/persian/amen_al_rasoul_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        9,
+                        "وان یکاد",
+                        "آیه حفظ از چشم زخم",
+                        "namaz_taghibat/van_yakad.txt",
+                        "namaz_taghibat/persian/van_yakad_p.txt",
+                        null
+                    )
                 )
             }
 

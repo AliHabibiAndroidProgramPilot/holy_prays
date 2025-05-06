@@ -244,8 +244,6 @@
             app:iconSize="40dp"
             app:iconTint="@color/dark_green"
             app:strokeColor="@color/dark_green"
-            android:enabled="false"
-            android:alpha="0.5"
             app:strokeWidth="2.5dp" />
 
         <com.google.android.material.button.MaterialButton
