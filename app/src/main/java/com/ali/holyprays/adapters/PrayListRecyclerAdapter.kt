@@ -21,13 +21,8 @@ class PrayListRecyclerAdapter(
         private val binding: PrayListRecyclerItemBinding
     ) : ViewHolder(binding.root) {
 
-        private val clickAction = View.OnClickListener {
-            Intent(context, PrayTextActivity::class.java).also {
-                context.startActivity(it)
-            }
-        }
-
         fun setData(pray: PrayDataModel) {
+            binding.txtPrayTitle.text = pray.prayName
             if (pray.prayDetail.isNullOrEmpty()) {
                 binding.txtPrayDetail.visibility = View.INVISIBLE
                 binding.txtPrayDetail.text = null
@@ -35,9 +30,14 @@ class PrayListRecyclerAdapter(
                 binding.txtPrayDetail.visibility = View.VISIBLE
                 binding.txtPrayDetail.text = pray.prayDetail
             }
-            binding.txtPrayTitle.text = pray.prayName
-            binding.mainBack.setOnClickListener(clickAction)
-            binding.txtPrayTitle.setOnClickListener(clickAction)
+            val intent = Intent(context, PrayTextActivity::class.java).apply {
+                putExtra("PRAY_EXTRA", pray)
+            }
+            val clickListener = View.OnClickListener {
+                context.startActivity(intent)
+            }
+            binding.mainBack.setOnClickListener(clickListener)
+            binding.txtPrayTitle.setOnClickListener(clickListener)
         }
 
     }
