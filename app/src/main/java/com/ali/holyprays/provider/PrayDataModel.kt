@@ -8,5 +8,6 @@ data class PrayDataModel(
     val prayName: String,
     val prayDetail: String?,
     val prayFilePath: String?,
+    val prayPersianTranslationFilePath: String?,
     val prayAudioURl: String?
 ) : Parcelable
