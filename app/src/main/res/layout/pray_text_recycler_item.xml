@@ -2,11 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/transparent"
     android:layoutDirection="rtl"
     android:orientation="vertical"
-    android:padding="4dp"
     android:textDirection="rtl">
 
     <TextView
@@ -14,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/nabi_arabic"
         android:textAlignment="center"
@@ -37,7 +36,7 @@
         android:layout_width="260dp"
         android:layout_height="70dp"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:contentDescription="@string/divider"
         android:scaleType="centerInside"
         android:src="@drawable/text_divider" />

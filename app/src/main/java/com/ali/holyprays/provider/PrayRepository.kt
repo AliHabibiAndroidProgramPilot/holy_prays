@@ -69,23 +69,107 @@ object PrayRepository {
 
             PrayCategories.SORE -> {
                 listOf(
-                    PrayDataModel(1, "یس", null, null, null, null),
-                    PrayDataModel(2, "الرحمن", null, null, null, null),
-                    PrayDataModel(3, "واقعه", null, null, null, null),
-                    PrayDataModel(4, "جمعه", null, null, null, null),
-                    PrayDataModel(5, "تیارک(ملک)", null, null, null, null),
-                    PrayDataModel(6, "نبا", null, null, null, null),
-                    PrayDataModel(7, "اعلی", null, null, null, null),
-                    PrayDataModel(8, "شمس", null, null, null, null),
-                    PrayDataModel(9, "قدر", null, null, null, null),
-                    PrayDataModel(10, "زلزال", null, null, null, null),
-                    PrayDataModel(11, "عادیات", null, null, null, null),
-                    PrayDataModel(12, "کافرون", null, null, null, null),
-                    PrayDataModel(13, "نصر", null, null, null, null),
-                    PrayDataModel(14, "توحید", null, null, null, null),
-                    PrayDataModel(15, "عصر", null, null, null, null),
-                    PrayDataModel(16, "فلق", null, null, null, null),
-                    PrayDataModel(17, "ناس", null, null, null, null)
+                    PrayDataModel(1, "یس", null, "sore/yase.txt", "sore/persian/yase_p.txt", null),
+                    PrayDataModel(
+                        2,
+                        "الرحمن",
+                        null,
+                        "sore/al_rahman.txt",
+                        "sore/persian/al_rahman_p.txt",
+                        null
+                    ),
+                    PrayDataModel(3, "واقعه", null, "sore/vaghe.txt", "sore/persian/vaghe_p", null),
+                    PrayDataModel(
+                        4,
+                        "جمعه",
+                        null,
+                        "sore/jome.txt",
+                        "sore/persian/jome_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        5,
+                        "تبارک(ملک)",
+                        null,
+                        "sore/tabarak_melk.txt",
+                        "sore/persian/tabarak_melk_p.txt",
+                        null
+                    ),
+                    PrayDataModel(6, "نبا", null, "sore/naba.txt", "sore/persian/naba_p.txt", null),
+                    PrayDataModel(
+                        7,
+                        "اعلی",
+                        null,
+                        "sore/aali.txt",
+                        "sore/persian/aali_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        8,
+                        "شمس",
+                        null,
+                        "sore/shams.txt",
+                        "sore/persian/shams_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        9,
+                        "قدر",
+                        null,
+                        "sore/ghadr.txt",
+                        "sore/persian/ghadr_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        10,
+                        "زلزال",
+                        null,
+                        "sore/zalzal.txt",
+                        "sore/persian/zalzal_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        11,
+                        "عادیات",
+                        null,
+                        "sore/adiyat.txt",
+                        "sore/persian/adiyat_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        12,
+                        "کافرون",
+                        null,
+                        "sore/kaferon.txt",
+                        "sore/persian/kaferon_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        13,
+                        "نصر",
+                        null,
+                        "sore/nasr.txt",
+                        "sore/persian/nasr_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        14,
+                        "توحید",
+                        null,
+                        "sore/towhid.txt",
+                        "sore/persian/towhid_p.txt",
+                        null
+                    ),
+                    PrayDataModel(15, "عصر", null, "sore/asr.txt", "sore/persian/asr_p.txt", null),
+                    PrayDataModel(
+                        16,
+                        "فلق",
+                        null,
+                        "sore/falagh.txt",
+                        "sore/persian/falagh_p.txt",
+                        null
+                    ),
+                    PrayDataModel(17, "ناس", null, "sore/naas.txt", "sore/naas_p.txt", null)
                 )
             }
 

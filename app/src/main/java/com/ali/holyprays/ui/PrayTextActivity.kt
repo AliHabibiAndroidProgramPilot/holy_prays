@@ -1,6 +1,7 @@
 package com.ali.holyprays.ui
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Window
 import androidx.activity.OnBackPressedDispatcher
@@ -35,4 +36,6 @@ class PrayTextActivity : AppCompatActivity(), ActivityUtils {
     override fun takeWindow(): Window = this.window
 
     override fun takeBackPressedDispatchers(): OnBackPressedDispatcher = onBackPressedDispatcher
+
+    override fun takeActivityIntentExtra(): Intent = intent
 }
