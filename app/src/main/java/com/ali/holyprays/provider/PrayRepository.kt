@@ -69,7 +69,14 @@ object PrayRepository {
 
             PrayCategories.SORE -> {
                 listOf(
-                    PrayDataModel(1, "سوره یس", null, "sore/yase.txt", "sore/persian/yase_p.txt", null),
+                    PrayDataModel(
+                        1,
+                        "سوره یس",
+                        null,
+                        "sore/yase.txt",
+                        "sore/persian/yase_p.txt",
+                        null
+                    ),
                     PrayDataModel(
                         2,
                         "سوره الرحمن",
@@ -167,7 +174,14 @@ object PrayRepository {
                         "sore/persian/towhid_p.txt",
                         null
                     ),
-                    PrayDataModel(15, "سوره عصر", null, "sore/asr.txt", "sore/persian/asr_p.txt", null),
+                    PrayDataModel(
+                        15,
+                        "سوره عصر",
+                        null,
+                        "sore/asr.txt",
+                        "sore/persian/asr_p.txt",
+                        null
+                    ),
                     PrayDataModel(
                         16,
                         "سوره فلق",
@@ -176,7 +190,14 @@ object PrayRepository {
                         "sore/persian/falagh_p.txt",
                         null
                     ),
-                    PrayDataModel(17, "سوره ناس", null, "sore/naas.txt", "sore/persian/naas_p.txt", null)
+                    PrayDataModel(
+                        17,
+                        "سوره ناس",
+                        null,
+                        "sore/naas.txt",
+                        "sore/persian/naas_p.txt",
+                        null
+                    )
                 )
             }
 
@@ -259,26 +280,134 @@ object PrayRepository {
 
             PrayCategories.WEEK_ZIARAT -> {
                 listOf(
-                    PrayDataModel(1, "دعای روز شنبه", null, null, null, null),
-                    PrayDataModel(2, "زیارت حضرت رسول (ص) در روز شنبه", null, null, null, null),
-                    PrayDataModel(3, "دعای روز یکشنبه", null, null, null, null),
                     PrayDataModel(
-                        4, "زیارت حضرت امیرالمومنین در روز یکشنبه", null, null, null, null
+                        1,
+                        "دعای روز شنبه",
+                        null,
+                        "week_zirat/saturday_pray.txt",
+                        "week_zirat/persian/saturday_pray_p.txt",
+                        null
                     ),
-                    PrayDataModel(5, "زیارت حضرت زهرا در روز یکشنبه", null, null, null, null),
-                    PrayDataModel(6, "دعای روز دوشنبه", null, null, null, null),
-                    PrayDataModel(7, "زیارت امام حسن در روز دوشنبه", null, null, null, null),
-                    PrayDataModel(8, "زیارت امام حسین در روز دوشنبه", null, null, null, null),
-                    PrayDataModel(9, "دعای روز سه شنبه", null, null, null, null),
-                    PrayDataModel(10, "زیارت ائمه بقیع در روز سه شنبه", null, null, null, null),
-                    PrayDataModel(11, "دعای روز چهارشنبه", null, null, null, null),
-                    PrayDataModel(12, "زیارت امام جواد در روز چهارشنبه", null, null, null, null),
-                    PrayDataModel(13, "دعای روز پنجشنبه", null, null, null, null),
                     PrayDataModel(
-                        14, "زیارت امام حسن عسکری در روز پنجشنبه", null, null, null, null
+                        2,
+                        "زیارت حضرت رسول (ص) در روز شنبه",
+                        null,
+                        "week_zirat/rasoul_saturday_pray.txt",
+                        "week_zirat/persian/amir_al_momenin_sunday_pray_p.txt",
+                        null
                     ),
-                    PrayDataModel(15, "دعای روز جمعه", null, null, null, null),
-                    PrayDataModel(16, "زیارت صاحب الزمان (عج) در روز جمعه", null, null, null, null)
+                    PrayDataModel(
+                        3,
+                        "دعای روز یکشنبه",
+                        null,
+                        "week_zirat/saturday_pray.txt",
+                        "week_zirat/persian/sunday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        4,
+                        "زیارت حضرت امیرالمومنین در روز یکشنبه",
+                        null,
+                        "week_zirat/amir_al_momenin_sunday_pray.txt",
+                        "week_zirat/persian/amir_al_momenin_sunday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        5,
+                        "زیارت حضرت زهرا در روز یکشنبه",
+                        null,
+                        "week_zirat/hazrat_zahra_sunday_pray.txt",
+                        "week_zirat/persian/hazrat_zahra_sunday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        6,
+                        "دعای روز دوشنبه",
+                        null,
+                        "week_zirat/monday_pray.txt",
+                        "week_zirat/persian/monday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        7,
+                        "زیارت امام حسن در روز دوشنبه",
+                        null,
+                        "week_zirat/imam_hassan_monday_pray.txt",
+                        "week_zirat/persian/imam_hassan_monday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        8,
+                        "زیارت امام حسین در روز دوشنبه",
+                        null,
+                        "week_zirat/imam_hossein_monday_pray.txt",
+                        "week_zirat/persian/imam_hossein_monday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        9,
+                        "دعای روز سه شنبه",
+                        null,
+                        "week_zirat/tuesday_pray.txt",
+                        "week_zirat/persian/tuesday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        10,
+                        "زیارت ائمه بقیع در روز سه شنبه",
+                        null,
+                        "week_zirat/aeme_baghie_tuesday_pray.txt",
+                        "week_zirat/persian/aeme_bagihe_tuesday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        11,
+                        "دعای روز چهارشنبه",
+                        null,
+                        "week_zirat/wensday_pray.txt",
+                        "week_zirat/persian/wensday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        12,
+                        "زیارت چهار امام در روز چهارشنبه",
+                        null,
+                        "week_zirat/four_imam_wensday_pray.txt",
+                        "week_zirat/persian/four_imam_wensday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        13,
+                        "دعای روز پنجشنبه",
+                        null,
+                        "week_zirat/thursday_pray.txt",
+                        "week_zirat/persian/thursday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        14,
+                        "زیارت امام حسن عسکری در روز پنجشنبه",
+                        null,
+                        "week_zirat/imam_hassan_asghari_thursday_pray.txt",
+                        "week_zirat/persian/imam_hassan_asghari_thursday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        15,
+                        "دعای روز جمعه",
+                        null,
+                        "week_zirat/friday_pray.txt",
+                        "week_zirat/persian/friday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        16,
+                        "زیارت صاحب الزمان (عج) در روز جمعه",
+                        null,
+                        "week_zirat/saheb_al_zaman_friday_pray.txt",
+                        "week_zirat/persian/saheb_al_zaman_friday_pray_p.txt",
+                        null
+                    )
                 )
             }
 

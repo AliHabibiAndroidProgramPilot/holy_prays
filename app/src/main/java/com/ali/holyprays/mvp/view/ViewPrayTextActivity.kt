@@ -57,8 +57,6 @@ class ViewPrayTextActivity(
     fun setupRecyclerViewData(arabicTextList: List<String>, persianTextList: List<String>) {
         binding.prayTextRecycler.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        val test = arabicTextList
-        val test2 = persianTextList
         binding.prayTextRecycler.adapter = PrayTextRecyclerAdapter(arabicTextList, persianTextList)
     }
 
