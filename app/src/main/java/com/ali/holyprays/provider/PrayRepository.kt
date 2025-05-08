@@ -6,16 +6,86 @@ object PrayRepository {
         return when (category) {
             PrayCategories.PRAYS -> {
                 listOf(
-                    PrayDataModel(1, "دعای صباح", null, null, null, null),
-                    PrayDataModel(2, "دعای کمیل", null, null, null, null),
-                    PrayDataModel(3, "دعای ندبه", null, null, null, null),
-                    PrayDataModel(4, "دعای سمات", null, null, null, null),
-                    PrayDataModel(5, "دعای مجیر", null, null, null, null),
-                    PrayDataModel(6, "دعای جوشن کبیر", null, null, null, null),
-                    PrayDataModel(7, "دعای توسل", null, null, null, null),
-                    PrayDataModel(8, "دعای هر روز ماه رجب", null, null, null, null),
-                    PrayDataModel(9, "صلوات شعبانیه", null, null, null, null),
-                    PrayDataModel(10, "مناجات شعبانیه", null, null, null, null)
+                    PrayDataModel(
+                        1,
+                        "دعای صباح",
+                        null,
+                        "prays/sabah_pray.txt",
+                        "prays/persian/sabah_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        2,
+                        "دعای کمیل",
+                        null,
+                        "prays/komeil_pray.txt",
+                        "prays/persian/komeil_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        3,
+                        "دعای ندبه",
+                        null,
+                        "prays/nadabe_pray.txt",
+                        "prays/persian/nadabe_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        4,
+                        "دعای سمات",
+                        null,
+                        "prays/samat_pray.txt",
+                        "prays/persian/samat_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        5,
+                        "دعای مجیر",
+                        null,
+                        "prays/majir_pray.txt",
+                        "prays/persian/majir_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        6,
+                        "دعای جوشن کبیر",
+                        null,
+                        "prays/joshan_kabir_pray.txt",
+                        "prays/persian/joshan_kabir_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        7,
+                        "دعای توسل",
+                        null,
+                        "prays/tavasol_pray.txt",
+                        "prays/persian/tavasol_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        8,
+                        "دعای هر روز ماه رجب",
+                        null,
+                        "prays/rajab_everyday_pray.txt",
+                        "prays/persian/rajab_everyday_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        9,
+                        "صلوات شعبانیه",
+                        null,
+                        "prays/salavat_shabanihe_pray.txt",
+                        "prays/persian/salavat_shabanihe_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        10,
+                        "مناجات شعبانیه",
+                        null,
+                        "prays/monajat_shabanihe_pray.txt",
+                        "prays/persian/monajat_shabanihe_pray_p.txt",
+                        null
+                    )
                 )
             }
 
