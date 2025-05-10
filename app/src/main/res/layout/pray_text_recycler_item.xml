@@ -13,7 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/nabi_arabic"
         android:textAlignment="center"
@@ -26,10 +28,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/iran_sans_regular"
         android:textAlignment="center"
         android:textColor="@android:color/secondary_text_light"
-        android:textSize="12sp"
+        android:textSize="13sp"
         tools:text="یا الله و ال ذی" />
 
     <ImageView
