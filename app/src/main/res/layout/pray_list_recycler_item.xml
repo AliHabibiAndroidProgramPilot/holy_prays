@@ -8,6 +8,9 @@
     android:gravity="center_horizontal|start"
     android:layoutDirection="rtl"
     android:orientation="horizontal"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
     android:id="@+id/main_back"
     android:padding="4dp">
 
