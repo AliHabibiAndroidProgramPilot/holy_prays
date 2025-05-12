@@ -26,6 +26,8 @@
     <string name="namaz">نماز ها</string>
     <string name="namaz_tag">NAMAZ</string>
     <string name="ramdan_pray">ماه رمضان</string>
+    <string name="ghadr_nights_tag">GHADR_NIGHTS</string>
+    <string name="ghadr_nights">شب های قدر</string>
     <string name="ramdan_pray_tag">RAMADAN_PRAY</string>
     <string name="zirat">زیارات</string>
     <string name="zirat_tag">ZIARAT</string>
