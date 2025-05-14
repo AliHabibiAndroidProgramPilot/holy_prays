@@ -5,6 +5,7 @@ import android.os.Parcelable
 @kotlinx.parcelize.Parcelize
 data class PrayDataModel(
     val id: Int,
+    val prayCategory: PrayCategories,
     val prayName: String,
     val prayDetail: String?,
     val prayFilePath: String?,

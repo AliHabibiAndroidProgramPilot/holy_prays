@@ -33,10 +33,7 @@ class ViewCategoryPrayActivity(
 
     // Put One Of Enum Instance In category Variable
     private var category: PrayCategories =
-        PrayCategories.provideCategoryFromText(
-            utils.takeActivityResources()!!,
-            categoryTitle.name
-        )!!
+        PrayCategories.provideCategoryFromText(categoryTitle.name)!!
 
     fun setInsetsAndUiColors() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->

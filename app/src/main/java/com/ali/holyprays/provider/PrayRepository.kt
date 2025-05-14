@@ -8,6 +8,7 @@ object PrayRepository {
                 listOf(
                     PrayDataModel(
                         1,
+                        PrayCategories.PRAYS,
                         "دعای صباح",
                         null,
                         "prays/sabah_pray.txt",
@@ -16,6 +17,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         2,
+                        PrayCategories.PRAYS,
                         "دعای کمیل",
                         null,
                         "prays/komeil_pray.txt",
@@ -24,6 +26,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         3,
+                        PrayCategories.PRAYS,
                         "دعای ندبه",
                         null,
                         "prays/nadabe_pray.txt",
@@ -32,6 +35,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         4,
+                        PrayCategories.PRAYS,
                         "دعای سمات",
                         null,
                         "prays/samat_pray.txt",
@@ -40,6 +44,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         5,
+                        PrayCategories.PRAYS,
                         "دعای مجیر",
                         null,
                         "prays/majir_pray.txt",
@@ -48,6 +53,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         6,
+                        PrayCategories.PRAYS,
                         "دعای جوشن کبیر",
                         null,
                         "prays/joshan_kabir_pray.txt",
@@ -56,6 +62,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         7,
+                        PrayCategories.PRAYS,
                         "دعای توسل",
                         null,
                         "prays/tavasol_pray.txt",
@@ -64,6 +71,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         8,
+                        PrayCategories.PRAYS,
                         "دعای هر روز ماه رجب",
                         null,
                         "prays/rajab_everyday_pray.txt",
@@ -72,6 +80,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         9,
+                        PrayCategories.PRAYS,
                         "صلوات شعبانیه",
                         null,
                         "prays/salavat_shabanihe_pray.txt",
@@ -80,6 +89,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         10,
+                        PrayCategories.PRAYS,
                         "مناجات شعبانیه",
                         null,
                         "prays/monajat_shabanihe_pray.txt",
@@ -91,78 +101,495 @@ object PrayRepository {
 
             PrayCategories.RAMADAN_PRAY -> {
                 listOf(
-                    PrayDataModel(1, "دعای وقت افطار", null, null, null, null),
-                    PrayDataModel(2, "دعای مشترک شب و روز ماه رمضان", null, null, null, null),
-                    PrayDataModel(3, "دعای افتتاح", null, null, null, null),
-                    PrayDataModel(4, "دعای سحر", null, null, null, null),
-                    PrayDataModel(5, "دعای روز اول ماه رمضان", null, null, null, null),
-                    PrayDataModel(6, "دعای روز دوم ماه رمضان", null, null, null, null),
-                    PrayDataModel(7, "دعای روز سوم ماه رمضان", null, null, null, null),
-                    PrayDataModel(8, "دعای روز چهارم ماه رمضان", null, null, null, null),
-                    PrayDataModel(9, "دعای روز پنجم ماه رمضان", null, null, null, null),
-                    PrayDataModel(10, "دعای روز ششم ماه رمضان", null, null, null, null),
-                    PrayDataModel(11, "دعای روز هفتم ماه رمضان", null, null, null, null),
-                    PrayDataModel(12, "دعای روز هشتم ماه رمضان", null, null, null, null),
-                    PrayDataModel(13, "دعای روز نهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(14, "دعای روز دهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(15, "دعای روز یازدهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(16, "دعای روز دوازدهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(17, "دعای روز سیزدهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(18, "دعای روز چهاردهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(19, "دعای روز پانزدهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(20, "دعای روز شانزدهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(21, "دعای روز هفدهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(22, "دعای روز هجدهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(23, "دعای روز نوزدهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(24, "دعای روز بیستم ماه رمضان", null, null, null, null),
-                    PrayDataModel(25, "دعای روز بیست و یکم ماه رمضان", null, null, null, null),
-                    PrayDataModel(26, "دعای روز بیست و دوم ماه رمضان", null, null, null, null),
-                    PrayDataModel(27, "دعای روز بیست و سوم ماه رمضان", null, null, null, null),
-                    PrayDataModel(28, "دعای روز بیست و چهارم ماه رمضان", null, null, null, null),
-                    PrayDataModel(29, "دعای روز بیست و پنجم ماه رمضان", null, null, null, null),
-                    PrayDataModel(30, "دعای روز بیست و ششم ماه رمضان", null, null, null, null),
-                    PrayDataModel(31, "دعای روز بیست و هفتم ماه رمضان", null, null, null, null),
-                    PrayDataModel(32, "دعای روز بیست و هشتم ماه رمضان", null, null, null, null),
-                    PrayDataModel(33, "دعای روز بیست و نهم ماه رمضان", null, null, null, null),
-                    PrayDataModel(34, "دعای روز سی ام ماه رمضان", null, null, null, null),
-                    PrayDataModel(37, "اعمال مشترک شب های قدر", null, null, null, null),
-                    PrayDataModel(38, "اعمال شب نوزدهم", null, null, null, null),
-                    PrayDataModel(39, "اعمال شب بیست و یکم", null, null, null, null),
-                    PrayDataModel(40, "اعمال شب بیست و سوم", null, null, null, null),
-                    PrayDataModel(41, "اعمال روز عید فطر", null, null, null, null)
+                    PrayDataModel(
+                        1,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای وقت افطار",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        2,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای مشترک شب و روز ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        3,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای افتتاح",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        4,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای سحر",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        5,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز اول ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        6,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز دوم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        7,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز سوم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        8,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز چهارم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        9,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز پنجم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        10,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز ششم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        11,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز هفتم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        12,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز هشتم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        13,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز نهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        14,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز دهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        15,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز یازدهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        16,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز دوازدهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        17,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز سیزدهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        18,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز چهاردهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        19,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز پانزدهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        20,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز شانزدهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        21,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز هفدهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        22,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز هجدهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        23,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز نوزدهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        24,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز بیستم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        25,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز بیست و یکم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        26,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز بیست و دوم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        27,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز بیست و سوم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        28,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز بیست و چهارم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        29,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز بیست و پنجم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        30,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز بیست و ششم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        31,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز بیست و هفتم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        32,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز بیست و هشتم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        33,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز بیست و نهم ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        34,
+                        PrayCategories.RAMADAN_PRAY,
+                        "دعای روز سی ام ماه رمضان",
+                        null,
+                        null,
+                        null,
+                        null
+                    )
                 )
             }
 
             PrayCategories.ZIARAT -> {
                 listOf(
-                    PrayDataModel(1, "زیارت امین الله", null, null, null, null),
-                    PrayDataModel(2, "زیارت وارث", null, null, null, null),
-                    PrayDataModel(3, "زیارت عاشورا", null, null, null, null),
                     PrayDataModel(
-                        4, "دعای بعد از زیارت عاشورا", "معروف به علقمه", null, null, null
+                        1,
+                        PrayCategories.ZIARAT,
+                        "زیارت امین الله",
+                        null,
+                        null,
+                        null,
+                        null
                     ),
-                    PrayDataModel(5, "زیارت اربعین", null, null, null, null),
-                    PrayDataModel(6, " زیارت حضرت عباس", null, null, null, null),
-                    PrayDataModel(7, "زیارت امام رضا", null, null, null, null),
-                    PrayDataModel(8, "دعای بعد از زیارت امام رضا", null, null, null, null),
-                    PrayDataModel(9, "زیارت وداع امام رضا", null, null, null, null),
-                    PrayDataModel(10, "زیارت آل یاسین", null, null, null, null),
-                    PrayDataModel(11, "زیارت امام زمان", "بعد از نماز صبح", null, null, null),
-                    PrayDataModel(12, "دعای فرج", null, null, null, null),
-                    PrayDataModel(13, "دعای عهد", null, null, null, null),
-                    PrayDataModel(14, "زیارت جامعه کبیره", null, null, null, null),
-                    PrayDataModel(15, "زیارت حضرت معصومه", null, null, null, null),
-                    PrayDataModel(16, "زیارت حضرت عبدالعظیم", null, null, null, null),
-                    PrayDataModel(17, "زیارت امامزادگان", null, null, null, null),
-                    PrayDataModel(18, "حدیث شریف کسا", null, null, null, null),
-                    PrayDataModel(19, "دعای نور", null, null, null, null),
-                    PrayDataModel(20, "دعای مکنون", null, null, null, null),
-                    PrayDataModel(21, "دعای طول عمر", null, null, null, null),
-                    PrayDataModel(22, "دعای ادای قرض", null, null, null, null),
-                    PrayDataModel(23, "دعای استجابت دعا", null, null, null, null),
-                    PrayDataModel(24, "دعای سریع الاجابه", null, null, null, null),
-                    PrayDataModel(25, "زیارت اهل قبور", null, null, null, null),
-                    PrayDataModel(26, "تاریخچه چهارده معصوم", null, null, null, null)
+                    PrayDataModel(2, PrayCategories.ZIARAT, "زیارت وارث", null, null, null, null),
+                    PrayDataModel(3, PrayCategories.ZIARAT, "زیارت عاشورا", null, null, null, null),
+                    PrayDataModel(
+                        4,
+                        PrayCategories.ZIARAT,
+                        "دعای بعد از زیارت عاشورا",
+                        "معروف به علقمه",
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(5, PrayCategories.ZIARAT, "زیارت اربعین", null, null, null, null),
+                    PrayDataModel(
+                        6,
+                        PrayCategories.ZIARAT,
+                        " زیارت حضرت عباس",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        7,
+                        PrayCategories.ZIARAT,
+                        "زیارت امام رضا",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        8,
+                        PrayCategories.ZIARAT,
+                        "دعای بعد از زیارت امام رضا",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        9,
+                        PrayCategories.ZIARAT,
+                        "زیارت وداع امام رضا",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        10,
+                        PrayCategories.ZIARAT,
+                        "زیارت آل یاسین",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        11,
+                        PrayCategories.ZIARAT,
+                        "زیارت امام زمان",
+                        "بعد از نماز صبح",
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(12, PrayCategories.ZIARAT, "دعای فرج", null, null, null, null),
+                    PrayDataModel(13, PrayCategories.ZIARAT, "دعای عهد", null, null, null, null),
+                    PrayDataModel(
+                        14,
+                        PrayCategories.ZIARAT,
+                        "زیارت جامعه کبیره",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        15,
+                        PrayCategories.ZIARAT,
+                        "زیارت حضرت معصومه",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        16,
+                        PrayCategories.ZIARAT,
+                        "زیارت حضرت عبدالعظیم",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        17,
+                        PrayCategories.ZIARAT,
+                        "زیارت امامزادگان",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        18,
+                        PrayCategories.ZIARAT,
+                        "حدیث شریف کسا",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(19, PrayCategories.ZIARAT, "دعای نور", null, null, null, null),
+                    PrayDataModel(20, PrayCategories.ZIARAT, "دعای مکنون", null, null, null, null),
+                    PrayDataModel(
+                        21,
+                        PrayCategories.ZIARAT,
+                        "دعای طول عمر",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        22,
+                        PrayCategories.ZIARAT,
+                        "دعای ادای قرض",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        23,
+                        PrayCategories.ZIARAT,
+                        "دعای استجابت دعا",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        24,
+                        PrayCategories.ZIARAT,
+                        "دعای سریع الاجابه",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        25,
+                        PrayCategories.ZIARAT,
+                        "زیارت اهل قبور",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        26,
+                        PrayCategories.ZIARAT,
+                        "تاریخچه چهارده معصوم",
+                        null,
+                        null,
+                        null,
+                        null
+                    )
                 )
             }
 
@@ -170,6 +597,7 @@ object PrayRepository {
                 listOf(
                     PrayDataModel(
                         1,
+                        PrayCategories.SORE,
                         "سوره یس",
                         null,
                         "sore/yase.txt",
@@ -178,6 +606,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         2,
+                        PrayCategories.SORE,
                         "سوره الرحمن",
                         null,
                         "sore/al_rahman.txt",
@@ -186,6 +615,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         3,
+                        PrayCategories.SORE,
                         "سوره واقعه",
                         null,
                         "sore/vaghe.txt",
@@ -194,6 +624,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         4,
+                        PrayCategories.SORE,
                         "سوره جمعه",
                         null,
                         "sore/jome.txt",
@@ -202,15 +633,25 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         5,
+                        PrayCategories.SORE,
                         "سوره تبارک(ملک)",
                         null,
                         "sore/tabarak_melk.txt",
                         "sore/persian/tabarak_melk_p.txt",
                         null
                     ),
-                    PrayDataModel(6, "نبا", null, "sore/naba.txt", "sore/persian/naba_p.txt", null),
+                    PrayDataModel(
+                        6,
+                        PrayCategories.SORE,
+                        "نبا",
+                        null,
+                        "sore/naba.txt",
+                        "sore/persian/naba_p.txt",
+                        null
+                    ),
                     PrayDataModel(
                         7,
+                        PrayCategories.SORE,
                         "سوره اعلی",
                         null,
                         "sore/aali.txt",
@@ -219,6 +660,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         8,
+                        PrayCategories.SORE,
                         "شوره شمس",
                         null,
                         "sore/shams.txt",
@@ -227,6 +669,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         9,
+                        PrayCategories.SORE,
                         "سوره قدر",
                         null,
                         "sore/ghadr.txt",
@@ -235,6 +678,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         10,
+                        PrayCategories.SORE,
                         "سوره زلزال",
                         null,
                         "sore/zalzal.txt",
@@ -243,6 +687,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         11,
+                        PrayCategories.SORE,
                         "سوره عادیات",
                         null,
                         "sore/adiyat.txt",
@@ -251,6 +696,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         12,
+                        PrayCategories.SORE,
                         "سوره کافرون",
                         null,
                         "sore/kaferon.txt",
@@ -259,6 +705,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         13,
+                        PrayCategories.SORE,
                         "سوره نصر",
                         null,
                         "sore/nasr.txt",
@@ -267,6 +714,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         14,
+                        PrayCategories.SORE,
                         "سوره توحید",
                         null,
                         "sore/towhid.txt",
@@ -275,6 +723,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         15,
+                        PrayCategories.SORE,
                         "سوره عصر",
                         null,
                         "sore/asr.txt",
@@ -283,6 +732,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         16,
+                        PrayCategories.SORE,
                         "سوره فلق",
                         null,
                         "sore/falagh.txt",
@@ -291,6 +741,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         17,
+                        PrayCategories.SORE,
                         "سوره ناس",
                         null,
                         "sore/naas.txt",
@@ -304,6 +755,7 @@ object PrayRepository {
                 listOf(
                     PrayDataModel(
                         1,
+                        PrayCategories.NAMAZ_TAGHIBAT,
                         "تعقیبات مشترکه",
                         null,
                         "namaz_taghibat/taghibat_moshtarake.txt",
@@ -312,6 +764,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         2,
+                        PrayCategories.NAMAZ_TAGHIBAT,
                         "تعقیبات نماز صبح",
                         null,
                         "namaz_taghibat/taghibat_namaz_sobh.txt",
@@ -320,6 +773,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         3,
+                        PrayCategories.NAMAZ_TAGHIBAT,
                         "تعقیبات نماز ظهر",
                         null,
                         "namaz_taghibat/taghibat_namaz_zohr.txt",
@@ -328,6 +782,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         4,
+                        PrayCategories.NAMAZ_TAGHIBAT,
                         "تعقیبات نماز عصر",
                         null,
                         "namaz_taghibat/taghibat_namaz_asr.txt",
@@ -336,6 +791,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         5,
+                        PrayCategories.NAMAZ_TAGHIBAT,
                         "تعقیبات نماز مغرب",
                         null,
                         "namaz_taghibat/taghibat_namaz_maghreb.txt",
@@ -344,6 +800,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         6,
+                        PrayCategories.NAMAZ_TAGHIBAT,
                         "نماز غفلیه",
                         null,
                         "namaz_taghibat/namaz_ghefliye.txt",
@@ -352,6 +809,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         7,
+                        PrayCategories.NAMAZ_TAGHIBAT,
                         "تعقیبات نماز اعشا",
                         null,
                         "namaz_taghibat/taghibat_namaz_asha.txt",
@@ -360,6 +818,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         8,
+                        PrayCategories.NAMAZ_TAGHIBAT,
                         "آمن الرسول",
                         null,
                         "namaz_taghibat/amen_al_rasoul.txt",
@@ -368,6 +827,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         9,
+                        PrayCategories.NAMAZ_TAGHIBAT,
                         "وان یکاد",
                         "آیه حفظ از چشم زخم",
                         "namaz_taghibat/van_yakad.txt",
@@ -381,6 +841,7 @@ object PrayRepository {
                 listOf(
                     PrayDataModel(
                         1,
+                        PrayCategories.WEEK_ZIARAT,
                         "دعای روز شنبه",
                         null,
                         "week_zirat/saturday_pray.txt",
@@ -389,6 +850,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         2,
+                        PrayCategories.WEEK_ZIARAT,
                         "زیارت حضرت رسول (ص) در روز شنبه",
                         null,
                         "week_zirat/rasoul_saturday_pray.txt",
@@ -397,6 +859,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         3,
+                        PrayCategories.WEEK_ZIARAT,
                         "دعای روز یکشنبه",
                         null,
                         "week_zirat/saturday_pray.txt",
@@ -405,6 +868,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         4,
+                        PrayCategories.WEEK_ZIARAT,
                         "زیارت حضرت امیرالمومنین در روز یکشنبه",
                         null,
                         "week_zirat/amir_al_momenin_sunday_pray.txt",
@@ -413,6 +877,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         5,
+                        PrayCategories.WEEK_ZIARAT,
                         "زیارت حضرت زهرا در روز یکشنبه",
                         null,
                         "week_zirat/hazrat_zahra_sunday_pray.txt",
@@ -421,6 +886,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         6,
+                        PrayCategories.WEEK_ZIARAT,
                         "دعای روز دوشنبه",
                         null,
                         "week_zirat/monday_pray.txt",
@@ -429,6 +895,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         7,
+                        PrayCategories.WEEK_ZIARAT,
                         "زیارت امام حسن در روز دوشنبه",
                         null,
                         "week_zirat/imam_hassan_monday_pray.txt",
@@ -437,6 +904,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         8,
+                        PrayCategories.WEEK_ZIARAT,
                         "زیارت امام حسین در روز دوشنبه",
                         null,
                         "week_zirat/imam_hossein_monday_pray.txt",
@@ -445,6 +913,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         9,
+                        PrayCategories.WEEK_ZIARAT,
                         "دعای روز سه شنبه",
                         null,
                         "week_zirat/tuesday_pray.txt",
@@ -453,6 +922,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         10,
+                        PrayCategories.WEEK_ZIARAT,
                         "زیارت ائمه بقیع در روز سه شنبه",
                         null,
                         "week_zirat/aeme_baghie_tuesday_pray.txt",
@@ -461,6 +931,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         11,
+                        PrayCategories.WEEK_ZIARAT,
                         "دعای روز چهارشنبه",
                         null,
                         "week_zirat/wensday_pray.txt",
@@ -469,6 +940,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         12,
+                        PrayCategories.WEEK_ZIARAT,
                         "زیارت چهار امام در روز چهارشنبه",
                         null,
                         "week_zirat/four_imam_wensday_pray.txt",
@@ -477,6 +949,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         13,
+                        PrayCategories.WEEK_ZIARAT,
                         "دعای روز پنجشنبه",
                         null,
                         "week_zirat/thursday_pray.txt",
@@ -485,6 +958,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         14,
+                        PrayCategories.WEEK_ZIARAT,
                         "زیارت امام حسن عسکری در روز پنجشنبه",
                         null,
                         "week_zirat/imam_hassan_asghari_thursday_pray.txt",
@@ -493,6 +967,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         15,
+                        PrayCategories.WEEK_ZIARAT,
                         "دعای روز جمعه",
                         null,
                         "week_zirat/friday_pray.txt",
@@ -501,6 +976,7 @@ object PrayRepository {
                     ),
                     PrayDataModel(
                         16,
+                        PrayCategories.WEEK_ZIARAT,
                         "زیارت صاحب الزمان (عج) در روز جمعه",
                         null,
                         "week_zirat/saheb_al_zaman_friday_pray.txt",
@@ -512,16 +988,133 @@ object PrayRepository {
 
             PrayCategories.NAMAZ -> {
                 listOf(
-                    PrayDataModel(1, "دعای طلب رزق", null, null, null, null),
-                    PrayDataModel(2, "آداب نماز حاجت مهم", null, null, null, null),
-                    PrayDataModel(3, "نماز توسعه رزق", null, null, null, null),
-                    PrayDataModel(4, "نماز در شدت و سختی", null, null, null, null),
-                    PrayDataModel(5, "نماز شب اول قبر", null, null, null, null),
-                    PrayDataModel(6, "نماز جعفر طیار", null, null, null, null),
-                    PrayDataModel(7, "نماز اول هر ماه", null, null, null, null),
-                    PrayDataModel(8, "نماز شب", null, null, null, null),
-                    PrayDataModel(9, "نماز امام جواد", null, null, null, null),
-                    PrayDataModel(10, "نماز دهه اول ذی الحجه", null, null, null, null)
+                    PrayDataModel(
+                        1,
+                        PrayCategories.NAMAZ, "دعای طلب رزق", null, null, null, null
+                    ),
+                    PrayDataModel(
+                        2,
+                        PrayCategories.NAMAZ,
+                        "آداب نماز حاجت مهم",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        3,
+                        PrayCategories.NAMAZ,
+                        "نماز توسعه رزق",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        4,
+                        PrayCategories.NAMAZ,
+                        "نماز در شدت و سختی",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        5,
+                        PrayCategories.NAMAZ,
+                        "نماز شب اول قبر",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        6,
+                        PrayCategories.NAMAZ,
+                        "نماز جعفر طیار",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        7,
+                        PrayCategories.NAMAZ,
+                        "نماز اول هر ماه",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(8, PrayCategories.NAMAZ, "نماز شب", null, null, null, null),
+                    PrayDataModel(
+                        9,
+                        PrayCategories.NAMAZ,
+                        "نماز امام جواد",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        10,
+                        PrayCategories.NAMAZ,
+                        "نماز دهه اول ذی الحجه",
+                        null,
+                        null,
+                        null,
+                        null
+                    )
+                )
+            }
+
+            PrayCategories.GHADR_NIGHTS -> {
+                listOf(
+                    PrayDataModel(
+                        1,
+                        PrayCategories.GHADR_NIGHTS,
+                        "اعمال مشترک شب های قدر",
+                        null,
+                        "ghadr_nights/ghadr_nights_works.txt",
+                        "ghadr_nights/persian/ghadr_nights_works_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        2,
+                        PrayCategories.GHADR_NIGHTS,
+                        "اعمال شب نوزدهم",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        3,
+                        PrayCategories.GHADR_NIGHTS,
+                        "اعمال شب بیست و یکم",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        4,
+                        PrayCategories.GHADR_NIGHTS,
+                        "اعمال شب بیست و سوم",
+                        null,
+                        null,
+                        null,
+                        null
+                    ),
+                    PrayDataModel(
+                        5,
+                        PrayCategories.GHADR_NIGHTS,
+                        "اعمال روز عید فطر",
+                        null,
+                        null,
+                        null,
+                        null
+                    )
                 )
             }
         }

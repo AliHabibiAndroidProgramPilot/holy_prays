@@ -82,7 +82,8 @@ class ViewMainActivity(
             binding.btnSore,
             binding.btnTaghibat,
             binding.btnWeekZirat,
-            binding.btnNamaz
+            binding.btnNamaz,
+            binding.btnGhadrNights
         ).forEach { button ->
             button.setOnClickListener {
                 val category: PrayCategories = PrayCategories.valueOf(it.tag.toString().uppercase())

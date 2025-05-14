@@ -1,6 +1,5 @@
 package com.ali.holyprays.provider
 
-import android.content.res.Resources
 import com.ali.holyprays.R
 
 enum class PrayCategories(val stringResId: Int) {
@@ -11,10 +10,11 @@ enum class PrayCategories(val stringResId: Int) {
     NAMAZ(R.string.namaz),
     NAMAZ_TAGHIBAT(R.string.namaz_taghibat),
     WEEK_ZIARAT(R.string.week_zirat),
+    GHADR_NIGHTS(R.string.ghadr_nights),
     PRAYS(R.string.prays);
 
     companion object {
-        fun provideCategoryFromText(resources: Resources, category: String): PrayCategories? {
+        fun provideCategoryFromText(category: String): PrayCategories? {
             return entries.find { enumItem ->
                 enumItem.name == category
             }

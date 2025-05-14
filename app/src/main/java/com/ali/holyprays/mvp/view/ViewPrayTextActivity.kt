@@ -57,7 +57,7 @@ class ViewPrayTextActivity(
     fun setupRecyclerViewData(arabicTextList: List<String>, persianTextList: List<String>) {
         binding.prayTextRecycler.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        binding.prayTextRecycler.adapter = PrayTextRecyclerAdapter(arabicTextList, persianTextList)
+        binding.prayTextRecycler.adapter = PrayTextRecyclerAdapter(arabicTextList, persianTextList, pray?.prayCategory)
     }
 
     fun provideFilesPath(): String = pray?.prayFilePath!!
