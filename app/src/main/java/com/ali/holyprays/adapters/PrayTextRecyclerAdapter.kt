@@ -53,7 +53,7 @@ class PrayTextRecyclerAdapter(
 
         fun bindGhadrNightsText(arabicText: String, persianText: String) {
             binding.txtPrayArabic.text = parsePersianSegmentInArabicText(arabicText)
-            if (persianText.isEmpty())
+            if (persianText.isEmpty() || persianText.isBlank())
                 binding.txtPrayTranslationPersian.visibility = View.GONE
             else
                 binding.txtPrayTranslationPersian.text = persianText

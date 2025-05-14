@@ -1084,8 +1084,8 @@ object PrayRepository {
                         PrayCategories.GHADR_NIGHTS,
                         "اعمال شب نوزدهم",
                         null,
-                        null,
-                        null,
+                        "ghadr_nights/ghadr_nights_nineteen.txt",
+                        "ghadr_nights/persian/ghadr_nights_nineteen_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -1093,8 +1093,8 @@ object PrayRepository {
                         PrayCategories.GHADR_NIGHTS,
                         "اعمال شب بیست و یکم",
                         null,
-                        null,
-                        null,
+                        "ghadr_nights/ghadr_nights_twenty_one.txt",
+                        "ghadr_nights/persian/ghadr_nights_twenty_one_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -1102,8 +1102,8 @@ object PrayRepository {
                         PrayCategories.GHADR_NIGHTS,
                         "اعمال شب بیست و سوم",
                         null,
-                        null,
-                        null,
+                        "ghadr_nights/ghadr_nights_twenty_three.txt",
+                        "ghadr_nights/persian/ghadr_nights_twenty_three_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -1111,8 +1111,8 @@ object PrayRepository {
                         PrayCategories.GHADR_NIGHTS,
                         "اعمال روز عید فطر",
                         null,
-                        null,
-                        null,
+                        "ghadr_nights/fitr_aeid_works.txt",
+                        "ghadr_nights/persian/fitr_aeid_works_p.txt",
                         null
                     )
                 )
