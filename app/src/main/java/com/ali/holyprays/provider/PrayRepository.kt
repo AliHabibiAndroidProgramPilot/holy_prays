@@ -106,8 +106,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای وقت افطار",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/iftar_time_pray.txt",
+                        "ramadan_prays/persian/iftar_time_pray_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -115,8 +115,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای مشترک شب و روز ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/days_nights_ramadan_pray.txt",
+                        "ramadan_prays/persian/days_nights_ramadan_pray_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -124,8 +124,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای افتتاح",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/iftetah_pray.txt",
+                        "ramadan_prays/persian/iftetah_pray_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -133,8 +133,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای سحر",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/sahar_pray.txt",
+                        "ramadan_prays/persian/sahar_pray_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -142,8 +142,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز اول ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_one.txt",
+                        "ramadan_prays/persian/ramadan_day_one_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -151,8 +151,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز دوم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_two.txt",
+                        "ramadan_prays/persian/ramadan_day_two_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -160,8 +160,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز سوم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_three.txt",
+                        "ramadan_prays/persian/ramadan_day_three_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -169,8 +169,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز چهارم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_four.txt",
+                        "ramadan_prays/persian/ramadan_day_four_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -178,8 +178,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز پنجم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_five.txt",
+                        "ramadan_prays/persian/ramadan_day_five_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -187,8 +187,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز ششم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_six.txt",
+                        "ramadan_prays/persian/ramadan_day_six_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -196,8 +196,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز هفتم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_seven.txt",
+                        "ramadan_prays/persian/ramadan_day_seven_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -205,8 +205,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز هشتم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_eight.txt",
+                        "ramadan_prays/persian/ramadan_day_eight_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -214,8 +214,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز نهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_nine.txt",
+                        "ramadan_prays/persian/ramadan_day_nine_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -223,8 +223,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز دهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_ten.txt",
+                        "ramadan_prays/persian/ramadan_day_ten_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -232,8 +232,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز یازدهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_eleven.txt",
+                        "ramadan_prays/persian/ramadan_day_eleven_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -241,8 +241,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز دوازدهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_twelve.txt",
+                        "ramadan_prays/persian/ramadan_day_twelve_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -250,8 +250,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز سیزدهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_thirteen.txt",
+                        "ramadan_prays/persian/ramadan_day_thirteen_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -259,8 +259,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز چهاردهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_fourteen.txt",
+                        "ramadan_prays/persian/ramadan_day_fourteen_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -268,8 +268,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز پانزدهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_fifteen.txt",
+                        "ramadan_prays/persian/ramadan_day_fifteen_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -277,8 +277,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز شانزدهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_sixteen.txt",
+                        "ramadan_prays/persian/ramadan_day_sixteen_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -286,8 +286,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز هفدهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_seventeen.txt",
+                        "ramadan_prays/persian/ramadan_day_seventeen_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -295,8 +295,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز هجدهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_eighteen.txt",
+                        "ramadan_prays/persian/ramadan_day_eighteen_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -304,8 +304,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز نوزدهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_nineteen.txt",
+                        "ramadan_prays/persian/ramadan_day_nineteen_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -313,8 +313,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز بیستم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_twenty.txt",
+                        "ramadan_prays/persian/ramadan_day_twenty_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -322,8 +322,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز بیست و یکم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_twenty_one.txt",
+                        "ramadan_prays/persian/ramadan_day_twenty_one_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -331,8 +331,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز بیست و دوم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_twenty_two.txt",
+                        "ramadan_prays/persian/ramadan_day_twenty_two_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -340,8 +340,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز بیست و سوم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_twenty_three.txt",
+                        "ramadan_prays/persian/ramadan_day_twenty_three_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -349,8 +349,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز بیست و چهارم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_twenty_four.txt",
+                        "ramadan_prays/persian/ramadan_day_twenty_four_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -358,8 +358,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز بیست و پنجم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_twenty_five.txt",
+                        "ramadan_prays/persian/ramadan_day_twenty_five_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -367,8 +367,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز بیست و ششم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_twenty_six.txt",
+                        "ramadan_prays/persian/ramadan_day_twenty_six_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -376,8 +376,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز بیست و هفتم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_twenty_seven.txt",
+                        "ramadan_prays/persian/ramadan_day_twenty_seven_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -385,8 +385,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز بیست و هشتم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_twenty_eight.txt",
+                        "ramadan_prays/persian/ramadan_day_twenty_eight_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -394,8 +394,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز بیست و نهم ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_twenty_nine.txt",
+                        "ramadan_prays/persian/ramadan_day_twenty_nine_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -403,8 +403,8 @@ object PrayRepository {
                         PrayCategories.RAMADAN_PRAY,
                         "دعای روز سی ام ماه رمضان",
                         null,
-                        null,
-                        null,
+                        "ramadan_prays/ramadan_day_thirty.txt",
+                        "ramadan_prays/persian/ramadan_day_thirty_p.txt",
                         null
                     )
                 )
