@@ -417,29 +417,53 @@ object PrayRepository {
                         PrayCategories.ZIARAT,
                         "زیارت امین الله",
                         null,
-                        null,
-                        null,
+                        "zirat/zirat_amin_allah.txt",
+                        "zirat/persian/zirat_amin_allah_p.txt",
                         null
                     ),
-                    PrayDataModel(2, PrayCategories.ZIARAT, "زیارت وارث", null, null, null, null),
-                    PrayDataModel(3, PrayCategories.ZIARAT, "زیارت عاشورا", null, null, null, null),
+                    PrayDataModel(
+                        2,
+                        PrayCategories.ZIARAT,
+                        "زیارت وارث",
+                        null,
+                        "zirat/zirat_vares.txt",
+                        "zirat/persian/zirat_vares_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        3,
+                        PrayCategories.ZIARAT,
+                        "زیارت عاشورا",
+                        null,
+                        "zirat/zirat_ashura.txt",
+                        "zirat/persian/zirat_ashura_p.txt",
+                        null
+                    ),
                     PrayDataModel(
                         4,
                         PrayCategories.ZIARAT,
                         "دعای بعد از زیارت عاشورا",
                         "معروف به علقمه",
-                        null,
-                        null,
+                        "zirat/after_ashura_pray.txt",
+                        "zirat/persian/after_ashura_pray_p.txt",
                         null
                     ),
-                    PrayDataModel(5, PrayCategories.ZIARAT, "زیارت اربعین", null, null, null, null),
+                    PrayDataModel(
+                        5,
+                        PrayCategories.ZIARAT,
+                        "زیارت اربعین",
+                        null,
+                        "zirat/zirat_arbaien.txt",
+                        "zirat/persian/zirat_arbaien_p.txt",
+                        null
+                    ),
                     PrayDataModel(
                         6,
                         PrayCategories.ZIARAT,
                         " زیارت حضرت عباس",
                         null,
-                        null,
-                        null,
+                        "zirat/zirat_hazrat_abas.txt",
+                        "zirat/persian/zirat_hazrat_abas_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -447,8 +471,8 @@ object PrayRepository {
                         PrayCategories.ZIARAT,
                         "زیارت امام رضا",
                         null,
-                        null,
-                        null,
+                        "zirat/zirat_imam_reza",
+                        "zirat/persian/zirat_imam_reza_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -456,8 +480,8 @@ object PrayRepository {
                         PrayCategories.ZIARAT,
                         "دعای بعد از زیارت امام رضا",
                         null,
-                        null,
-                        null,
+                        "zirat/after_imam_reza_zirat_pray.txt",
+                        "zirat/persian/after_imam_reza_zirat_pray_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -465,8 +489,8 @@ object PrayRepository {
                         PrayCategories.ZIARAT,
                         "زیارت وداع امام رضا",
                         null,
-                        null,
-                        null,
+                        "zirat/zirat_veda_imam_reza.txt",
+                        "zirat/persian/zirat_veda_imam_reza_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -474,8 +498,8 @@ object PrayRepository {
                         PrayCategories.ZIARAT,
                         "زیارت آل یاسین",
                         null,
-                        null,
-                        null,
+                        "zirat/zirat_al_yasin.txt",
+                        "zirat/persian/zirat_al_yasin_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -483,19 +507,35 @@ object PrayRepository {
                         PrayCategories.ZIARAT,
                         "زیارت امام زمان",
                         "بعد از نماز صبح",
-                        null,
-                        null,
+                        "zirat/zirat_imam_zaman_after_morning_namaz.txt",
+                        "zirat/persian/zirat_imam_zaman_after_morning_namaz_p.txt",
                         null
                     ),
-                    PrayDataModel(12, PrayCategories.ZIARAT, "دعای فرج", null, null, null, null),
-                    PrayDataModel(13, PrayCategories.ZIARAT, "دعای عهد", null, null, null, null),
+                    PrayDataModel(
+                        12,
+                        PrayCategories.ZIARAT,
+                        "دعای فرج",
+                        null,
+                        "zirat/faraj_pray.txt",
+                        "zirat/persian/faraj_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        13,
+                        PrayCategories.ZIARAT,
+                        "دعای عهد",
+                        null,
+                        "zirat/ahd_pray.txt",
+                        "zirat/persian/ahd_pray_p.txt",
+                        null
+                    ),
                     PrayDataModel(
                         14,
                         PrayCategories.ZIARAT,
                         "زیارت جامعه کبیره",
                         null,
-                        null,
-                        null,
+                        "zirat/zirat_jame_kabire.txt",
+                        "zirat/persian/zirat_jame_kabire_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -503,8 +543,8 @@ object PrayRepository {
                         PrayCategories.ZIARAT,
                         "زیارت حضرت معصومه",
                         null,
-                        null,
-                        null,
+                        "zirat/zirat_hazrat_masoume.txt",
+                        "zirat/persian/zirat_hazrat_masoume_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -512,8 +552,8 @@ object PrayRepository {
                         PrayCategories.ZIARAT,
                         "زیارت حضرت عبدالعظیم",
                         null,
-                        null,
-                        null,
+                        "zirat/zirat_hazrat_abdol_azim.txt",
+                        "zirat/persian/zirat_hazrat_abdol_azim_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -521,28 +561,44 @@ object PrayRepository {
                         PrayCategories.ZIARAT,
                         "زیارت امامزادگان",
                         null,
-                        null,
-                        null,
+                        "zirat/zirat_imam_zadegan.txt",
+                        "zirat/persian/zirat_imam_zadegan_p.txt",
                         null
                     ),
                     PrayDataModel(
                         18,
                         PrayCategories.ZIARAT,
-                        "حدیث شریف کسا",
+                        "حدیث شریف کساء",
                         null,
-                        null,
-                        null,
+                        "zirat/hadis_kasa.txt",
+                        "zirat/persian/hadis_kasa_p.txt",
                         null
                     ),
-                    PrayDataModel(19, PrayCategories.ZIARAT, "دعای نور", null, null, null, null),
-                    PrayDataModel(20, PrayCategories.ZIARAT, "دعای مکنون", null, null, null, null),
+                    PrayDataModel(
+                        19,
+                        PrayCategories.ZIARAT,
+                        "دعای نور",
+                        null,
+                        "zirat/noor_pray.txt",
+                        "zirat/persian/noor_pray_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        20,
+                        PrayCategories.ZIARAT,
+                        "دعای مکنون",
+                        null,
+                        "zirat/maknoon_pray.txt",
+                        "zirat/persian/maknoon_pray_p.txt",
+                        null
+                    ),
                     PrayDataModel(
                         21,
                         PrayCategories.ZIARAT,
                         "دعای طول عمر",
                         null,
-                        null,
-                        null,
+                        "zirat/tool_omr_pray.txt",
+                        "zirat/persian/tool_omr_pray_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -550,46 +606,28 @@ object PrayRepository {
                         PrayCategories.ZIARAT,
                         "دعای ادای قرض",
                         null,
-                        null,
-                        null,
+                        "zirat/adaye_gharz_pray.txt",
+                        "zirat/persian/adaye_gharz_pray_p.txt",
                         null
                     ),
                     PrayDataModel(
                         23,
                         PrayCategories.ZIARAT,
+                        "دعای سریع الاجابه",
                         "دعای استجابت دعا",
-                        null,
-                        null,
-                        null,
+                        "zirat/sari_ol_ejabe_pray.txt",
+                        "zirat/persian/sari_ol_ejabe_pray_p.txt",
                         null
                     ),
                     PrayDataModel(
                         24,
                         PrayCategories.ZIARAT,
-                        "دعای سریع الاجابه",
-                        null,
-                        null,
-                        null,
-                        null
-                    ),
-                    PrayDataModel(
-                        25,
-                        PrayCategories.ZIARAT,
                         "زیارت اهل قبور",
                         null,
-                        null,
-                        null,
+                        "zirat/zirat_ahl_ghoboor.txt",
+                        "zirat/persian/zirat_ahl_ghoboor_p.txt",
                         null
                     ),
-                    PrayDataModel(
-                        26,
-                        PrayCategories.ZIARAT,
-                        "تاریخچه چهارده معصوم",
-                        null,
-                        null,
-                        null,
-                        null
-                    )
                 )
             }
 
@@ -1117,6 +1155,7 @@ object PrayRepository {
                     )
                 )
             }
+
         }
     }
 
