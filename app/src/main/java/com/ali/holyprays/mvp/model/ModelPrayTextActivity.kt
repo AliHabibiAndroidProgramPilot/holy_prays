@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.io.FileNotFoundException
 
 class ModelPrayTextActivity {
 
@@ -18,7 +17,7 @@ class ModelPrayTextActivity {
                     .split("##PART##")
                     .map { it.trim() }
                     .filter { it.isNotEmpty() }
-            } catch (e: FileNotFoundException) {
+            } catch (e: Exception) {
                 e.printStackTrace()
                 Log.e("EXCEPTION", e.message ?: "null message")
                 emptyList()
@@ -39,7 +38,7 @@ class ModelPrayTextActivity {
                     .split("##PART##")
                     .map { it.trim() }
                     .filter { it.isNotEmpty() }
-            } catch (e: FileNotFoundException) {
+            } catch (e: Exception) {
                 e.printStackTrace()
                 Log.e("EXCEPTION", e.message ?: "null message")
                 emptyList()

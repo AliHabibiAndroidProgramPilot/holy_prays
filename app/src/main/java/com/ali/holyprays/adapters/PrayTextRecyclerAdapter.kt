@@ -51,7 +51,7 @@ class PrayTextRecyclerAdapter(
             return spannableStringBuilder
         }
 
-        fun bindGhadrNightsAndZiratText(arabicText: String, persianText: String) {
+        fun bindPrayTextWithPersianSegments(arabicText: String, persianText: String) {
             binding.txtPrayArabic.text = parsePersianSegmentInArabicText(arabicText)
             if (persianText.isEmpty() || persianText.isBlank())
                 binding.txtPrayTranslationPersian.visibility = View.GONE
@@ -74,9 +74,9 @@ class PrayTextRecyclerAdapter(
     override fun getItemCount(): Int = arabicTextList.size
 
     override fun onBindViewHolder(holder: PrayTextViewHolder, position: Int) {
-        if (category == PrayCategories.GHADR_NIGHTS || category == PrayCategories.ZIARAT) {
+        if (category == PrayCategories.GHADR_NIGHTS || category == PrayCategories.ZIARAT || category == PrayCategories.NAMAZ) {
             val persianText = if (position < persianTextList.size) persianTextList[position] else ""
-            holder.bindGhadrNightsAndZiratText(arabicTextList[position], persianText)
+            holder.bindPrayTextWithPersianSegments(arabicTextList[position], persianText)
         } else
             holder.bindOtherPraysText(arabicTextList[position], persianTextList[position])
     }

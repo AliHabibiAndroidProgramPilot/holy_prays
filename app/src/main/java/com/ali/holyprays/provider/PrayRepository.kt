@@ -1028,15 +1028,20 @@ object PrayRepository {
                 listOf(
                     PrayDataModel(
                         1,
-                        PrayCategories.NAMAZ, "دعای طلب رزق", null, null, null, null
+                        PrayCategories.NAMAZ,
+                        "دعای طلب رزق",
+                        null,
+                        "namaz/talab_rezgh_pray.txt",
+                        "namaz/persian/talab_rezgh_pray_p.txt",
+                        null
                     ),
                     PrayDataModel(
                         2,
                         PrayCategories.NAMAZ,
                         "آداب نماز حاجت مهم",
                         null,
-                        null,
-                        null,
+                        "namaz/namaz_hajat_mohem.txt",
+                        "namaz/persian/namaz_hajat_mohem_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -1044,8 +1049,8 @@ object PrayRepository {
                         PrayCategories.NAMAZ,
                         "نماز توسعه رزق",
                         null,
-                        null,
-                        null,
+                        "namaz/namaz_tose_rezgh.txt",
+                        "namaz/persian/namaz_tose_rezgh_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -1053,8 +1058,8 @@ object PrayRepository {
                         PrayCategories.NAMAZ,
                         "نماز در شدت و سختی",
                         null,
-                        null,
-                        null,
+                        "namaz/namaz_shedat.txt",
+                        "namaz/persian/namaz_shedat_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -1062,8 +1067,8 @@ object PrayRepository {
                         PrayCategories.NAMAZ,
                         "نماز شب اول قبر",
                         null,
-                        null,
-                        null,
+                        "namaz/namaz_shab_aval_ghabr.txt",
+                        "",
                         null
                     ),
                     PrayDataModel(
@@ -1071,8 +1076,8 @@ object PrayRepository {
                         PrayCategories.NAMAZ,
                         "نماز جعفر طیار",
                         null,
-                        null,
-                        null,
+                        "namaz/namaz_jafar_tiyar.txt",
+                        "namaz/persian/namaz_jafar_tiyar_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -1080,18 +1085,26 @@ object PrayRepository {
                         PrayCategories.NAMAZ,
                         "نماز اول هر ماه",
                         null,
-                        null,
-                        null,
+                        "namaz/namaz_aval_mah.txt",
+                        "namaz/persian/namaz_aval_mah_p.txt",
                         null
                     ),
-                    PrayDataModel(8, PrayCategories.NAMAZ, "نماز شب", null, null, null, null),
+                    PrayDataModel(
+                        8,
+                        PrayCategories.NAMAZ,
+                        "نماز شب",
+                        null,
+                        "namaz/namaz_shab.txt",
+                        "",
+                        null
+                    ),
                     PrayDataModel(
                         9,
                         PrayCategories.NAMAZ,
                         "نماز امام جواد",
                         null,
-                        null,
-                        null,
+                        "namaz/namaz_imam_javad.txt",
+                        "namaz/persian/namaz_imam_javad_p.txt",
                         null
                     ),
                     PrayDataModel(
@@ -1099,8 +1112,44 @@ object PrayRepository {
                         PrayCategories.NAMAZ,
                         "نماز دهه اول ذی الحجه",
                         null,
+                        "namaz/namaz_dahe_aval_zehaje.txt",
+                        "namaz/persian/namaz_dahe_aval_zehaje_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        11,
+                        PrayCategories.NAMAZ,
+                        "نماز والدین",
                         null,
+                        "namaz/namaz_valedin.txt",
+                        "namaz/persian/namaz_valedin_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        12,
+                        PrayCategories.NAMAZ,
+                        "نماز استغاثه به حضرت زهرا(س)",
                         null,
+                        "namaz/namaz_esteghase_hazrat_fatemeh.txt",
+                        "namaz/persian/namaz_esteghase_hazrat_fatemeh_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        13,
+                        PrayCategories.NAMAZ,
+                        "نماز مسجد جمکران",
+                        null,
+                        "namaz/namaz_jamkaran.txt",
+                        "",
+                        null
+                    ),
+                    PrayDataModel(
+                        14,
+                        PrayCategories.NAMAZ,
+                        "نماز میت",
+                        null,
+                        "namaz/namaz_myat.txt",
+                        "namaz/persian/namaz_myat_p.txt",
                         null
                     )
                 )
