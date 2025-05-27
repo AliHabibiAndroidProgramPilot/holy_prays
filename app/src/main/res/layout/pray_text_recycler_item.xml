@@ -43,6 +43,6 @@
         android:layout_marginTop="5dp"
         android:contentDescription="@string/divider"
         android:scaleType="centerInside"
-        android:src="@drawable/text_divider" />
+        android:src="@drawable/text_divider2" />
 
 </LinearLayout>

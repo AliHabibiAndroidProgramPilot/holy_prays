@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ali.holyprays.R
 import com.ali.holyprays.adapters.PrayTextRecyclerAdapter
 import com.ali.holyprays.databinding.ActivityPrayTextBinding
+import com.ali.holyprays.databinding.ActivityPrayTextSecondBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.provider.PrayDataModel
 
@@ -19,8 +20,8 @@ class ViewPrayTextActivity(
     private val utils: ActivityUtils
 ) {
 
-    val binding: ActivityPrayTextBinding =
-        ActivityPrayTextBinding.inflate(LayoutInflater.from(context))
+    val binding: ActivityPrayTextSecondBinding =
+        ActivityPrayTextSecondBinding.inflate(LayoutInflater.from(context))
 
     private val context = utils.takeContext()
 
@@ -39,9 +40,9 @@ class ViewPrayTextActivity(
             insets
         }
         // Set Right Color For Status Bar
-        val window = utils.takeWindow()
-        window!!.statusBarColor = ContextCompat.getColor(context, R.color.actionBar_color)
-        window.navigationBarColor = ContextCompat.getColor(context, R.color.main_bg_gradient_end)
+//        val window = utils.takeWindow()
+//        window!!.statusBarColor = ContextCompat.getColor(context, R.color.actionBar_color)
+//        window.navigationBarColor = ContextCompat.getColor(context, R.color.main_bg_gradient_end)
     }
 
     fun navigationBackHandler() {
