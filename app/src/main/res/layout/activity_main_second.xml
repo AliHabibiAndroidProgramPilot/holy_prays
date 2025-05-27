@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_white"
+        android:padding="10dp">
+
+        <View
+            android:id="@+id/top_action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@drawable/top_action_bar_bg_second"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_top_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/tv_regular"
+            android:text="@string/top_app_message"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textDirection="rtl"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/top_action_bar"
+            app:layout_constraintEnd_toEndOf="@+id/top_action_bar"
+            app:layout_constraintStart_toStartOf="@id/top_action_bar"
+            app:layout_constraintTop_toTopOf="@id/top_action_bar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/tv_regular"
+            android:text="@string/main_name"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textDirection="rtl"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/top_action_bar"
+            app:layout_constraintEnd_toEndOf="@+id/top_action_bar"
+            app:layout_constraintStart_toStartOf="@+id/top_action_bar"
+            app:layout_constraintTop_toTopOf="@id/top_action_bar" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/day_pray_text_frame"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/day_pray_frame2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_action_bar"
+            app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+        <TextView
+            android:id="@+id/txt_day_of_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/iran_sans_regular"
+            android:textColor="@color/black"
+            android:textDirection="rtl"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/day_pray_text_frame"
+            app:layout_constraintStart_toStartOf="@+id/day_pray_text_frame"
+            app:layout_constraintTop_toTopOf="@+id/day_pray_text_frame"
+            tools:text="ذکر روز دوشنبه" />
+
+        <TextView
+            android:id="@+id/txt_day_pray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:fontFamily="@font/nabi_arabic"
+            android:maxLines="1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textDirection="rtl"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/day_pray_text_frame"
+            app:layout_constraintEnd_toEndOf="@id/day_pray_text_frame"
+            app:layout_constraintStart_toStartOf="@+id/day_pray_text_frame"
+            tools:text="یا قاضی ال احاجات" />
+
+        <!--<GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
+            android:columnCount="2"
+            android:rowCount="4"
+            android:useDefaultMargins="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/day_pray_text_frame">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_prays"
+                android:layout_width="140dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/low_white"
+                android:ellipsize="end"
+                android:fontFamily="@font/tv_regular"
+                android:maxHeight="110dp"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:tag="@string/prays_tag"
+                android:text="@string/prays"
+                android:textColor="@color/text_color_green"
+                android:textSize="16sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ic_praying"
+                app:iconGravity="textTop"
+                app:iconSize="40dp"
+                app:iconTint="@color/icon_green"
+                app:strokeColor="@color/stroke_green"
+                app:strokeWidth="0.8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_ramadan"
+                android:layout_width="140dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/low_white"
+                android:ellipsize="end"
+                android:fontFamily="@font/tv_regular"
+                android:maxHeight="110dp"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:tag="@string/ramdan_pray_tag"
+                android:text="@string/ramdan_pray"
+                android:textColor="@color/text_color_green"
+                android:textSize="16sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ic_ramadan_pray"
+                app:iconGravity="textTop"
+                app:iconSize="40dp"
+                app:iconTint="@color/icon_green"
+                app:strokeColor="@color/stroke_green"
+                app:strokeWidth="0.8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_zirat"
+                android:layout_width="140dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/low_white"
+                android:ellipsize="end"
+                android:fontFamily="@font/tv_regular"
+                android:maxHeight="110dp"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:tag="@string/zirat_tag"
+                android:text="@string/zirat"
+                android:textColor="@color/text_color_green"
+                android:textSize="16sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ic_zirat_pray"
+                app:iconGravity="textTop"
+                app:iconSize="40dp"
+                app:iconTint="@color/icon_green"
+                app:strokeColor="@color/stroke_green"
+                app:strokeWidth="0.8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sore"
+                android:layout_width="140dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/low_white"
+                android:ellipsize="end"
+                android:fontFamily="@font/tv_regular"
+                android:maxHeight="110dp"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:tag="@string/sore_tag"
+                android:text="@string/sore"
+                android:textColor="@color/text_color_green"
+                android:textSize="16sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ic_sore"
+                app:iconGravity="textTop"
+                app:iconSize="40dp"
+                app:iconTint="@color/icon_green"
+                app:strokeColor="@color/stroke_green"
+                app:strokeWidth="0.8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_taghibat"
+                android:layout_width="140dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/low_white"
+                android:ellipsize="end"
+                android:fontFamily="@font/tv_regular"
+                android:maxHeight="110dp"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:tag="@string/namaz_taghibat_tag"
+                android:text="@string/namaz_taghibat"
+                android:textColor="@color/text_color_green"
+                android:textSize="16sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ic_taghibat"
+                app:iconGravity="textTop"
+                app:iconSize="40dp"
+                app:iconTint="@color/icon_green"
+                app:strokeColor="@color/stroke_green"
+                app:strokeWidth="0.8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_week_zirat"
+                android:layout_width="140dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/low_white"
+                android:ellipsize="end"
+                android:fontFamily="@font/tv_regular"
+                android:maxHeight="110dp"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:tag="@string/week_zirat_tag"
+                android:text="@string/week_zirat"
+                android:textColor="@color/text_color_green"
+                android:textSize="16sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ic_weeks_pray"
+                app:iconGravity="textTop"
+                app:iconSize="40dp"
+                app:iconTint="@color/icon_green"
+                app:strokeColor="@color/stroke_green"
+                app:strokeWidth="0.8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_namaz"
+                android:layout_width="140dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/low_white"
+                android:ellipsize="end"
+                android:fontFamily="@font/tv_regular"
+                android:maxHeight="110dp"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:tag="@string/namaz_tag"
+                android:text="@string/namaz"
+                android:textColor="@color/text_color_green"
+                android:textSize="16sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ic_namaz"
+                app:iconGravity="textTop"
+                app:iconSize="40dp"
+                app:iconTint="@color/icon_green"
+                app:strokeColor="@color/stroke_green"
+                app:strokeWidth="0.8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_ghadr_nights"
+                android:layout_width="140dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/low_white"
+                android:ellipsize="end"
+                android:fontFamily="@font/tv_regular"
+                android:maxHeight="110dp"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:tag="@string/ghadr_nights_tag"
+                android:text="@string/ghadr_nights"
+                android:textColor="@color/text_color_green"
+                android:textSize="16sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ic_ghadr_nights"
+                app:iconGravity="textTop"
+                app:iconSize="40dp"
+                app:iconTint="@color/icon_green"
+                app:strokeColor="@color/stroke_green"
+                app:strokeWidth="0.8dp" />
+
+        </GridLayout>-->
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
+            android:stretchColumns="0,1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/day_pray_text_frame">
+
+            <!-- Row 1 -->
+            <TableRow android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_prays"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/low_white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/tv_regular"
+                    android:maxHeight="110dp"
+                    android:maxLines="1"
+                    android:padding="0dp"
+                    android:tag="@string/prays_tag"
+                    android:text="@string/prays"
+                    android:textColor="@color/text_color_green"
+                    android:textSize="16sp"
+                    app:cornerRadius="15dp"
+                    app:icon="@drawable/ic_praying"
+                    app:iconGravity="textTop"
+                    app:iconSize="40dp"
+                    app:iconTint="@color/icon_green"
+                    app:strokeColor="@color/stroke_green"
+                    app:strokeWidth="0.8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_ramadan"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/low_white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/tv_regular"
+                    android:maxHeight="110dp"
+                    android:maxLines="1"
+                    android:padding="0dp"
+                    android:tag="@string/ramdan_pray_tag"
+                    android:text="@string/ramdan_pray"
+                    android:textColor="@color/text_color_green"
+                    android:textSize="16sp"
+                    app:cornerRadius="15dp"
+                    app:icon="@drawable/ic_ramadan_pray"
+                    app:iconGravity="textTop"
+                    app:iconSize="40dp"
+                    app:iconTint="@color/icon_green"
+                    app:strokeColor="@color/stroke_green"
+                    app:strokeWidth="0.8dp" />
+
+            </TableRow>
+
+            <!-- Row 2 -->
+            <TableRow android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_zirat"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/low_white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/tv_regular"
+                    android:maxHeight="110dp"
+                    android:maxLines="1"
+                    android:padding="0dp"
+                    android:tag="@string/zirat_tag"
+                    android:text="@string/zirat"
+                    android:textColor="@color/text_color_green"
+                    android:textSize="16sp"
+                    app:cornerRadius="15dp"
+                    app:icon="@drawable/ic_zirat_pray"
+                    app:iconGravity="textTop"
+                    app:iconSize="40dp"
+                    app:iconTint="@color/icon_green"
+                    app:strokeColor="@color/stroke_green"
+                    app:strokeWidth="0.8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_sore"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/low_white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/tv_regular"
+                    android:maxHeight="110dp"
+                    android:maxLines="1"
+                    android:padding="0dp"
+                    android:tag="@string/sore_tag"
+                    android:text="@string/sore"
+                    android:textColor="@color/text_color_green"
+                    android:textSize="16sp"
+                    app:cornerRadius="15dp"
+                    app:icon="@drawable/ic_sore"
+                    app:iconGravity="textTop"
+                    app:iconSize="40dp"
+                    app:iconTint="@color/icon_green"
+                    app:strokeColor="@color/stroke_green"
+                    app:strokeWidth="0.8dp" />
+
+            </TableRow>
+
+            <!-- Row 3 -->
+            <TableRow android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_taghibat"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/low_white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/tv_regular"
+                    android:maxHeight="110dp"
+                    android:maxLines="1"
+                    android:padding="0dp"
+                    android:tag="@string/namaz_taghibat_tag"
+                    android:text="@string/namaz_taghibat"
+                    android:textColor="@color/text_color_green"
+                    android:textSize="16sp"
+                    app:cornerRadius="15dp"
+                    app:icon="@drawable/ic_taghibat"
+                    app:iconGravity="textTop"
+                    app:iconSize="40dp"
+                    app:iconTint="@color/icon_green"
+                    app:strokeColor="@color/stroke_green"
+                    app:strokeWidth="0.8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_week_zirat"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/low_white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/tv_regular"
+                    android:maxHeight="110dp"
+                    android:maxLines="1"
+                    android:padding="0dp"
+                    android:tag="@string/week_zirat_tag"
+                    android:text="@string/week_zirat"
+                    android:textColor="@color/text_color_green"
+                    android:textSize="16sp"
+                    app:cornerRadius="15dp"
+                    app:icon="@drawable/ic_weeks_pray"
+                    app:iconGravity="textTop"
+                    app:iconSize="40dp"
+                    app:iconTint="@color/icon_green"
+                    app:strokeColor="@color/stroke_green"
+                    app:strokeWidth="0.8dp" />
+
+            </TableRow>
+
+            <!-- Row 4 -->
+            <TableRow android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_namaz"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="@color/low_white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/tv_regular"
+                    android:maxHeight="110dp"
+                    android:maxLines="1"
+                    android:padding="0dp"
+                    android:tag="@string/namaz_tag"
+                    android:text="@string/namaz"
+                    android:textColor="@color/text_color_green"
+                    android:textSize="16sp"
+                    app:cornerRadius="15dp"
+                    app:icon="@drawable/ic_namaz"
+                    app:iconGravity="textTop"
+                    app:iconSize="40dp"
+                    app:iconTint="@color/icon_green"
+                    app:strokeColor="@color/stroke_green"
+                    app:strokeWidth="0.8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_ghadr_nights"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="@color/low_white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/tv_regular"
+                    android:maxHeight="110dp"
+                    android:maxLines="1"
+                    android:padding="0dp"
+                    android:tag="@string/ghadr_nights_tag"
+                    android:text="@string/ghadr_nights"
+                    android:textColor="@color/text_color_green"
+                    android:textSize="16sp"
+                    app:cornerRadius="15dp"
+                    app:icon="@drawable/ic_ghadr_nights"
+                    app:iconGravity="textTop"
+                    app:iconSize="40dp"
+                    app:iconTint="@color/icon_green"
+                    app:strokeColor="@color/stroke_green"
+                    app:strokeWidth="0.8dp" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

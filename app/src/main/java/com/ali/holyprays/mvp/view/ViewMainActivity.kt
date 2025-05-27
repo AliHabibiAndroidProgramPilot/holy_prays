@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.ali.holyprays.R
 import com.ali.holyprays.databinding.ActivityMainBinding
+import com.ali.holyprays.databinding.ActivityMainSecondBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.provider.PrayCategories
 import com.ali.holyprays.ui.CategoryPrayActivity
@@ -17,7 +18,7 @@ class ViewMainActivity(
     private val utils: ActivityUtils
 ) {
 
-    val binding: ActivityMainBinding = ActivityMainBinding.inflate(LayoutInflater.from(context))
+    val binding: ActivityMainSecondBinding = ActivityMainSecondBinding.inflate(LayoutInflater.from(context))
 
     private val context = utils.takeContext()
 
@@ -29,8 +30,8 @@ class ViewMainActivity(
         }
         // Set Right Color For Status Bar
         val window = utils.takeWindow()
-        window!!.statusBarColor = ContextCompat.getColor(context, R.color.actionBar_color)
-        window.navigationBarColor = ContextCompat.getColor(context, R.color.main_bg_gradient_end)
+//        window!!.statusBarColor = ContextCompat.getColor(context, R.color.actionBar_color)
+//        window.navigationBarColor = ContextCompat.getColor(context, R.color.main_bg_gradient_end)
     }
 
     fun setEachDayPray(dayOfWeekValue: Int) {
