@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_bg_background"
-    android:orientation="vertical"
-    tools:context=".ui.CategoryPrayActivity">
+    android:background="@color/background_white"
+    android:orientation="vertical">
 
     <Toolbar
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/top_action_bar_bg"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_margin="10dp"
+        android:background="@drawable/top_action_bar_bg_second"
         android:layoutDirection="rtl"
         android:textDirection="rtl">
 
@@ -20,10 +20,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="50dp"
-            android:fontFamily="@font/iran_sans_medium"
+            android:fontFamily="@font/tv_regular"
             android:maxLines="1"
             android:textAlignment="textStart"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="22sp"
             tools:text="@string/namaz" />
 
@@ -34,7 +34,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/back_navigation_icon"
             android:rotation="180"
-            android:src="@drawable/ic_back_rtl_black" />
+            android:src="@drawable/ic_back_rtl_white" />
 
     </Toolbar>
 
@@ -42,9 +42,9 @@
         android:id="@+id/pray_list_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layoutDirection="rtl"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layoutDirection="rtl"
-        tools:listitem="@layout/pray_list_recycler_item" />
+        tools:listitem="@layout/pray_list_recycler_item_second" />
 
 </LinearLayout>

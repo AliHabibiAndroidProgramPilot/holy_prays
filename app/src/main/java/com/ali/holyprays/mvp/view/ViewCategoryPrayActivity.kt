@@ -2,14 +2,12 @@ package com.ali.holyprays.mvp.view
 
 import android.content.Context
 import android.view.LayoutInflater
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ali.holyprays.R
 import com.ali.holyprays.adapters.PrayListRecyclerAdapter
-import com.ali.holyprays.databinding.ActivityCategoryPrayBinding
+import com.ali.holyprays.databinding.ActivityPrayCategoryTestBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.provider.PrayCategories
 import com.ali.holyprays.provider.PrayDataModel
@@ -20,8 +18,8 @@ class ViewCategoryPrayActivity(
     private val utils: ActivityUtils
 ) {
 
-    val binding: ActivityCategoryPrayBinding =
-        ActivityCategoryPrayBinding.inflate(LayoutInflater.from(context))
+    val binding: ActivityPrayCategoryTestBinding =
+        ActivityPrayCategoryTestBinding.inflate(LayoutInflater.from(context))
 
     private val context = utils.takeContext()
 
@@ -41,9 +39,9 @@ class ViewCategoryPrayActivity(
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val window = utils.takeWindow()
-        window!!.statusBarColor = ContextCompat.getColor(context, R.color.actionBar_color)
-        window.navigationBarColor = ContextCompat.getColor(context, R.color.main_bg_gradient_end)
+//        val window = utils.takeWindow()
+//        window!!.statusBarColor = ContextCompat.getColor(context, R.color.actionBar_color)
+//        window.navigationBarColor = ContextCompat.getColor(context, R.color.main_bg_gradient_end)
     }
 
     fun navigationBackHandler() {

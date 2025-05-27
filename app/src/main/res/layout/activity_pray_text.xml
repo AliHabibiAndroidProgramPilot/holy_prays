@@ -45,7 +45,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/back_navigation_icon"
                 android:rotation="180"
-                android:src="@drawable/ic_back_rtl" />
+                android:src="@drawable/ic_back_rtl_black" />
 
         </FrameLayout>
 

@@ -681,7 +681,7 @@ object PrayRepository {
                     PrayDataModel(
                         6,
                         PrayCategories.SORE,
-                        "نبا",
+                        "سوره نبا",
                         null,
                         "sore/naba.txt",
                         "sore/persian/naba_p.txt",

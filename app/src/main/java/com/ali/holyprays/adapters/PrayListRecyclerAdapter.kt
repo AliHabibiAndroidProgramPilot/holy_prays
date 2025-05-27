@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.ali.holyprays.databinding.PrayListRecyclerItemBinding
+import com.ali.holyprays.databinding.PrayListRecyclerItemSecondBinding
 import com.ali.holyprays.provider.PrayDataModel
 import com.ali.holyprays.ui.PrayTextActivity
 
@@ -18,7 +19,7 @@ class PrayListRecyclerAdapter(
     Adapter<PrayListRecyclerAdapter.PrayListViewHolder>() {
 
     inner class PrayListViewHolder(
-        private val binding: PrayListRecyclerItemBinding
+        private val binding: PrayListRecyclerItemSecondBinding
     ) : ViewHolder(binding.root) {
 
         fun setData(pray: PrayDataModel) {
@@ -43,8 +44,14 @@ class PrayListRecyclerAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PrayListViewHolder =
-        PrayListViewHolder(
+        /*PrayListViewHolder(
             PrayListRecyclerItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )*/
+        PrayListViewHolder(
+            PrayListRecyclerItemSecondBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
