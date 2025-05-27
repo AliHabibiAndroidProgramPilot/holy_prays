@@ -892,7 +892,7 @@ object PrayRepository {
                         "زیارت حضرت رسول (ص) در روز شنبه",
                         null,
                         "week_zirat/rasoul_saturday_pray.txt",
-                        "week_zirat/persian/amir_al_momenin_sunday_pray_p.txt",
+                        "week_zirat/persian/rasoul_saturday_pray_p.txt",
                         null
                     ),
                     PrayDataModel(
