@@ -471,7 +471,7 @@ object PrayRepository {
                         PrayCategories.ZIARAT,
                         "زیارت امام رضا",
                         null,
-                        "zirat/zirat_imam_reza",
+                        "zirat/zirat_imam_reza.txt",
                         "zirat/persian/zirat_imam_reza_p.txt",
                         null
                     ),

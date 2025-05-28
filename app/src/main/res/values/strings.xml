@@ -36,4 +36,10 @@
     <string name="back_navigation_icon">back navigation icon</string>
     <string name="recycler_item_logo">recycler item logo</string>
     <string name="divider">divider</string>
+    <string name="add_text_size">add text size</string>
+    <string name="minus_text_size">minus text size</string>
+    <string name="ic_play">icon play</string>
+    <string name="ic_stop">icon stop</string>
+    <string name="ic_dark_mode">icon dark mode</string>
+    <string name="ic_translation">icon persian translation</string>
 </resources>
