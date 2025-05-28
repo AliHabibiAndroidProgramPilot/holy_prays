@@ -13,4 +13,6 @@
     <color name="text_color_green">#326241</color>
     <color name="stroke_green">#a4f2cf</color>
     <color name="ripple_dark_color">#40000000</color>
+    <color name="inactivate_color">#80000000</color>
+    <color name="background_black">#353935</color>
 </resources>

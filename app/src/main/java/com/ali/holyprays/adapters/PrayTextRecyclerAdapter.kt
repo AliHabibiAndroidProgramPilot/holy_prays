@@ -5,6 +5,8 @@ import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -18,6 +20,18 @@ class PrayTextRecyclerAdapter(
     private val persianTextList: List<String>,
     private val category: PrayCategories?
 ) : Adapter<PrayTextRecyclerAdapter.PrayTextViewHolder>() {
+
+    var isLightModeOn: Boolean = true
+        set(value) {
+            field = value
+            notifyItemRangeChanged(0, itemCount, "PAY_LOAD_COLOR_MODE")
+        }
+
+    var isPersianTranslationVisible: Boolean = true
+        set(value) {
+            field = value
+            notifyItemRangeChanged(0, itemCount, "PAYLOAD_PERSIAN_TRANSLATION_VISIBILITY")
+        }
 
     inner class PrayTextViewHolder(private val binding: PrayTextRecyclerItemBinding) :
         ViewHolder(binding.root) {
@@ -51,6 +65,18 @@ class PrayTextRecyclerAdapter(
             return spannableStringBuilder
         }
 
+        fun modifyTextColor(@ColorRes colorRes: Int) {
+            val color = ContextCompat.getColor(itemView.context, colorRes)
+            binding.txtPrayArabic.setTextColor(color)
+            binding.txtPrayTranslationPersian.setTextColor(color)
+        }
+
+        fun modifyPersianTranslationVisibility(isVisible: Boolean) {
+            binding.txtPrayTranslationPersian.visibility =
+                if (isVisible) View.VISIBLE else View.GONE
+        }
+
+
         fun bindPrayTextWithPersianSegments(arabicText: String, persianText: String) {
             binding.txtPrayArabic.text = parsePersianSegmentInArabicText(arabicText)
             if (persianText.isEmpty() || persianText.isBlank())
@@ -74,11 +100,40 @@ class PrayTextRecyclerAdapter(
     override fun getItemCount(): Int = arabicTextList.size
 
     override fun onBindViewHolder(holder: PrayTextViewHolder, position: Int) {
-        if (category == PrayCategories.GHADR_NIGHTS || category == PrayCategories.ZIARAT || category == PrayCategories.NAMAZ) {
-            val persianText = if (position < persianTextList.size) persianTextList[position] else ""
-            holder.bindPrayTextWithPersianSegments(arabicTextList[position], persianText)
+        bindFull(holder, position)
+    }
+
+    override fun onBindViewHolder(
+        holder: PrayTextViewHolder,
+        position: Int,
+        payloads: MutableList<Any>
+    ) {
+        if (payloads.isNotEmpty()) {
+            if (payloads.contains("PAY_LOAD_COLOR_MODE")) {
+                holder.modifyTextColor(
+                    if (isLightModeOn) R.color.black else R.color.white
+                )
+            }
+            if (payloads.contains("PAYLOAD_PERSIAN_TRANSLATION_VISIBILITY")) {
+                holder.modifyPersianTranslationVisibility(isPersianTranslationVisible)
+            }
         } else
+            bindFull(holder, position)
+        super.onBindViewHolder(holder, position, payloads)
+    }
+
+    private fun bindFull(holder: PrayTextViewHolder, position: Int) {
+        if (category == PrayCategories.GHADR_NIGHTS
+            || category == PrayCategories.ZIARAT
+            || category == PrayCategories.NAMAZ
+        ) {
+            val persianText = persianTextList.getOrNull(position) ?: ""
+            holder.bindPrayTextWithPersianSegments(arabicTextList[position], persianText)
+        } else {
             holder.bindOtherPraysText(arabicTextList[position], persianTextList[position])
+        }
+        holder.modifyTextColor(if (isLightModeOn) R.color.black else R.color.white)
+        holder.modifyPersianTranslationVisibility(isPersianTranslationVisible)
     }
 
 }
