@@ -4,12 +4,18 @@
         <!-- Customize theme here. -->
         <item name="android:statusBarColor">@color/new_dark_green</item>
         <item name="android:colorEdgeEffect">@color/stroke_green</item>
+        <item name="colorControlHighlight">@color/ripple_dark_color</item>
     </style>
 
     <style name="Theme.HolyPrays" parent="Base.Theme.HolyPrays" />
 
-    <style name="roundedImageView" parent="Base.Theme.HolyPrays">
+    <style name="roundedDayPrayFrameImageView" parent="Base.Theme.HolyPrays">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">15dp</item>
+    </style>
+
+    <style name="roundedTextModifiersButton" parent="Base.Theme.HolyPrays">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
     </style>
 </resources>
