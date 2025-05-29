@@ -33,6 +33,15 @@ class PrayTextRecyclerAdapter(
             notifyItemRangeChanged(0, itemCount, "PAYLOAD_PERSIAN_TRANSLATION_VISIBILITY")
         }
 
+    var textSize: Float = 14f
+        set(value) {
+            val newTextSize: Float = value.coerceIn(8f, 40f)
+            if (field != newTextSize) {
+                field = newTextSize
+                notifyItemRangeChanged(0, itemCount, "PAYLOAD_TEXT_SIZE")
+            }
+        }
+
     inner class PrayTextViewHolder(private val binding: PrayTextRecyclerItemBinding) :
         ViewHolder(binding.root) {
 
@@ -76,6 +85,10 @@ class PrayTextRecyclerAdapter(
                 if (isVisible) View.VISIBLE else View.GONE
         }
 
+        fun modifyTextSize(sizeSp: Float) {
+            binding.txtPrayArabic.textSize = sizeSp
+            binding.txtPrayTranslationPersian.textSize = sizeSp
+        }
 
         fun bindPrayTextWithPersianSegments(arabicText: String, persianText: String) {
             binding.txtPrayArabic.text = parsePersianSegmentInArabicText(arabicText)
@@ -108,17 +121,20 @@ class PrayTextRecyclerAdapter(
         position: Int,
         payloads: MutableList<Any>
     ) {
-        if (payloads.isNotEmpty()) {
-            if (payloads.contains("PAY_LOAD_COLOR_MODE")) {
+        if (payloads.isEmpty()) {
+            bindFull(holder, position)
+            return
+        }
+        with(payloads) {
+            if ("PAY_LOAD_COLOR_MODE" in this)
                 holder.modifyTextColor(
                     if (isLightModeOn) R.color.black else R.color.white
                 )
-            }
-            if (payloads.contains("PAYLOAD_PERSIAN_TRANSLATION_VISIBILITY")) {
+            if ("PAYLOAD_PERSIAN_TRANSLATION_VISIBILITY" in this)
                 holder.modifyPersianTranslationVisibility(isPersianTranslationVisible)
-            }
-        } else
-            bindFull(holder, position)
+            if ("PAYLOAD_TEXT_SIZE" in this)
+                holder.modifyTextSize(textSize)
+        }
         super.onBindViewHolder(holder, position, payloads)
     }
 
@@ -134,6 +150,7 @@ class PrayTextRecyclerAdapter(
         }
         holder.modifyTextColor(if (isLightModeOn) R.color.black else R.color.white)
         holder.modifyPersianTranslationVisibility(isPersianTranslationVisible)
+        holder.modifyTextSize(textSize)
     }
 
 }

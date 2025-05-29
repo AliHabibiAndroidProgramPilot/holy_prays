@@ -3,6 +3,9 @@ package com.ali.holyprays.mvp.view
 import android.content.Context
 import android.graphics.PorterDuff
 import android.os.Build
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -28,6 +31,15 @@ class ViewPrayTextActivity(
     private val intent = utils.takeActivityIntentExtra()
 
     private lateinit var adapter: PrayTextRecyclerAdapter
+
+    private val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        val vibratorManager =
+            context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
+        vibratorManager.defaultVibrator
+    } else {
+        @Suppress("DEPRECATION")
+        context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+    }
 
     @Suppress("DEPRECATION")
     private val pray = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
@@ -83,6 +95,8 @@ class ViewPrayTextActivity(
         var isPersianTranslationEnabled = true
         val buttonDarkMode = binding.icDarkMode
         var isDarkModeEnabled = false
+        val buttonAddToTextSize = binding.buttonAddToTextSize
+        val buttonMinusToTextSize = binding.buttoMinusToTextSize
         buttonDarkMode.setOnClickListener {
             if (!isDarkModeEnabled) {
                 buttonDarkMode.setColorFilter(
@@ -121,6 +135,36 @@ class ViewPrayTextActivity(
                 adapter.isPersianTranslationVisible = true
             }
 
+        }
+        buttonAddToTextSize.setOnClickListener {
+            if (vibrator.hasVibrator()) {
+                @Suppress("DEPRECATION")
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                    vibrator.vibrate(
+                        VibrationEffect.createOneShot(
+                            100,
+                            VibrationEffect.DEFAULT_AMPLITUDE
+                        )
+                    )
+                else
+                    vibrator.vibrate(100)
+            }
+            adapter.textSize += 2f
+        }
+        buttonMinusToTextSize.setOnClickListener {
+            if (vibrator.hasVibrator()) {
+                @Suppress("DEPRECATION")
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                    vibrator.vibrate(
+                        VibrationEffect.createOneShot(
+                            100,
+                            VibrationEffect.DEFAULT_AMPLITUDE
+                        )
+                    )
+                else
+                    vibrator.vibrate(100)
+            }
+            adapter.textSize -= 2f
         }
     }
 

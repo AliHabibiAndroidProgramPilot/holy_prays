@@ -20,7 +20,6 @@
         android:fontFamily="@font/nabi_arabic"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="16sp"
         tools:text="یا الله و ال ذی" />
 
     <TextView
@@ -33,7 +32,6 @@
         android:fontFamily="@font/iran_sans_regular"
         android:textAlignment="center"
         android:textColor="@android:color/secondary_text_light"
-        android:textSize="13sp"
         tools:text="یا الله و ال ذی" />
 
     <ImageView
@@ -43,6 +41,6 @@
         android:layout_marginTop="5dp"
         android:contentDescription="@string/divider"
         android:scaleType="centerInside"
-        android:src="@drawable/text_divider2" />
+        android:src="@drawable/text_divider" />
 
 </LinearLayout>
