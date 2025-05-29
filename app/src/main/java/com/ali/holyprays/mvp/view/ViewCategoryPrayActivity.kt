@@ -1,8 +1,10 @@
 package com.ali.holyprays.mvp.view
 
 import android.content.Context
+import android.content.res.Configuration
 import android.view.LayoutInflater
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,9 +41,12 @@ class ViewCategoryPrayActivity(
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-//        val window = utils.takeWindow()
-//        window!!.statusBarColor = ContextCompat.getColor(context, R.color.actionBar_color)
-//        window.navigationBarColor = ContextCompat.getColor(context, R.color.main_bg_gradient_end)
+        if (isDarkModeEnabled()) {
+            val window = utils.takeWindow()!!
+            val insetsController = WindowCompat.getInsetsController(window, window.decorView)
+            insetsController.isAppearanceLightStatusBars = true
+            insetsController.isAppearanceLightNavigationBars = true
+        }
     }
 
     fun navigationBackHandler() {
@@ -66,6 +71,12 @@ class ViewCategoryPrayActivity(
         return category.let {
             PrayRepository.providePrayByCategory(it)
         }
+    }
+
+    private fun isDarkModeEnabled(): Boolean {
+        val currentNightMode =
+            context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return currentNightMode == Configuration.UI_MODE_NIGHT_YES
     }
 
 }
