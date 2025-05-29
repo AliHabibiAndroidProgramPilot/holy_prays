@@ -55,7 +55,7 @@ class ViewPrayTextActivity(
             view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        if (isDarkModeEnabled()) {
+        if (isDeviceDarkModeEnabled()) {
             val window = utils.takeWindow()!!
             val insetsController = WindowCompat.getInsetsController(window, window.decorView)
             insetsController.isAppearanceLightStatusBars = true
@@ -95,80 +95,30 @@ class ViewPrayTextActivity(
         })
     }
 
-    fun textModifierBoxButtonsClickHandler() {
-        val buttonPersianTranslation = binding.icEnablePersianTranslation
+    fun initPersianTranslationButton() {
         var isPersianTranslationEnabled = true
-        val buttonDarkMode = binding.icDarkMode
-        var isDarkModeEnabled = false
-        val buttonAddToTextSize = binding.buttonAddToTextSize
-        val buttonMinusToTextSize = binding.buttoMinusToTextSize
-        buttonDarkMode.setOnClickListener {
-            if (!isDarkModeEnabled) {
-                buttonDarkMode.setColorFilter(
-                    ContextCompat.getColor(context, R.color.new_dark_green),
-                    PorterDuff.Mode.SRC_IN
-                )
-                darkAndLightThemeChanger(false)
-                isDarkModeEnabled = true
-            } else {
-                buttonDarkMode.setColorFilter(
-                    ContextCompat.getColor(context, R.color.inactivate_color),
-                    PorterDuff.Mode.SRC_IN
-                )
-                darkAndLightThemeChanger(true)
-                isDarkModeEnabled = false
-            }
+        binding.icEnablePersianTranslation.setOnClickListener {
+            isPersianTranslationEnabled =
+                persianTranslationButtonUiStateChanger(isPersianTranslationEnabled)
+            adapter.isPersianTranslationVisible = isPersianTranslationEnabled
         }
-        buttonPersianTranslation.setOnClickListener {
-            if (isPersianTranslationEnabled) {
-                buttonPersianTranslation.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        context,
-                        R.drawable.ic_translation_control_color
-                    )
-                )
-                isPersianTranslationEnabled = false
-                adapter.isPersianTranslationVisible = false
-            } else {
-                buttonPersianTranslation.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        context,
-                        R.drawable.ic_translation_green_color
-                    )
-                )
-                isPersianTranslationEnabled = true
-                adapter.isPersianTranslationVisible = true
-            }
+    }
 
+    fun initDarkModeButton() {
+        var isDarkModeEnabled = false
+        binding.icDarkMode.setOnClickListener {
+            isDarkModeEnabled = darkModeButtonUiStateChanger(!isDarkModeEnabled)
+            adapter.isDarkModeOn = !isDarkModeEnabled
         }
-        buttonAddToTextSize.setOnClickListener {
-            if (vibrator.hasVibrator()) {
-                @Suppress("DEPRECATION")
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-                    vibrator.vibrate(
-                        VibrationEffect.createOneShot(
-                            100,
-                            VibrationEffect.DEFAULT_AMPLITUDE
-                        )
-                    )
-                else
-                    vibrator.vibrate(100)
-            }
+    }
+
+    fun initPlusAndMinusTextSizeButtons() {
+        binding.icAddTextSize.setOnClickListener {
+            doVibrate()
             adapter.textSize += 2f
         }
-        buttonMinusToTextSize.setOnClickListener {
-            if (vibrator.hasVibrator()) {
-                @Suppress("DEPRECATION")
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-                    vibrator.vibrate(
-                        VibrationEffect.createOneShot(
-                            100,
-                            VibrationEffect.DEFAULT_AMPLITUDE
-                        )
-                    )
-                else
-                    vibrator.vibrate(100)
-            }
+        binding.icMinusTextSize.setOnClickListener {
+            doVibrate()
             adapter.textSize -= 2f
         }
     }
@@ -193,55 +143,74 @@ class ViewPrayTextActivity(
         }
     }
 
-    private fun darkAndLightThemeChanger(isLight: Boolean) {
-        if (isLight) {
-            binding.root.setBackgroundColor(
-                ContextCompat.getColor(
-                    context,
-                    R.color.background_white
-                )
-            )
-            binding.toolbar.setBackgroundColor(
-                ContextCompat.getColor(
-                    context,
-                    R.color.background_white
-                )
-            )
-            binding.textModifierBox.setBackgroundResource(R.drawable.text_modifier_box_bg_light)
-            binding.txtPrayName.setTextColor(ContextCompat.getColor(context, R.color.black))
-            binding.icToolbarNavigationBack.setColorFilter(
-                ContextCompat.getColor(
-                    context,
-                    R.color.black
-                )
-            )
-            adapter.isLightModeOn = true
-        } else {
-            binding.root.setBackgroundColor(
-                ContextCompat.getColor(
-                    context,
-                    R.color.background_black
-                )
-            )
-            binding.toolbar.setBackgroundColor(
-                ContextCompat.getColor(
-                    context,
-                    R.color.background_black
-                )
-            )
+    private fun darkModeButtonUiStateChanger(isDarkModeEnabled: Boolean): Boolean {
+        if (isDarkModeEnabled) {
+            binding.root.setBackgroundColor(ContextCompat.getColor(context, R.color.background_black))
+            binding.toolbar.setBackgroundColor(ContextCompat.getColor(context, R.color.background_black))
             binding.textModifierBox.setBackgroundResource(R.drawable.text_modifier_box_bg_dark)
             binding.txtPrayName.setTextColor(ContextCompat.getColor(context, R.color.white))
             binding.icToolbarNavigationBack.setColorFilter(
-                ContextCompat.getColor(
-                    context,
-                    R.color.white
-                )
+                ContextCompat.getColor(context, R.color.white),
+                PorterDuff.Mode.SRC_IN
             )
-            adapter.isLightModeOn = false
+            binding.icDarkMode.setColorFilter(
+                ContextCompat.getColor(context, R.color.new_dark_green),
+                PorterDuff.Mode.SRC_IN
+            )
+            return true
+        } else {
+            binding.root.setBackgroundColor(ContextCompat.getColor(context, R.color.background_white))
+            binding.toolbar.setBackgroundColor(ContextCompat.getColor(context, R.color.background_white))
+            binding.textModifierBox.setBackgroundResource(R.drawable.text_modifier_box_bg_light)
+            binding.txtPrayName.setTextColor(ContextCompat.getColor(context, R.color.black))
+            binding.icToolbarNavigationBack.setColorFilter(
+                ContextCompat.getColor(context, R.color.black),
+                PorterDuff.Mode.SRC_IN
+            )
+            binding.icDarkMode.setColorFilter(
+                ContextCompat.getColor(context, R.color.inactivate_color),
+                PorterDuff.Mode.SRC_IN
+            )
+            return false
         }
     }
 
-    private fun isDarkModeEnabled(): Boolean {
+    private fun persianTranslationButtonUiStateChanger(isPersianTranslationEnabled: Boolean): Boolean {
+        if (isPersianTranslationEnabled) {
+            binding.icEnablePersianTranslation.setImageDrawable(
+                ContextCompat.getDrawable(
+                    context,
+                    R.drawable.ic_translation_control_color
+                )
+            )
+            return false
+        } else {
+            binding.icEnablePersianTranslation.setImageDrawable(
+                ContextCompat.getDrawable(
+                    context,
+                    R.drawable.ic_translation_green_color
+                )
+            )
+            return true
+        }
+    }
+
+    private fun doVibrate() {
+        if (vibrator.hasVibrator()) {
+            @Suppress("DEPRECATION")
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                vibrator.vibrate(
+                    VibrationEffect.createOneShot(
+                        100,
+                        VibrationEffect.DEFAULT_AMPLITUDE
+                    )
+                )
+            else
+                vibrator.vibrate(100)
+        }
+    }
+
+    private fun isDeviceDarkModeEnabled(): Boolean {
         val currentNightMode =
             context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES

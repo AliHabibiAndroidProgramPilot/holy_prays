@@ -24,7 +24,9 @@ class PresenterPrayTextActivity(
         view.navigationBackHandler()
         view.setToolbarText()
         view.manageRecyclerScroll()
-        view.textModifierBoxButtonsClickHandler()
+        view.initPersianTranslationButton()
+        view.initDarkModeButton()
+        view.initPlusAndMinusTextSizeButtons()
         providePrayText(view.provideFilesPath(), view.providePrayPersianTranslationFilePath())
     }
 

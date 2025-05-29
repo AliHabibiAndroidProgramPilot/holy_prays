@@ -21,7 +21,7 @@ class PrayTextRecyclerAdapter(
     private val category: PrayCategories?
 ) : Adapter<PrayTextRecyclerAdapter.PrayTextViewHolder>() {
 
-    var isLightModeOn: Boolean = true
+    var isDarkModeOn: Boolean = true
         set(value) {
             field = value
             notifyItemRangeChanged(0, itemCount, "PAY_LOAD_COLOR_MODE")
@@ -35,7 +35,7 @@ class PrayTextRecyclerAdapter(
 
     var textSize: Float = 14f
         set(value) {
-            val newTextSize: Float = value.coerceIn(8f, 40f)
+            val newTextSize: Float = value.coerceIn(8f, 38f)
             if (field != newTextSize) {
                 field = newTextSize
                 notifyItemRangeChanged(0, itemCount, "PAYLOAD_TEXT_SIZE")
@@ -128,7 +128,7 @@ class PrayTextRecyclerAdapter(
         with(payloads) {
             if ("PAY_LOAD_COLOR_MODE" in this)
                 holder.modifyTextColor(
-                    if (isLightModeOn) R.color.black else R.color.white
+                    if (isDarkModeOn) R.color.white else R.color.black
                 )
             if ("PAYLOAD_PERSIAN_TRANSLATION_VISIBILITY" in this)
                 holder.modifyPersianTranslationVisibility(isPersianTranslationVisible)
@@ -148,7 +148,7 @@ class PrayTextRecyclerAdapter(
         } else {
             holder.bindOtherPraysText(arabicTextList[position], persianTextList[position])
         }
-        holder.modifyTextColor(if (isLightModeOn) R.color.black else R.color.white)
+        holder.modifyTextColor(if (isDarkModeOn) R.color.black else R.color.white)
         holder.modifyPersianTranslationVisibility(isPersianTranslationVisible)
         holder.modifyTextSize(textSize)
     }
