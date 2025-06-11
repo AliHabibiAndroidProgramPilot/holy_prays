@@ -24,13 +24,6 @@ class PrayListRecyclerAdapter(
 
         fun setData(pray: PrayDataModel) {
             binding.txtPrayTitle.text = pray.prayName
-            if (pray.prayDetail.isNullOrEmpty()) {
-                binding.txtPrayDetail.visibility = View.INVISIBLE
-                binding.txtPrayDetail.text = null
-            } else {
-                binding.txtPrayDetail.visibility = View.VISIBLE
-                binding.txtPrayDetail.text = pray.prayDetail
-            }
             val intent = Intent(context, PrayTextActivity::class.java).apply {
                 putExtra("PRAY_EXTRA", pray)
             }

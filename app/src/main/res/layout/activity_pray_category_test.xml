@@ -1,50 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_white"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="2dp"
+    android:layoutDirection="rtl"
+    android:background="@color/background_white">
 
-    <Toolbar
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:layout_margin="10dp"
-        android:background="@drawable/top_action_bar_bg_second"
-        android:layoutDirection="rtl"
-        android:textDirection="rtl">
+        android:layout_height="match_parent"
+        android:contentDescription="@string/back_navigation_icon"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txt_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="50dp"
-            android:fontFamily="@font/tv_regular"
-            android:maxLines="1"
-            android:textAlignment="textStart"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            tools:text="@string/namaz" />
+    <ImageView
+        android:id="@+id/corner_top_left"
+        android:layout_width="170dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/corner_image"
+        android:scaleType="fitCenter"
+        android:src="@drawable/corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/ic_toolbar_navigation_back"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/back_navigation_icon"
-            android:rotation="180"
-            android:src="@drawable/ic_back_rtl_white" />
+    <ImageView
+        android:id="@+id/corner_top_right"
+        android:layout_width="170dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/corner_image"
+        android:scaleType="fitCenter"
+        android:scaleX="-1"
+        android:src="@drawable/corner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </Toolbar>
+    <TextView
+        android:id="@+id/txt_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:fontFamily="@font/iran_sans_medium"
+        tools:text="سوره ها"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/corner_top_left"
+        app:layout_constraintStart_toStartOf="@id/corner_top_right"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_choose_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/iran_sans_medium"
+        android:text="@string/choose_one"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/corner_top_left"
+        app:layout_constraintStart_toStartOf="@id/corner_top_right"
+        app:layout_constraintTop_toBottomOf="@id/txt_category" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pray_list_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layoutDirection="rtl"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/corner_top_right"
+        app:layout_constraintStart_toStartOf="@+id/corner_top_left"
+        app:layout_constraintTop_toBottomOf="@+id/txt_choose_one"
         tools:listitem="@layout/pray_list_recycler_item_second" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

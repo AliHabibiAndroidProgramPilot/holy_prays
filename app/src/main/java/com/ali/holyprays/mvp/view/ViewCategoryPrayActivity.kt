@@ -49,11 +49,11 @@ class ViewCategoryPrayActivity(
         }
     }
 
-    fun navigationBackHandler() {
+    /*fun navigationBackHandler() {
         binding.icToolbarNavigationBack.setOnClickListener {
             utils.takeBackPressedDispatchers()?.onBackPressed()
         }
-    }
+    }*/
 
     fun setToolbarTopText() {
         val resources = utils.takeActivityResources()
