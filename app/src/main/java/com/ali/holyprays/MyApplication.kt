@@ -6,7 +6,7 @@ import com.ali.holyprays.mvp.ext.PrefsManager
 class MyApplication : Application() {
 
     override fun onCreate() {
-        PrefsManager.init(this)
+        PrefsManager.init(applicationContext)
         super.onCreate()
     }
 

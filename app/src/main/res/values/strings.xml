@@ -21,13 +21,14 @@
     <string name="prays_tag">PRAYS</string>
     <string name="sore">سوره ها</string>
     <string name="sore_tag">SORE</string>
-    <string name="namaz_taghibat">تعقیبات</string>
+    <string name="namaz_taghibat">تعقیبات نماز</string>
     <string name="namaz_taghibat_tag">NAMAZ_TAGHIBAT</string>
     <string name="namaz">نماز ها</string>
     <string name="namaz_tag">NAMAZ</string>
-    <string name="ramdan_pray">ماه رمضان</string>
+    <string name="ramdan_pray">اعمال ماه مبارک رمضان</string>
     <string name="ghadr_nights_tag">GHADR_NIGHTS</string>
-    <string name="ghadr_nights">شب های قدر</string>
+    <string name="ghadr_nights">اعمال شب های قدر</string>
+    <string name="remedy">یاد بود</string>
     <string name="ramdan_pray_tag">RAMADAN_PRAY</string>
     <string name="zirat">زیارات</string>
     <string name="zirat_tag">ZIARAT</string>
@@ -40,6 +41,11 @@
     <string name="minus_text_size">minus text size</string>
     <string name="ic_play">icon play</string>
     <string name="ic_stop">icon stop</string>
+    <string name="main_background_image">main background image</string>
     <string name="ic_dark_mode">icon dark mode</string>
     <string name="ic_translation">icon persian translation</string>
+    <string name="corner_image">corner image</string>
+    <string name="app_name_persian">شمیم بهشت</string>
+    <string name="app_description">منتخب ادعیه و قرآن</string>
+    <string name="setting">تنظیمات</string>
 </resources>

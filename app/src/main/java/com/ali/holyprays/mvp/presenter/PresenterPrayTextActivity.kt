@@ -21,13 +21,16 @@ class PresenterPrayTextActivity(
 
     override fun presenterOnCreate() {
         view.setInsetsAndUiColor()
+        providePrayText(view.provideFilesPath(), view.providePrayPersianTranslationFilePath())
         view.navigationBackHandler()
         view.setToolbarText()
         view.manageRecyclerScroll()
         view.initPersianTranslationButton()
-        view.initDarkModeButton()
+        view.initDarkModeButton {
+            val isDarkModeEnabled = model.toggleDarkMode()
+            view.darkModeButtonUiStateChanger(isDarkModeEnabled)
+        }
         view.initPlusAndMinusTextSizeButtons()
-        providePrayText(view.provideFilesPath(), view.providePrayPersianTranslationFilePath())
     }
 
     private fun providePrayText(prayFilePath: String, prayPersianTranslationFilePath: String) {
@@ -40,6 +43,7 @@ class PresenterPrayTextActivity(
                     prayPersianTranslationFilePath
                 )
                 view.setupRecyclerViewData(arabicFileContent, persianFileContent)
+//                view.darkModeButtonUiStateChanger(model.initDarkModePrefs())
             } catch (e: Exception) {
                 e.printStackTrace()
                 Log.e("EXCEPTION", "failed to load file")

@@ -85,10 +85,10 @@ class ViewPrayTextActivity(
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 if (dy > 10) {
                     // Scrolling down
-                    animateBoxAndToolbar(true)
+                    animateBox(true)
                 } else if (dy < -10) {
                     // Scrolling up
-                    animateBoxAndToolbar(false)
+                    animateBox(false)
                 }
                 super.onScrolled(recyclerView, dx, dy)
             }
@@ -104,12 +104,13 @@ class ViewPrayTextActivity(
         }
     }
 
-    fun initDarkModeButton() {
-        var isDarkModeEnabled = false
+    fun initDarkModeButton(listener: () -> Unit) {
+        /*var isDarkModeEnabled = false
         binding.icDarkMode.setOnClickListener {
             isDarkModeEnabled = darkModeButtonUiStateChanger(!isDarkModeEnabled)
             adapter.isDarkModeOn = !isDarkModeEnabled
-        }
+        }*/
+        binding.icDarkMode.setOnClickListener { listener() }
     }
 
     fun initPlusAndMinusTextSizeButtons() {
@@ -127,7 +128,7 @@ class ViewPrayTextActivity(
 
     fun providePrayPersianTranslationFilePath(): String = pray?.prayPersianTranslationFilePath!!
 
-    private fun animateBoxAndToolbar(isShowing: Boolean) {
+    private fun animateBox(isShowing: Boolean) {
         if (isShowing) {
             binding.textModifierBox.animate()
                 .translationY(binding.textModifierBox.height.toFloat())
@@ -143,10 +144,20 @@ class ViewPrayTextActivity(
         }
     }
 
-    private fun darkModeButtonUiStateChanger(isDarkModeEnabled: Boolean): Boolean {
+    fun darkModeButtonUiStateChanger(isDarkModeEnabled: Boolean) {
         if (isDarkModeEnabled) {
-            binding.root.setBackgroundColor(ContextCompat.getColor(context, R.color.background_black))
-            binding.toolbar.setBackgroundColor(ContextCompat.getColor(context, R.color.background_black))
+            binding.root.setBackgroundColor(
+                ContextCompat.getColor(
+                    context,
+                    R.color.background_black
+                )
+            )
+            binding.toolbar.setBackgroundColor(
+                ContextCompat.getColor(
+                    context,
+                    R.color.background_black
+                )
+            )
             binding.textModifierBox.setBackgroundResource(R.drawable.text_modifier_box_bg_dark)
             binding.txtPrayName.setTextColor(ContextCompat.getColor(context, R.color.white))
             binding.icToolbarNavigationBack.setColorFilter(
@@ -157,10 +168,20 @@ class ViewPrayTextActivity(
                 ContextCompat.getColor(context, R.color.new_dark_green),
                 PorterDuff.Mode.SRC_IN
             )
-            return true
+            adapter.isDarkModeOn = false
         } else {
-            binding.root.setBackgroundColor(ContextCompat.getColor(context, R.color.background_white))
-            binding.toolbar.setBackgroundColor(ContextCompat.getColor(context, R.color.background_white))
+            binding.root.setBackgroundColor(
+                ContextCompat.getColor(
+                    context,
+                    R.color.background_white
+                )
+            )
+            binding.toolbar.setBackgroundColor(
+                ContextCompat.getColor(
+                    context,
+                    R.color.background_white
+                )
+            )
             binding.textModifierBox.setBackgroundResource(R.drawable.text_modifier_box_bg_light)
             binding.txtPrayName.setTextColor(ContextCompat.getColor(context, R.color.black))
             binding.icToolbarNavigationBack.setColorFilter(
@@ -171,7 +192,7 @@ class ViewPrayTextActivity(
                 ContextCompat.getColor(context, R.color.inactivate_color),
                 PorterDuff.Mode.SRC_IN
             )
-            return false
+            adapter.isDarkModeOn = true
         }
     }
 
@@ -193,6 +214,10 @@ class ViewPrayTextActivity(
             )
             return true
         }
+    }
+
+    private fun textSizeUiStateChanger(textSize: Float) {
+        adapter.textSize = textSize.coerceIn(8f, 38f)
     }
 
     private fun doVibrate() {

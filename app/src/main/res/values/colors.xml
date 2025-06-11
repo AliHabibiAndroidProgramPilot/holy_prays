@@ -2,12 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background_white">#ecfdf5</color>
+    <color name="background_white">#d0d0d0</color>
     <color name="actionBar_color">#DDE5B6</color>
     <color name="low_white">#26FFFFFF</color>
     <color name="main_bg_gradient_start">#ADC178</color>
     <color name="main_bg_gradient_end">#F0EAD2</color>
-    <color name="dark_green">#12581a</color>
+    <color name="dark_green">#326241</color>
     <color name="new_dark_green">#059669</color>
     <color name="icon_green">#16a34a</color>
     <color name="text_color_green">#326241</color>

@@ -47,11 +47,13 @@ class ModelPrayTextActivity {
         }
     }
 
-    fun saveDarkModeState(isDarkModeEnabled: Boolean) {
-        PrefsManager.saveDarkModeState(isDarkModeEnabled)
+    fun toggleDarkMode(): Boolean {
+        val newState: Boolean = !PrefsManager.getDarkModeState()
+        PrefsManager.saveDarkModeState(!newState)
+        return !newState
     }
 
-    fun getDarkModeState(): Boolean = PrefsManager.getDarkModeState()
+    fun initDarkModePrefs(): Boolean = PrefsManager.getDarkModeState()
 
     fun savePersianTranslationState(isPersianTranslationEnabled: Boolean) {
         PrefsManager.savePersianTranslationState(isPersianTranslationEnabled)
