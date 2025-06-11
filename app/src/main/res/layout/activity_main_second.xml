@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_white"
@@ -44,28 +43,6 @@
             android:src="@drawable/corner"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="170dp"
-            android:layout_height="150dp"
-            android:contentDescription="@string/corner_image"
-            android:scaleType="fitCenter"
-            android:scaleY="-1"
-            android:src="@drawable/corner"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <ImageView
-            android:layout_width="170dp"
-            android:layout_height="150dp"
-            android:contentDescription="@string/corner_image"
-            android:scaleType="fitCenter"
-            android:scaleX="-1"
-            android:scaleY="-1"
-            android:src="@drawable/corner"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/txt_app_name"
@@ -190,283 +167,283 @@
 
         <LinearLayout
             android:id="@+id/btn_ramadan"
-            android:tag="@string/ramdan_pray_tag"
             android:layout_width="290dp"
             android:layout_height="45dp"
-            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:background="@drawable/main_buttons_bg"
-            android:gravity="center"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="10dp"
             android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:tag="@string/ramdan_pray_tag"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_zirat"
-            android:layoutDirection="rtl">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_zirat">
 
             <!-- Left icon -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/flourish"
-                android:scaleX="-1"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:scaleX="-1"
+                android:src="@drawable/flourish" />
 
             <!-- Text -->
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/iran_sans_medium"
                 android:text="@string/ramdan_pray"
-                android:textSize="14sp"
-                android:textColor="@color/white"
                 android:textAlignment="center"
-                android:fontFamily="@font/iran_sans_medium" />
+                android:textColor="@color/white"
+                android:textSize="14sp" />
 
             <!-- Right icon (mirrored) -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/flourish"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:src="@drawable/flourish" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/btn_prays"
-            android:tag="@string/prays_tag"
             android:layout_width="290dp"
             android:layout_height="45dp"
-            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:background="@drawable/main_buttons_bg"
-            android:gravity="center"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="10dp"
             android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:tag="@string/prays_tag"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_ramadan"
-            android:layoutDirection="rtl">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_ramadan">
 
             <!-- Left icon -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/flourish"
-                android:scaleX="-1"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:scaleX="-1"
+                android:src="@drawable/flourish" />
 
             <!-- Text -->
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/iran_sans_medium"
                 android:text="@string/prays"
-                android:textSize="14sp"
-                android:textColor="@color/white"
                 android:textAlignment="center"
-                android:fontFamily="@font/iran_sans_medium" />
+                android:textColor="@color/white"
+                android:textSize="14sp" />
 
             <!-- Right icon (mirrored) -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/flourish"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:src="@drawable/flourish" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/btn_week_zirat"
-            android:tag="@string/week_zirat_tag"
             android:layout_width="290dp"
             android:layout_height="45dp"
-            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:background="@drawable/main_buttons_bg"
-            android:gravity="center"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="10dp"
             android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:tag="@string/week_zirat_tag"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_prays"
-            android:layoutDirection="rtl">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_prays">
 
             <!-- Left icon -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/flourish"
-                android:scaleX="-1"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:scaleX="-1"
+                android:src="@drawable/flourish" />
 
             <!-- Text -->
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/iran_sans_medium"
                 android:text="@string/week_zirat"
-                android:textSize="14sp"
-                android:textColor="@color/white"
                 android:textAlignment="center"
-                android:fontFamily="@font/iran_sans_medium" />
+                android:textColor="@color/white"
+                android:textSize="14sp" />
 
             <!-- Right icon (mirrored) -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/flourish"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:src="@drawable/flourish" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/btn_taghibat"
-            android:tag="@string/namaz_taghibat_tag"
             android:layout_width="290dp"
             android:layout_height="45dp"
-            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:background="@drawable/main_buttons_bg"
-            android:gravity="center"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="10dp"
             android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:tag="@string/namaz_taghibat_tag"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_week_zirat"
-            android:layoutDirection="rtl">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_week_zirat">
 
             <!-- Left icon -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:scaleX="-1"
-                android:src="@drawable/flourish"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:scaleX="-1"
+                android:src="@drawable/flourish" />
 
             <!-- Text -->
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/iran_sans_medium"
                 android:text="@string/namaz_taghibat"
-                android:textSize="14sp"
-                android:textColor="@color/white"
                 android:textAlignment="center"
-                android:fontFamily="@font/iran_sans_medium" />
+                android:textColor="@color/white"
+                android:textSize="14sp" />
 
             <!-- Right icon (mirrored) -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/flourish"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:src="@drawable/flourish" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/btn_namaz"
-            android:tag="@string/namaz_tag"
             android:layout_width="290dp"
             android:layout_height="45dp"
-            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:background="@drawable/main_buttons_bg"
-            android:gravity="center"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="10dp"
             android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:tag="@string/namaz_tag"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_taghibat"
-            android:layoutDirection="rtl">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_taghibat">
 
             <!-- Left icon -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:scaleX="-1"
-                android:src="@drawable/flourish"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:scaleX="-1"
+                android:src="@drawable/flourish" />
 
             <!-- Text -->
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/iran_sans_medium"
                 android:text="@string/namaz"
-                android:textSize="14sp"
-                android:textColor="@color/white"
                 android:textAlignment="center"
-                android:fontFamily="@font/iran_sans_medium" />
+                android:textColor="@color/white"
+                android:textSize="14sp" />
 
             <!-- Right icon (mirrored) -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/flourish"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:src="@drawable/flourish" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/btn_ghadr_nights"
-            android:tag="@string/ghadr_nights_tag"
             android:layout_width="290dp"
             android:layout_height="45dp"
-            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:background="@drawable/main_buttons_bg"
-            android:gravity="center"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="10dp"
             android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:tag="@string/ghadr_nights_tag"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_namaz"
-            android:layoutDirection="rtl">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_namaz">
 
             <!-- Left icon -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:scaleX="-1"
-                android:src="@drawable/flourish"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:scaleX="-1"
+                android:src="@drawable/flourish" />
 
             <!-- Text -->
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/iran_sans_medium"
                 android:text="@string/ghadr_nights"
-                android:textSize="14sp"
-                android:textColor="@color/white"
                 android:textAlignment="center"
-                android:fontFamily="@font/iran_sans_medium" />
+                android:textColor="@color/white"
+                android:textSize="14sp" />
 
             <!-- Right icon (mirrored) -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/flourish"
+                android:contentDescription="@null"
                 android:scaleType="fitStart"
-                android:contentDescription="@null" />
+                android:src="@drawable/flourish" />
 
         </LinearLayout>
 
@@ -474,14 +451,14 @@
             android:id="@+id/btn_remedy"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
-            android:layout_marginBottom="80dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="60dp"
             android:background="@drawable/main_buttons_bg"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
             android:layoutDirection="rtl"
-            android:layout_marginStart="20dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/btn_ghadr_nights">
@@ -520,14 +497,14 @@
             android:id="@+id/btn_setting"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
-            android:layout_marginBottom="80dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="60dp"
             android:background="@drawable/main_buttons_bg"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
             android:layoutDirection="rtl"
-            android:layout_marginEnd="20dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/btn_ghadr_nights">
