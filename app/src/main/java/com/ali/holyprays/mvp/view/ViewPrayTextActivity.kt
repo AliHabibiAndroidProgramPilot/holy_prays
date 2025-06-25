@@ -63,15 +63,6 @@ class ViewPrayTextActivity(
         }
     }
 
-    fun navigationBackHandler() {
-        binding.icToolbarNavigationBack.setOnClickListener {
-            utils.takeBackPressedDispatchers()!!.onBackPressed()
-        }
-    }
-
-    fun setToolbarText() {
-        binding.txtPrayName.text = pray?.prayName
-    }
 
     fun setupRecyclerViewData(arabicTextList: List<String>, persianTextList: List<String>) {
         binding.prayTextRecycler.layoutManager =
@@ -80,7 +71,7 @@ class ViewPrayTextActivity(
         binding.prayTextRecycler.adapter = adapter
     }
 
-    fun manageRecyclerScroll() {
+    /*fun manageRecyclerScroll() {
         binding.prayTextRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 if (dy > 10) {
@@ -93,16 +84,16 @@ class ViewPrayTextActivity(
                 super.onScrolled(recyclerView, dx, dy)
             }
         })
-    }
+    }*/
 
-    fun initPersianTranslationButton() {
+    /*fun initPersianTranslationButton() {
         var isPersianTranslationEnabled = true
         binding.icEnablePersianTranslation.setOnClickListener {
             isPersianTranslationEnabled =
                 persianTranslationButtonUiStateChanger(isPersianTranslationEnabled)
             adapter.isPersianTranslationVisible = isPersianTranslationEnabled
         }
-    }
+    }*/
 
     fun initDarkModeButton(listener: () -> Unit) {
         /*var isDarkModeEnabled = false
@@ -110,10 +101,10 @@ class ViewPrayTextActivity(
             isDarkModeEnabled = darkModeButtonUiStateChanger(!isDarkModeEnabled)
             adapter.isDarkModeOn = !isDarkModeEnabled
         }*/
-        binding.icDarkMode.setOnClickListener { listener() }
+//        binding.icDarkMode.setOnClickListener { listener() }
     }
 
-    fun initPlusAndMinusTextSizeButtons() {
+    /*fun initPlusAndMinusTextSizeButtons() {
         binding.icAddTextSize.setOnClickListener {
             doVibrate()
             adapter.textSize += 2f
@@ -122,13 +113,13 @@ class ViewPrayTextActivity(
             doVibrate()
             adapter.textSize -= 2f
         }
-    }
+    }*/
 
     fun provideFilesPath(): String = pray?.prayFilePath!!
 
     fun providePrayPersianTranslationFilePath(): String = pray?.prayPersianTranslationFilePath!!
 
-    private fun animateBox(isShowing: Boolean) {
+    /*private fun animateBox(isShowing: Boolean) {
         if (isShowing) {
             binding.textModifierBox.animate()
                 .translationY(binding.textModifierBox.height.toFloat())
@@ -142,9 +133,9 @@ class ViewPrayTextActivity(
                 .setDuration(200)
                 .start()
         }
-    }
+    }*/
 
-    fun darkModeButtonUiStateChanger(isDarkModeEnabled: Boolean) {
+    /*fun darkModeButtonUiStateChanger(isDarkModeEnabled: Boolean) {
         if (isDarkModeEnabled) {
             binding.root.setBackgroundColor(
                 ContextCompat.getColor(
@@ -194,9 +185,9 @@ class ViewPrayTextActivity(
             )
             adapter.isDarkModeOn = true
         }
-    }
+    }*/
 
-    private fun persianTranslationButtonUiStateChanger(isPersianTranslationEnabled: Boolean): Boolean {
+    /*private fun persianTranslationButtonUiStateChanger(isPersianTranslationEnabled: Boolean): Boolean {
         if (isPersianTranslationEnabled) {
             binding.icEnablePersianTranslation.setImageDrawable(
                 ContextCompat.getDrawable(
@@ -214,7 +205,7 @@ class ViewPrayTextActivity(
             )
             return true
         }
-    }
+    }*/
 
     private fun textSizeUiStateChanger(textSize: Float) {
         adapter.textSize = textSize.coerceIn(8f, 38f)

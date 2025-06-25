@@ -33,7 +33,7 @@ class PrayTextRecyclerAdapter(
             notifyItemRangeChanged(0, itemCount, "PAYLOAD_PERSIAN_TRANSLATION_VISIBILITY")
         }
 
-    var textSize: Float = 14f
+    var textSize: Float = 17.5f
         set(value) {
             val newTextSize: Float = value.coerceIn(8f, 38f)
             if (field != newTextSize) {
@@ -87,7 +87,7 @@ class PrayTextRecyclerAdapter(
 
         fun modifyTextSize(sizeSp: Float) {
             binding.txtPrayArabic.textSize = sizeSp
-            binding.txtPrayTranslationPersian.textSize = sizeSp
+            binding.txtPrayTranslationPersian.textSize = sizeSp - 4
         }
 
         fun bindPrayTextWithPersianSegments(arabicText: String, persianText: String) {

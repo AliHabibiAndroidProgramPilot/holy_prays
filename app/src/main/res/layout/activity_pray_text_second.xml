@@ -1,70 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/background_white">
 
-    <Toolbar
-        android:id="@+id/toolbar"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:background="@color/background_white"
-        android:layoutDirection="rtl"
-        android:textDirection="rtl">
+        android:layout_alignParentBottom="true"
+        android:contentDescription="@string/back_navigation_icon"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_bg" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center">
-
-            <TextView
-                android:id="@+id/txt_pray_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="50dp"
-                android:ellipsize="end"
-                android:fontFamily="@font/tv_regular"
-                android:maxLines="2"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                tools:text="زیارت عاشورا" />
-
-            <ImageButton
-                android:id="@+id/ic_toolbar_navigation_back"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginTop="10dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/back_navigation_icon"
-                android:rotation="180"
-                android:src="@drawable/ic_back_rtl_black" />
-
-        </FrameLayout>
-
-    </Toolbar>
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pray_text_recycler"
+        tools:listitem="@layout/pray_text_recycler_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layoutDirection="rtl"
-        android:scrollbars="vertical"
-        tools:listitem="@layout/pray_text_recycler_item" />
+        android:scrollbars="vertical" />
 
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/text_modifier_box"
         android:layout_width="match_parent"
         android:layout_height="58dp"
@@ -131,6 +105,6 @@
             android:contentDescription="@string/ic_translation"
             android:src="@drawable/ic_translation_green_color" />
 
-    </LinearLayout>
+    </LinearLayout>-->
 
 </RelativeLayout>

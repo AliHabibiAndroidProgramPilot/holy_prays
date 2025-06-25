@@ -22,15 +22,10 @@ class PresenterPrayTextActivity(
     override fun presenterOnCreate() {
         view.setInsetsAndUiColor()
         providePrayText(view.provideFilesPath(), view.providePrayPersianTranslationFilePath())
-        view.navigationBackHandler()
-        view.setToolbarText()
-        view.manageRecyclerScroll()
-        view.initPersianTranslationButton()
-        view.initDarkModeButton {
+        /*view.initDarkModeButton {
             val isDarkModeEnabled = model.toggleDarkMode()
             view.darkModeButtonUiStateChanger(isDarkModeEnabled)
-        }
-        view.initPlusAndMinusTextSizeButtons()
+        }*/
     }
 
     private fun providePrayText(prayFilePath: String, prayPersianTranslationFilePath: String) {
