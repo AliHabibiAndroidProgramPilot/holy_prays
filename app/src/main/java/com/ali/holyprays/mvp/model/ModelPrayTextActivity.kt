@@ -2,7 +2,6 @@ package com.ali.holyprays.mvp.model
 
 import android.content.Context
 import android.util.Log
-import com.ali.holyprays.mvp.ext.PrefsManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -46,25 +45,5 @@ class ModelPrayTextActivity {
             }
         }
     }
-
-    fun toggleDarkMode(): Boolean {
-        val newState: Boolean = !PrefsManager.getDarkModeState()
-        PrefsManager.saveDarkModeState(!newState)
-        return !newState
-    }
-
-    fun initDarkModePrefs(): Boolean = PrefsManager.getDarkModeState()
-
-    fun savePersianTranslationState(isPersianTranslationEnabled: Boolean) {
-        PrefsManager.savePersianTranslationState(isPersianTranslationEnabled)
-    }
-
-    fun getPersianTranslationState(): Boolean = PrefsManager.getPersianTranslationState()
-
-    fun saveTextSizeState(textSize: Float) {
-        PrefsManager.saveTextSizeState(textSize)
-    }
-
-    fun getTextSizeState(): Float = PrefsManager.getTextSizeState()
 
 }
