@@ -21,27 +21,6 @@ class PrayTextRecyclerAdapter(
     private val category: PrayCategories?
 ) : Adapter<PrayTextRecyclerAdapter.PrayTextViewHolder>() {
 
-    var isDarkModeOn: Boolean = true
-        set(value) {
-            field = value
-            notifyItemRangeChanged(0, itemCount, "PAY_LOAD_COLOR_MODE")
-        }
-
-    var isPersianTranslationVisible: Boolean = true
-        set(value) {
-            field = value
-            notifyItemRangeChanged(0, itemCount, "PAYLOAD_PERSIAN_TRANSLATION_VISIBILITY")
-        }
-
-    var textSize: Float = 17.5f
-        set(value) {
-            val newTextSize: Float = value.coerceIn(8f, 38f)
-            if (field != newTextSize) {
-                field = newTextSize
-                notifyItemRangeChanged(0, itemCount, "PAYLOAD_TEXT_SIZE")
-            }
-        }
-
     inner class PrayTextViewHolder(private val binding: PrayTextRecyclerItemBinding) :
         ViewHolder(binding.root) {
 
@@ -74,22 +53,6 @@ class PrayTextRecyclerAdapter(
             return spannableStringBuilder
         }
 
-        fun modifyTextColor(@ColorRes colorRes: Int) {
-            val color = ContextCompat.getColor(itemView.context, colorRes)
-            binding.txtPrayArabic.setTextColor(color)
-            binding.txtPrayTranslationPersian.setTextColor(color)
-        }
-
-        fun modifyPersianTranslationVisibility(isVisible: Boolean) {
-            binding.txtPrayTranslationPersian.visibility =
-                if (isVisible) View.VISIBLE else View.GONE
-        }
-
-        fun modifyTextSize(sizeSp: Float) {
-            binding.txtPrayArabic.textSize = sizeSp
-            binding.txtPrayTranslationPersian.textSize = sizeSp - 4
-        }
-
         fun bindPrayTextWithPersianSegments(arabicText: String, persianText: String) {
             binding.txtPrayArabic.text = parsePersianSegmentInArabicText(arabicText)
             if (persianText.isEmpty() || persianText.isBlank())
@@ -116,28 +79,6 @@ class PrayTextRecyclerAdapter(
         bindFull(holder, position)
     }
 
-    override fun onBindViewHolder(
-        holder: PrayTextViewHolder,
-        position: Int,
-        payloads: MutableList<Any>
-    ) {
-        if (payloads.isEmpty()) {
-            bindFull(holder, position)
-            return
-        }
-        with(payloads) {
-            if ("PAY_LOAD_COLOR_MODE" in this)
-                holder.modifyTextColor(
-                    if (isDarkModeOn) R.color.white else R.color.black
-                )
-            if ("PAYLOAD_PERSIAN_TRANSLATION_VISIBILITY" in this)
-                holder.modifyPersianTranslationVisibility(isPersianTranslationVisible)
-            if ("PAYLOAD_TEXT_SIZE" in this)
-                holder.modifyTextSize(textSize)
-        }
-        super.onBindViewHolder(holder, position, payloads)
-    }
-
     private fun bindFull(holder: PrayTextViewHolder, position: Int) {
         if (category == PrayCategories.GHADR_NIGHTS
             || category == PrayCategories.ZIARAT
@@ -148,9 +89,6 @@ class PrayTextRecyclerAdapter(
         } else {
             holder.bindOtherPraysText(arabicTextList[position], persianTextList[position])
         }
-        holder.modifyTextColor(if (isDarkModeOn) R.color.black else R.color.white)
-        holder.modifyPersianTranslationVisibility(isPersianTranslationVisible)
-        holder.modifyTextSize(textSize)
     }
 
 }
