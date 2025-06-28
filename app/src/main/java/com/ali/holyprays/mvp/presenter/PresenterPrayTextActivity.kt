@@ -21,7 +21,6 @@ class PresenterPrayTextActivity(
 
     override fun presenterOnCreate() {
         view.setInsetsAndUiColor()
-        view.setToolbarDetail()
         providePrayText(view.provideFilesPath(), view.providePrayPersianTranslationFilePath())
     }
 

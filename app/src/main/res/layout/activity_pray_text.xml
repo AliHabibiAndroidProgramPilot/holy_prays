@@ -1,66 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_bg_background"
+    android:background="@color/white"
     tools:context=".ui.PrayTextActivity">
-
-    <Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/top_action_bar_bg"
-        android:layoutDirection="rtl"
-        android:textDirection="rtl">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center">
-
-            <TextView
-                android:id="@+id/txt_pray_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="50dp"
-                android:ellipsize="end"
-                android:fontFamily="@font/iran_sans_medium"
-                android:maxLines="2"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                tools:text="زیارت عاشورا" />
-
-            <ImageButton
-                android:id="@+id/ic_toolbar_navigation_back"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginTop="10dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/back_navigation_icon"
-                android:rotation="180"
-                android:src="@drawable/ic_back_rtl_black" />
-
-        </FrameLayout>
-
-    </Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pray_text_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_height="0dp"
         android:layoutDirection="rtl"
         android:scrollbars="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_top_border"
+        app:layout_constraintBottom_toTopOf="@id/img_bottom_border"
         tools:listitem="@layout/pray_text_recycler_item" />
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/img_top_border"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:contentDescription="@null"
+        android:src="@drawable/top_border"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_bottom_border"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:contentDescription="@null"
+        android:src="@drawable/bottom_border"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_pray_name"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/iran_sans_medium"
+        android:maxLines="2"
+        app:layout_constraintTop_toTopOf="@id/img_top_border"
+        app:layout_constraintStart_toStartOf="@id/img_top_border"
+        app:layout_constraintEnd_toEndOf="@id/img_top_border"
+        app:layout_constraintBottom_toBottomOf="@id/img_top_border"
+        android:layout_marginBottom="25dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        tools:text="زیارت عاشورا" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
