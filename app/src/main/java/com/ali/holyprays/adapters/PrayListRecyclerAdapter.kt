@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.ali.holyprays.databinding.PrayListRecyclerItemBinding
-import com.ali.holyprays.databinding.PrayListRecyclerItemSecondBinding
 import com.ali.holyprays.provider.PrayDataModel
 import com.ali.holyprays.ui.PrayTextActivity
 
@@ -24,6 +23,7 @@ class PrayListRecyclerAdapter(
 
         fun setData(pray: PrayDataModel) {
             binding.txtPrayTitle.text = pray.prayName
+            binding.txtPrayDetail.text = pray.prayDetail
             val intent = Intent(context, PrayTextActivity::class.java).apply {
                 putExtra("PRAY_EXTRA", pray)
             }
