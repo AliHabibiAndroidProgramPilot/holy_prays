@@ -19,7 +19,7 @@ class PrayListRecyclerAdapter(
     Adapter<PrayListRecyclerAdapter.PrayListViewHolder>() {
 
     inner class PrayListViewHolder(
-        private val binding: PrayListRecyclerItemSecondBinding
+        private val binding: PrayListRecyclerItemBinding
     ) : ViewHolder(binding.root) {
 
         fun setData(pray: PrayDataModel) {
@@ -44,7 +44,7 @@ class PrayListRecyclerAdapter(
                 false
             )*/
         PrayListViewHolder(
-            PrayListRecyclerItemSecondBinding.inflate(
+            PrayListRecyclerItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

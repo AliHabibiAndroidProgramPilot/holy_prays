@@ -3,12 +3,16 @@ package com.ali.holyprays.mvp.view
 import android.content.Context
 import android.content.res.Configuration
 import android.view.LayoutInflater
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ali.holyprays.R
 import com.ali.holyprays.adapters.PrayListRecyclerAdapter
+import com.ali.holyprays.databinding.ActivityCategoryPrayBinding
 import com.ali.holyprays.databinding.ActivityPrayCategoryTestBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.provider.PrayCategories
@@ -20,8 +24,8 @@ class ViewCategoryPrayActivity(
     private val utils: ActivityUtils
 ) {
 
-    val binding: ActivityPrayCategoryTestBinding =
-        ActivityPrayCategoryTestBinding.inflate(LayoutInflater.from(context))
+    val binding: ActivityCategoryPrayBinding =
+        ActivityCategoryPrayBinding.inflate(LayoutInflater.from(context))
 
     private val context = utils.takeContext()
 
@@ -35,18 +39,21 @@ class ViewCategoryPrayActivity(
     private var category: PrayCategories =
         PrayCategories.provideCategoryFromText(categoryTitle.name)!!
 
+    val setStatusBarColor = {
+        val window = utils.takeWindow()
+        val insetsController = WindowCompat.getInsetsController(window!!, window.decorView)
+        window.statusBarColor = ContextCompat.getColor(context, R.color.background_black)
+        window.navigationBarColor = ContextCompat.getColor(context, R.color.background_black)
+        insetsController.isAppearanceLightStatusBars = false
+    }
+
     fun setInsetsAndUiColors() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        if (isDarkModeEnabled()) {
-            val window = utils.takeWindow()!!
-            val insetsController = WindowCompat.getInsetsController(window, window.decorView)
-            insetsController.isAppearanceLightStatusBars = true
-            insetsController.isAppearanceLightNavigationBars = true
-        }
+        setStatusBarColor()
     }
 
     /*fun navigationBackHandler() {
@@ -57,7 +64,7 @@ class ViewCategoryPrayActivity(
 
     fun setToolbarTopText() {
         val resources = utils.takeActivityResources()
-        binding.txtCategory.text = resources?.getText(category.stringResId)
+        binding.txtPrayName.text = resources?.getText(category.stringResId)
     }
 
     fun setupMainRecycler() {
@@ -71,12 +78,6 @@ class ViewCategoryPrayActivity(
         return category.let {
             PrayRepository.providePrayByCategory(it)
         }
-    }
-
-    private fun isDarkModeEnabled(): Boolean {
-        val currentNightMode =
-            context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        return currentNightMode == Configuration.UI_MODE_NIGHT_YES
     }
 
 }
