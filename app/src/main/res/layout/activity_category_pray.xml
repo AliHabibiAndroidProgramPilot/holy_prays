@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:layout_marginBottom="25dp"
-        android:fontFamily="@font/moshref"
+        android:fontFamily="@font/nastaliq"
         android:maxLines="1"
         android:textAlignment="center"
         android:textColor="@color/golden"

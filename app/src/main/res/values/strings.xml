@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Holy Prays</string>
     <string name="app_name_persian">شمیم بهشت</string>
-    <string name="top_app_message">دعا و منتخب قرآن</string>
     <string name="day_monday">ذکر روز دوشنبه</string>
     <string name="monday_pray">یا قاضیَ الحاجات</string>
     <string name="day_tuesday">ذکر روز سه شنبه</string>
