@@ -56,11 +56,11 @@ class ViewCategoryPrayActivity(
         setStatusBarColor()
     }
 
-    /*fun navigationBackHandler() {
-        binding.icToolbarNavigationBack.setOnClickListener {
+    fun navigationBackHandler() {
+        binding.icNavigationBack.setOnClickListener {
             utils.takeBackPressedDispatchers()?.onBackPressed()
         }
-    }*/
+    }
 
     fun setToolbarTopText() {
         val resources = utils.takeActivityResources()

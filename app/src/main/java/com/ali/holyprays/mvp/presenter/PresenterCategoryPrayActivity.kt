@@ -11,7 +11,7 @@ class PresenterCategoryPrayActivity(
 
     override fun presenterOnCreate() {
         view.setInsetsAndUiColors()
-//        view.navigationBackHandler()
+        view.navigationBackHandler()
         view.setToolbarTopText()
         view.setupMainRecycler()
     }
