@@ -4,7 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background_white">#d0d0d0</color>
     <color name="actionBar_color">#DDE5B6</color>
-    <color name="low_white">#26FFFFFF</color>
+    <color name="low_white">#46FFFFFF</color>
     <color name="main_bg_gradient_start">#ADC178</color>
     <color name="main_bg_gradient_end">#F0EAD2</color>
     <color name="dark_green">#326241</color>

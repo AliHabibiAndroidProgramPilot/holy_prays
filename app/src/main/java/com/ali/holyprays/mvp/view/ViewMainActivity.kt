@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import com.ali.holyprays.databinding.ActivityMainBinding
 import com.ali.holyprays.databinding.ActivityMainSecondBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.provider.PrayCategories
@@ -17,8 +18,8 @@ class ViewMainActivity(
     private val utils: ActivityUtils
 ) {
 
-    val binding: ActivityMainSecondBinding =
-        ActivityMainSecondBinding.inflate(LayoutInflater.from(context))
+    val binding: ActivityMainBinding =
+        ActivityMainBinding.inflate(LayoutInflater.from(context))
 
     private val context = utils.takeContext()
 

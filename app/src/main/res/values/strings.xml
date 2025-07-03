@@ -24,7 +24,7 @@
     <string name="namaz_taghibat_tag">NAMAZ_TAGHIBAT</string>
     <string name="namaz">نماز ها</string>
     <string name="namaz_tag">NAMAZ</string>
-    <string name="ramdan_pray">اعمال ماه مبارک رمضان</string>
+    <string name="ramdan_pray">ماه رمضان</string>
     <string name="ghadr_nights_tag">GHADR_NIGHTS</string>
     <string name="ghadr_nights">اعمال شب های قدر</string>
     <string name="remedy">یاد بود</string>
@@ -47,4 +47,6 @@
     <string name="app_description">منتخب ادعیه و قرآن</string>
     <string name="setting">تنظیمات</string>
     <string name="choose_one">یک گزینه را انتخاب کنید</string>
+    <string name="memorial">یاد بود</string>
+    <string name="counter">ذکر شمار</string>
 </resources>
