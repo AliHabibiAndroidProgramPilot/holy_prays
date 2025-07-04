@@ -11,6 +11,7 @@ import com.ali.holyprays.databinding.ActivityMainBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.provider.PrayCategories
 import com.ali.holyprays.ui.CategoryPrayActivity
+import com.ali.holyprays.ui.SettingActivity
 
 class ViewMainActivity(
     context: Context,
@@ -53,6 +54,12 @@ class ViewMainActivity(
                 intent.putExtra("EXTRA_CATEGORY", category.name)
                 context.startActivity(intent)
             }
+        }
+    }
+
+    fun intentToSettingActivity(packageContext: Context) {
+        binding.icSetting.setOnClickListener {
+            context.startActivity(Intent(packageContext, SettingActivity::class.java))
         }
     }
 

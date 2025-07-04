@@ -14,6 +14,7 @@ class PresenterMainActivity(
     override fun presenterOnCreate() {
         view.setInsetsAndUiColor()
         view.intentToCategoryPrayActivity(utils.takeContext())
+        view.intentToSettingActivity(utils.takeContext())
     }
 
     override fun presenterOnDestroy() {}
