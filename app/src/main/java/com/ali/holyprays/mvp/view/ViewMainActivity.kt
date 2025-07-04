@@ -8,7 +8,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.ali.holyprays.databinding.ActivityMainBinding
-import com.ali.holyprays.databinding.ActivityMainSecondBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.provider.PrayCategories
 import com.ali.holyprays.ui.CategoryPrayActivity
