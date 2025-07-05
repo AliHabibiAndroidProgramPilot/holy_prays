@@ -1,6 +1,7 @@
 package com.ali.holyprays.ui
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.ali.holyprays.mvp.ext.ActivityUtils
@@ -28,4 +29,6 @@ class SettingActivity : AppCompatActivity(), ActivityUtils {
     }
 
     override fun takeContext() = this
+
+    override fun takeBackPressedDispatchers() = onBackPressedDispatcher
 }

@@ -49,4 +49,11 @@
     <string name="choose_one">یک گزینه را انتخاب کنید</string>
     <string name="memorial">یاد بود</string>
     <string name="counter">ذکر شمار</string>
+    <string name="persian_font_size">اندازه فونت فارسی</string>
+    <string name="arabic_font_title">اندازه فونت عربی</string>
+    <string name="bolded_text">بولد کردن متن</string>
+    <string name="arabic_typeface_title">فونت عربی</string>
+    <string name="nabi_font_name">نبی</string>
+    <string name="besmellah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</string>
+    <string name="besmellah_persian">به نام خداوند بخشنده و مهربان</string>
 </resources>

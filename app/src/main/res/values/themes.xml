@@ -14,6 +14,15 @@
         <item name="cornerSize">15dp</item>
     </style>
 
+    <style name="Divider">
+        <item name="android:background">@color/low_white</item>
+    </style>
+
+    <style name="Divider.Horizontal" parent="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+    </style>
+
     <style name="roundedTextModifiersButton" parent="Base.Theme.HolyPrays">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">30dp</item>
