@@ -9,9 +9,17 @@ class PresenterSettingActivity(
     private val view: ViewSettingActivity,
     private val model: ModelSettingActivity,
     private val utils: ActivityUtils
-): ActivityLifecycle {
+) : ActivityLifecycle {
     override fun presenterOnCreate() {
         view.setUiInsets()
+        view.setSavedSetting(
+            model.getPersianFontSize().toInt(),
+            model.getArabicFontSize().toInt(),
+            model.getIsBoldText(),
+            model.getFontResId()
+        )
+        view.navigationBackHandler()
+        view.settingChangesUiHandler()
     }
 
     override fun presenterOnDestroy() {

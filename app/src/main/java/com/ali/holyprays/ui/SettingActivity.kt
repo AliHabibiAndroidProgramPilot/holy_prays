@@ -16,7 +16,7 @@ class SettingActivity : AppCompatActivity(), ActivityUtils {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val model by lazy { ModelSettingActivity() }
+        val model by lazy { ModelSettingActivity(this@SettingActivity) }
         val view = ViewSettingActivity(this, this)
         setContentView(view.binding.root)
         presenter = PresenterSettingActivity(view, model, this)

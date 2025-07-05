@@ -33,19 +33,27 @@ class ViewSettingActivity(
         "قلم" to R.font.qalam,
         "شبنم" to R.font.shabnam
     )
+
     private val fontNames: Array<String> = fontOptions.keys.toTypedArray()
 
-    private var persianFontSize: Byte? = null
-    private var arabicFontSize: Byte? = null
+    private var persianFontSize: Int? = 16
+    private var arabicFontSize: Int? = 16
     private var isTextBolded: Boolean = false
     private var selectedFontResId: Int? = R.font.nabi
 
-    val saveUiSettingState = {
-        persianFontSize = binding.txtProgressPreviewPersian.text.toString().toByte()
-        arabicFontSize = binding.txtProgressPreviewArabic.text.toString().toByte()
-        isTextBolded = binding.boldTextSwitch.isChecked
-        selectedFontResId = fontOptions[binding.dropdownSelection.selectedItem.toString()]
-    }
+    val setSavedSetting: (Int, Int, Boolean, String) -> Unit =
+        { pFontSize, aFontSize, boldedText, selectedFont ->
+            persianFontSize = pFontSize
+            arabicFontSize = aFontSize
+            isTextBolded = boldedText
+            selectedFontResId = fontOptions[selectedFont]
+            binding.txtProgressPreviewPersian.text = persianFontSize.toString()
+            binding.persianFontSizeSeekBar.progress = persianFontSize as Int
+            binding.txtProgressPreviewArabic.text = arabicFontSize.toString()
+            binding.persianFontSizeSeekBar.progress = arabicFontSize as Int
+            binding.boldTextSwitch.isChecked = isTextBolded
+            binding.dropdownSelection.setSelection(fontNames.indexOf(selectedFont))
+        }
 
     fun setUiInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
@@ -118,18 +126,24 @@ class ViewSettingActivity(
             com.google.android.material.R.layout.support_simple_spinner_dropdown_item,
             fontNames
         )
-        binding.dropdownSelection.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val fontResId = fontOptions[fontNames.getOrNull(position)]
-                fontResId?.let {
-                    binding.txtArabicPreview.typeface = ResourcesCompat.getFont(context, it)
+        binding.dropdownSelection.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    val fontResId = fontOptions[fontNames.getOrNull(position)]
+                    fontResId?.let {
+                        binding.txtArabicPreview.typeface = ResourcesCompat.getFont(context, it)
+                    }
                 }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+
+                }
+
             }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
-
-        }
     }
 }
