@@ -56,4 +56,5 @@
     <string name="nabi_font_name">نبی</string>
     <string name="besmellah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</string>
     <string name="besmellah_persian">به نام خداوند بخشنده و مهربان</string>
+    <string name="save_new_setting">ذخیره تنظیمات جدید</string>
 </resources>
