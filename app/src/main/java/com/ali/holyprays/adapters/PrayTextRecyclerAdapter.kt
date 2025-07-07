@@ -5,8 +5,6 @@ import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.ColorRes
-import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -18,7 +16,11 @@ import com.ali.holyprays.provider.PrayCategories
 class PrayTextRecyclerAdapter(
     private val arabicTextList: List<String>,
     private val persianTextList: List<String>,
-    private val category: PrayCategories?
+    private val category: PrayCategories?,
+    private val persianFontSize: Float,
+    private val arabicFontSize: Float,
+    private val isBoldText: Boolean,
+    private val selectedFontResId: Int
 ) : Adapter<PrayTextRecyclerAdapter.PrayTextViewHolder>() {
 
     inner class PrayTextViewHolder(private val binding: PrayTextRecyclerItemBinding) :
@@ -53,17 +55,27 @@ class PrayTextRecyclerAdapter(
             return spannableStringBuilder
         }
 
+        private fun setUserSetting() {
+            binding.txtPrayTranslationPersian.textSize = persianFontSize
+            binding.txtPrayArabic.textSize = arabicFontSize
+            binding.txtPrayArabic.typeface =
+                ResourcesCompat.getFont(binding.root.context, selectedFontResId)
+            binding.txtPrayArabic.paint.isFakeBoldText = isBoldText
+        }
+
         fun bindPrayTextWithPersianSegments(arabicText: String, persianText: String) {
             binding.txtPrayArabic.text = parsePersianSegmentInArabicText(arabicText)
             if (persianText.isEmpty() || persianText.isBlank())
                 binding.txtPrayTranslationPersian.visibility = View.GONE
             else
                 binding.txtPrayTranslationPersian.text = persianText
+            setUserSetting()
         }
 
         fun bindOtherPraysText(arabicText: String, persianText: String) {
             binding.txtPrayArabic.text = arabicText
             binding.txtPrayTranslationPersian.text = persianText
+            setUserSetting()
         }
 
     }

@@ -33,8 +33,14 @@ class PresenterPrayTextActivity(
                     context,
                     prayPersianTranslationFilePath
                 )
-                view.setupRecyclerViewData(arabicFileContent, persianFileContent)
-//                view.darkModeButtonUiStateChanger(model.initDarkModePrefs())
+                view.setupRecyclerViewData(
+                    arabicFileContent,
+                    persianFileContent,
+                    model.getPersianFontSize(),
+                    model.getArabicFontSize(),
+                    model.getIsBoldText(),
+                    model.getFontResId()
+                )
             } catch (e: Exception) {
                 e.printStackTrace()
                 Log.e("EXCEPTION", "failed to load file")

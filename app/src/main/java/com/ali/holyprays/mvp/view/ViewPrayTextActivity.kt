@@ -42,7 +42,8 @@ class ViewPrayTextActivity(
         window.navigationBarColor = ContextCompat.getColor(context, R.color.background_black)
         insetsController.isAppearanceLightStatusBars = false
     }
-    val setPrayNameText = {
+
+    private val setPrayNameText = {
         binding.txtPrayName.text = pray?.prayName
     }
 
@@ -55,11 +56,26 @@ class ViewPrayTextActivity(
         setStatusBarColor()
     }
 
-    fun setupRecyclerViewData(arabicTextList: List<String>, persianTextList: List<String>) {
+    fun setupRecyclerViewData(
+        arabicTextList: List<String>,
+        persianTextList: List<String>,
+        pFontSize: Float,
+        aFontSize: Float,
+        isBoldText: Boolean,
+        selectedFontResId: Int
+    ) {
         setPrayNameText()
         binding.prayTextRecycler.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        adapter = PrayTextRecyclerAdapter(arabicTextList, persianTextList, pray?.prayCategory)
+        adapter = PrayTextRecyclerAdapter(
+            arabicTextList,
+            persianTextList,
+            pray?.prayCategory,
+            pFontSize,
+            aFontSize,
+            isBoldText,
+            selectedFontResId
+        )
         binding.prayTextRecycler.adapter = adapter
     }
 

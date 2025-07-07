@@ -1,11 +1,15 @@
 package com.ali.holyprays.mvp.model
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class ModelPrayTextActivity {
+class ModelPrayTextActivity(context: Context) {
+
+    private val prefs: SharedPreferences =
+        context.getSharedPreferences("SETTING_PREFERENCES", Context.MODE_PRIVATE)
 
     suspend fun readPrayTextFileFromAsset(context: Context, filePath: String): List<String> {
         return withContext(Dispatchers.IO) {
@@ -45,5 +49,13 @@ class ModelPrayTextActivity {
             }
         }
     }
+
+    fun getPersianFontSize(): Float = prefs.getFloat("PERSIAN_FONT_SIZE", 16f)
+
+    fun getArabicFontSize(): Float = prefs.getFloat("ARABIC_FONT_SIZE", 16f)
+
+    fun getIsBoldText(): Boolean = prefs.getBoolean("IS_BOLD_TEXT", false)
+
+    fun getFontResId(): Int = prefs.getInt("TEXT_FONT_RES_ID", 0)
 
 }

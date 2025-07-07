@@ -19,7 +19,7 @@ class PrayTextActivity : AppCompatActivity(), ActivityUtils {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val model = ModelPrayTextActivity()
+        val model = ModelPrayTextActivity(this)
         val view = ViewPrayTextActivity(this, this)
         setContentView(view.binding.root)
         presenter = PresenterPrayTextActivity(view, model, this)
