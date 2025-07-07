@@ -15,7 +15,7 @@ class SettingActivity : AppCompatActivity(), ActivityUtils {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val model by lazy { ModelSettingActivity(this@SettingActivity) }
+        val model = ModelSettingActivity(this)
         val view = ViewSettingActivity(this, this)
         presenter = PresenterSettingActivity(view, model, this)
         view.presenterContract = presenter
