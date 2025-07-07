@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.ali.holyprays.R
 import com.ali.holyprays.databinding.ActivitySettingBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
+import com.ali.holyprays.mvp.ext.SaveSettingContract
 
 class ViewSettingActivity(
     context: Context,
@@ -22,6 +23,8 @@ class ViewSettingActivity(
 
     val binding: ActivitySettingBinding =
         ActivitySettingBinding.inflate(LayoutInflater.from(context))
+
+    lateinit var presenterContract: SaveSettingContract
 
     private val context = utils.takeContext()
 
@@ -36,23 +39,41 @@ class ViewSettingActivity(
 
     private val fontNames: Array<String> = fontOptions.keys.toTypedArray()
 
-    private var persianFontSize: Int? = 16
-    private var arabicFontSize: Int? = 16
+    private var persianFontSize: Float? = 16f
+    private var arabicFontSize: Float? = 16f
     private var isTextBolded: Boolean = false
     private var selectedFontResId: Int? = R.font.nabi
 
-    val setSavedSetting: (Int, Int, Boolean, String) -> Unit =
+    val setSavedSetting: (Float, Float, Boolean, Int) -> Unit =
         { pFontSize, aFontSize, boldedText, selectedFont ->
             persianFontSize = pFontSize
             arabicFontSize = aFontSize
             isTextBolded = boldedText
-            selectedFontResId = fontOptions[selectedFont]
+            selectedFontResId = fontOptions.values.find { it == selectedFontResId }
             binding.txtProgressPreviewPersian.text = persianFontSize.toString()
-            binding.persianFontSizeSeekBar.progress = persianFontSize as Int
+            binding.persianFontSizeSeekBar.progress = persianFontSize!!.toInt()
             binding.txtProgressPreviewArabic.text = arabicFontSize.toString()
-            binding.persianFontSizeSeekBar.progress = arabicFontSize as Int
-            binding.boldTextSwitch.isChecked = isTextBolded
-            binding.dropdownSelection.setSelection(fontNames.indexOf(selectedFont))
+            binding.arabicFontSizeSeekBar.progress = arabicFontSize!!.toInt()
+            if (boldedText) {
+                binding.boldTextSwitch.isChecked = true
+                binding.txtArabicPreview.paint.isFakeBoldText = true
+                binding.boldTextSwitch.thumbIconDrawable =
+                    ContextCompat.getDrawable(context, R.drawable.ic_check)
+            } else {
+                binding.boldTextSwitch.isChecked = false
+                binding.txtArabicPreview.paint.isFakeBoldText = false
+                binding.boldTextSwitch.thumbIconDrawable =
+                    ContextCompat.getDrawable(context, R.drawable.ic_close)
+            }
+            val selectedFontName: String =
+                fontOptions.entries.find { it.value == selectedFontResId }?.key ?: ""
+            val test = fontNames.indexOf(selectedFontName)
+            binding.dropdownSelection.setSelection(test)
+            // Set Preview Text Attributes
+            binding.txtPersianPreview.textSize = persianFontSize!!
+            binding.txtArabicPreview.textSize = arabicFontSize!!
+            binding.txtArabicPreview.typeface =
+                ResourcesCompat.getFont(context, selectedFontResId!!)
         }
 
     fun setUiInsets() {
@@ -83,7 +104,8 @@ class ViewSettingActivity(
 
             }
 
-            override fun onStopTrackingTouch(p0: SeekBar?) {
+            override fun onStopTrackingTouch(view: SeekBar?) {
+                persianFontSize = view?.progress?.toFloat()
             }
 
         })
@@ -100,7 +122,8 @@ class ViewSettingActivity(
 
             }
 
-            override fun onStopTrackingTouch(p0: SeekBar?) {
+            override fun onStopTrackingTouch(view: SeekBar?) {
+                arabicFontSize = view?.progress?.toFloat()
             }
 
         })
@@ -112,6 +135,7 @@ class ViewSettingActivity(
                 )
                 binding.boldTextSwitch.thumbIconDrawable =
                     ContextCompat.getDrawable(context, R.drawable.ic_check)
+                isTextBolded = true
             } else {
                 binding.txtArabicPreview.typeface = Typeface.create(
                     binding.txtArabicPreview.typeface,
@@ -119,13 +143,17 @@ class ViewSettingActivity(
                 )
                 binding.boldTextSwitch.thumbIconDrawable =
                     ContextCompat.getDrawable(context, R.drawable.ic_close)
+                isTextBolded = false
             }
+
         }
         binding.dropdownSelection.adapter = ArrayAdapter(
             context,
-            com.google.android.material.R.layout.support_simple_spinner_dropdown_item,
+            R.layout.spinner_item,
             fontNames
-        )
+        ).also {
+            it.setDropDownViewResource(R.layout.spinner_item)
+        }
         binding.dropdownSelection.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -138,12 +166,23 @@ class ViewSettingActivity(
                     fontResId?.let {
                         binding.txtArabicPreview.typeface = ResourcesCompat.getFont(context, it)
                     }
+                    selectedFontResId = fontResId
                 }
 
-                override fun onNothingSelected(p0: AdapterView<*>?) {
+                override fun onNothingSelected(view: AdapterView<*>?) {
 
                 }
 
             }
     }
+
+    /*fun saveSettingClickHandler() {
+        binding.btnSaveNewSettings.setOnClickListener {
+            presenterContract.onSaveBoldText(isTextBolded)
+            presenterContract.onSavePersianFontSize(persianFontSize!!)
+            presenterContract.onSaveArabicFontSize(arabicFontSize!!)
+            presenterContract.onSaveSelectedFont(selectedFontResId!!)
+            utils.takeFinishActivity()
+        }
+    }*/
 }

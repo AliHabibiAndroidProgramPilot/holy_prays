@@ -23,25 +23,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txt_save_setting"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="16dp"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:focusable="true"
-        android:fontFamily="@font/iran_sans_regular"
-        android:text="@string/save_new_setting"
-        android:textColor="@color/golden"
-        android:textSize="15sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@id/txt_header_setting"
-        app:layout_constraintEnd_toStartOf="@+id/txt_header_setting"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/txt_header_setting" />
-
     <ImageButton
         android:id="@+id/ic_toolbar_navigation_back"
         android:layout_width="36dp"
@@ -210,16 +191,9 @@
 
     <Spinner
         android:id="@+id/dropdown_selection"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/iran_sans_medium"
-        android:hint="@string/nabi_font_name"
         android:layoutDirection="rtl"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorHint="@color/background_white"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/arabic_typeface_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/arabic_typeface_title" />
@@ -258,6 +232,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_arabic_preview" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save_new_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/save_new_setting"
+        android:fontFamily="@font/iran_sans_regular"
+        app:backgroundTint="@color/golden"
+        android:textSize="18sp"
+        app:cornerRadius="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
