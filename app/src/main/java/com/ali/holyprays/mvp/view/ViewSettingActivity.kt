@@ -28,16 +28,16 @@ class ViewSettingActivity(
 
     private val context = utils.takeContext()
 
-    private val fontOptions = mapOf(
-        "نبی" to R.font.nabi,
-        "ارغوان" to R.font.arghavan,
-        "ارسلان وصام" to R.font.arsalan_wessam,
-        "آثم" to R.font.authman,
-        "قلم" to R.font.qalam,
-        "شبنم" to R.font.shabnam
-    )
+    private val fontNames = arrayOf("نبی", "ارغوان", "ارسلان وصام", "آثم", "قلم", "شبنم")
 
-    private val fontNames: Array<String> = fontOptions.keys.toTypedArray()
+    private val fontResId = arrayOf(
+        R.font.nabi,
+        R.font.arghavan,
+        R.font.arsalan_wessam,
+        R.font.authman,
+        R.font.qalam,
+        R.font.shabnam
+    )
 
     private var persianFontSize: Float? = 16f
     private var arabicFontSize: Float? = 16f
@@ -49,26 +49,22 @@ class ViewSettingActivity(
             persianFontSize = pFontSize
             arabicFontSize = aFontSize
             isTextBolded = boldedText
-            selectedFontResId = fontOptions.values.find { it == selectedFontResId }
+           selectedFontResId = selectedFont
             binding.txtProgressPreviewPersian.text = persianFontSize.toString()
             binding.persianFontSizeSeekBar.progress = persianFontSize!!.toInt()
             binding.txtProgressPreviewArabic.text = arabicFontSize.toString()
             binding.arabicFontSizeSeekBar.progress = arabicFontSize!!.toInt()
-            if (boldedText) {
+            if (isTextBolded) {
                 binding.boldTextSwitch.isChecked = true
-                binding.txtArabicPreview.paint.isFakeBoldText = true
                 binding.boldTextSwitch.thumbIconDrawable =
                     ContextCompat.getDrawable(context, R.drawable.ic_check)
             } else {
                 binding.boldTextSwitch.isChecked = false
-                binding.txtArabicPreview.paint.isFakeBoldText = false
                 binding.boldTextSwitch.thumbIconDrawable =
                     ContextCompat.getDrawable(context, R.drawable.ic_close)
             }
-            val selectedFontName: String =
-                fontOptions.entries.find { it.value == selectedFontResId }?.key ?: ""
-            val test = fontNames.indexOf(selectedFontName)
-            binding.dropdownSelection.setSelection(test)
+            binding.txtArabicPreview.paint.isFakeBoldText = isTextBolded
+            binding.dropdownSelection.setSelection(fontResId.indexOf(selectedFontResId))
             // Set Preview Text Attributes
             binding.txtPersianPreview.textSize = persianFontSize!!
             binding.txtArabicPreview.textSize = arabicFontSize!!
@@ -129,18 +125,16 @@ class ViewSettingActivity(
         })
         binding.boldTextSwitch.setOnCheckedChangeListener { switchView, _ ->
             if (switchView.isChecked) {
-                binding.txtArabicPreview.typeface = Typeface.create(
-                    binding.txtArabicPreview.typeface,
-                    Typeface.BOLD
-                )
+                binding.txtArabicPreview.paint.isFakeBoldText = true
+                // Force Text View To Re Draw Itself
+                binding.txtArabicPreview.invalidate()
                 binding.boldTextSwitch.thumbIconDrawable =
                     ContextCompat.getDrawable(context, R.drawable.ic_check)
                 isTextBolded = true
             } else {
-                binding.txtArabicPreview.typeface = Typeface.create(
-                    binding.txtArabicPreview.typeface,
-                    Typeface.NORMAL
-                )
+                binding.txtArabicPreview.paint.isFakeBoldText = false
+                // Force Text View To Re Draw Itself
+                binding.txtArabicPreview.invalidate()
                 binding.boldTextSwitch.thumbIconDrawable =
                     ContextCompat.getDrawable(context, R.drawable.ic_close)
                 isTextBolded = false
@@ -162,8 +156,8 @@ class ViewSettingActivity(
                     position: Int,
                     id: Long
                 ) {
-                    val fontResId = fontOptions[fontNames.getOrNull(position)]
-                    fontResId?.let {
+                    val fontResId = fontResId[position]
+                    fontResId.let {
                         binding.txtArabicPreview.typeface = ResourcesCompat.getFont(context, it)
                     }
                     selectedFontResId = fontResId
@@ -176,7 +170,7 @@ class ViewSettingActivity(
             }
     }
 
-    /*fun saveSettingClickHandler() {
+    fun saveSettingClickHandler() {
         binding.btnSaveNewSettings.setOnClickListener {
             presenterContract.onSaveBoldText(isTextBolded)
             presenterContract.onSavePersianFontSize(persianFontSize!!)
@@ -184,5 +178,5 @@ class ViewSettingActivity(
             presenterContract.onSaveSelectedFont(selectedFontResId!!)
             utils.takeFinishActivity()
         }
-    }*/
+    }
 }

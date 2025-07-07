@@ -12,4 +12,5 @@ interface ActivityUtils {
     fun takeBackPressedDispatchers(): OnBackPressedDispatcher? { return null }
     fun takeActivityIntentExtra(): Intent? { return null }
     fun takeActivityResources(): Resources? { return null }
+    fun takeFinishActivity() {}
 }

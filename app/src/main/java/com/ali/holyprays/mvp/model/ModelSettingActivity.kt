@@ -1,6 +1,7 @@
 package com.ali.holyprays.mvp.model
 
 import android.content.Context
+import com.ali.holyprays.R
 
 class ModelSettingActivity(context: Context) {
 
@@ -13,7 +14,7 @@ class ModelSettingActivity(context: Context) {
             if (!contains("IS_BOLD_TEXT"))
                 edit().putBoolean("IS_BOLD_TEXT", false).apply()
             if (!contains("TEXT_FONT_RES_ID"))
-                edit().putString("TEXT_FONT_RES_ID", "نبی").apply()
+                edit().putInt("TEXT_FONT_RES_ID", R.font.nabi).apply()
         }
 
     fun getPersianFontSize(): Float = prefs.getFloat("PERSIAN_FONT_SIZE", 16f)
@@ -22,6 +23,30 @@ class ModelSettingActivity(context: Context) {
 
     fun getIsBoldText(): Boolean = prefs.getBoolean("IS_BOLD_TEXT", false)
 
-    fun getFontResId(): String = prefs.getString("TEXT_FONT_RES_ID", "نبی")!!
+    fun getFontResId(): Int = prefs.getInt("TEXT_FONT_RES_ID", 0)
+
+    fun savePersianFontSize(fontSize: Float) {
+        prefs.edit()
+            .putFloat("PERSIAN_FONT_SIZE", fontSize)
+            .apply()
+    }
+
+    fun saveArabicFontSize(fontSize: Float) {
+        prefs.edit()
+            .putFloat("ARABIC_FONT_SIZE", fontSize)
+            .apply()
+    }
+
+    fun saveIsTextBolded(isBold: Boolean) {
+        prefs.edit()
+            .putBoolean("IS_BOLD_TEXT", isBold)
+            .apply()
+    }
+
+    fun saveFontResId(resId: Int) {
+        prefs.edit()
+            .putInt("TEXT_FONT_RES_ID", resId)
+            .apply()
+    }
 
 }

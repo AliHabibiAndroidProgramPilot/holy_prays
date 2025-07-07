@@ -1,7 +1,6 @@
 package com.ali.holyprays.ui
 
 import android.os.Bundle
-import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.ali.holyprays.mvp.ext.ActivityUtils
@@ -18,8 +17,9 @@ class SettingActivity : AppCompatActivity(), ActivityUtils {
         enableEdgeToEdge()
         val model by lazy { ModelSettingActivity(this@SettingActivity) }
         val view = ViewSettingActivity(this, this)
-        setContentView(view.binding.root)
         presenter = PresenterSettingActivity(view, model, this)
+        view.presenterContract = presenter
+        setContentView(view.binding.root)
         presenter.presenterOnCreate()
     }
 
@@ -31,4 +31,8 @@ class SettingActivity : AppCompatActivity(), ActivityUtils {
     override fun takeContext() = this
 
     override fun takeBackPressedDispatchers() = onBackPressedDispatcher
+
+    override fun takeFinishActivity() {
+        finish()
+    }
 }
