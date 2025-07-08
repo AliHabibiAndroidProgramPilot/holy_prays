@@ -5,10 +5,12 @@ import android.content.Intent
 import android.content.res.Resources
 import android.view.Window
 import androidx.activity.OnBackPressedDispatcher
+import androidx.lifecycle.LifecycleOwner
 
 interface ActivityUtils {
     fun takeWindow(): Window? { return null }
     fun takeContext(): Context
+    fun takeLifecycleOwner(): LifecycleOwner? { return null }
     fun takeBackPressedDispatchers(): OnBackPressedDispatcher? { return null }
     fun takeActivityIntentExtra(): Intent? { return null }
     fun takeActivityResources(): Resources? { return null }

@@ -3,6 +3,7 @@ package com.ali.holyprays.ui
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleOwner
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.model.ModelSettingActivity
 import com.ali.holyprays.mvp.presenter.PresenterSettingActivity
@@ -29,6 +30,8 @@ class SettingActivity : AppCompatActivity(), ActivityUtils {
     }
 
     override fun takeContext() = this
+
+    override fun takeLifecycleOwner(): LifecycleOwner = this
 
     override fun takeBackPressedDispatchers() = onBackPressedDispatcher
 

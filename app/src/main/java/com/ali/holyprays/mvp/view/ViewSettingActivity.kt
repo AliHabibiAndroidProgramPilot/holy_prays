@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SeekBar
+import androidx.activity.addCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
@@ -14,6 +16,7 @@ import com.ali.holyprays.R
 import com.ali.holyprays.databinding.ActivitySettingBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.ext.SaveSettingContract
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ViewSettingActivity(
     context: Context,
@@ -38,10 +41,15 @@ class ViewSettingActivity(
         R.font.shabnam
     )
 
-    private var persianFontSize: Float? = 16f
-    private var arabicFontSize: Float? = 16f
+    private var persianFontSize: Float = 16f
+    private var arabicFontSize: Float = 16f
     private var isTextBolded: Boolean = false
-    private var selectedFontResId: Int? = R.font.nabi
+    private var selectedFontResId: Int = R.font.nabi
+
+    private var originalPersianFontSize: Float? = null
+    private var originalArabicFontSize: Float? = null
+    private var originalIsTextBolded: Boolean = false
+    private var originalFontResId: Int? = null
 
     val setSavedSetting: (Float, Float, Boolean, Int) -> Unit =
         { pFontSize, aFontSize, boldedText, selectedFont ->
@@ -49,10 +57,14 @@ class ViewSettingActivity(
             arabicFontSize = aFontSize
             isTextBolded = boldedText
             selectedFontResId = selectedFont
+            originalPersianFontSize = pFontSize
+            originalArabicFontSize = aFontSize
+            originalIsTextBolded = boldedText
+            originalFontResId = selectedFont
             binding.txtProgressPreviewPersian.text = persianFontSize.toString()
-            binding.persianFontSizeSeekBar.progress = persianFontSize!!.toInt()
+            binding.persianFontSizeSeekBar.progress = persianFontSize.toInt()
             binding.txtProgressPreviewArabic.text = arabicFontSize.toString()
-            binding.arabicFontSizeSeekBar.progress = arabicFontSize!!.toInt()
+            binding.arabicFontSizeSeekBar.progress = arabicFontSize.toInt()
             if (isTextBolded) {
                 binding.boldTextSwitch.isChecked = true
                 binding.boldTextSwitch.thumbIconDrawable =
@@ -65,10 +77,10 @@ class ViewSettingActivity(
             binding.txtArabicPreview.paint.isFakeBoldText = isTextBolded
             binding.dropdownSelection.setSelection(fontResId.indexOf(selectedFontResId))
             // Set Preview Text Attributes
-            binding.txtPersianPreview.textSize = persianFontSize!!
-            binding.txtArabicPreview.textSize = arabicFontSize!!
+            binding.txtPersianPreview.textSize = persianFontSize
+            binding.txtArabicPreview.textSize = arabicFontSize
             binding.txtArabicPreview.typeface =
-                ResourcesCompat.getFont(context, selectedFontResId!!)
+                ResourcesCompat.getFont(context, selectedFontResId)
         }
 
     fun setUiInsets() {
@@ -81,7 +93,18 @@ class ViewSettingActivity(
 
     fun navigationBackHandler() {
         binding.icToolbarNavigationBack.setOnClickListener {
-            utils.takeBackPressedDispatchers()?.onBackPressed()
+            if (hasUnsavedChanges()) {
+                showAlertDialog()
+            } else
+                utils.takeBackPressedDispatchers()?.onBackPressed()
+        }
+        utils.takeBackPressedDispatchers()?.addCallback(utils.takeLifecycleOwner()!!) {
+            if (hasUnsavedChanges())
+                showAlertDialog()
+            else {
+                isEnabled = false
+                utils.takeFinishActivity()
+            }
         }
     }
 
@@ -100,7 +123,7 @@ class ViewSettingActivity(
             }
 
             override fun onStopTrackingTouch(view: SeekBar?) {
-                persianFontSize = view?.progress?.toFloat()
+                persianFontSize = view?.progress!!.toFloat()
             }
 
         })
@@ -118,7 +141,7 @@ class ViewSettingActivity(
             }
 
             override fun onStopTrackingTouch(view: SeekBar?) {
-                arabicFontSize = view?.progress?.toFloat()
+                arabicFontSize = view?.progress!!.toFloat()
             }
 
         })
@@ -171,11 +194,79 @@ class ViewSettingActivity(
 
     fun saveSettingClickHandler() {
         binding.btnSaveNewSettings.setOnClickListener {
-            presenterContract.onSaveBoldText(isTextBolded)
-            presenterContract.onSavePersianFontSize(persianFontSize!!)
-            presenterContract.onSaveArabicFontSize(arabicFontSize!!)
-            presenterContract.onSaveSelectedFont(selectedFontResId!!)
-            utils.takeFinishActivity()
+            saveSettingChanges()
         }
     }
+
+    private fun showAlertDialog() {
+        val alertDialog by lazy {
+            MaterialAlertDialogBuilder(context, R.style.Material_Dialog_Alert)
+                .setTitle("خروج بدون ذخیره؟")
+                .setMessage("شما تغییراتی ایجاد کرده‌اید. آیا مطمئن هستید که بدون ذخیره خارج می‌شوید؟")
+                .setPositiveButton("خروج") { dialog, _ ->
+                    dialog.dismiss()
+                    utils.takeFinishActivity()
+                }
+                .setNegativeButton("خیر", null)
+                .setNeutralButton("ذخیره تغییرات") { dialog, _ ->
+                    saveSettingChanges()
+                    dialog.dismiss()
+                    utils.takeFinishActivity()
+                }
+                .create()
+        }
+        val customFont = ResourcesCompat.getFont(context, R.font.iran_sans_regular)
+        with(alertDialog) {
+            window?.decorView?.apply {
+                setBackgroundResource(R.color.background_black)
+                layoutDirection = View.LAYOUT_DIRECTION_RTL
+                elevation = 25.0f
+                textDirection = View.LAYOUT_DIRECTION_RTL
+                setOnShowListener {
+                    listOfNotNull(
+                        getButton(AlertDialog.BUTTON_POSITIVE),
+                        getButton(AlertDialog.BUTTON_NEUTRAL),
+                        getButton(AlertDialog.BUTTON_NEGATIVE)
+                    ).forEach {
+                        it.setTextColor(context.resources.getColor(R.color.golden, null))
+                        it.textSize = 16f
+                        it.typeface = customFont
+                    }
+                    /*getButton(AlertDialog.BUTTON_POSITIVE).apply {
+                        setTextColor(context.resources.getColor(R.color.golden, null))
+                        textSize = 16f
+                        typeface = customFont
+                    }
+                    getButton(AlertDialog.BUTTON_NEUTRAL).apply {
+                        setTextColor(context.resources.getColor(R.color.golden, null))
+                        textSize = 16f
+                        typeface = customFont
+                    }
+                    getButton(AlertDialog.BUTTON_NEGATIVE).apply {
+                        setTextColor(context.resources.getColor(R.color.golden, null))
+                        textSize = 16f
+                        typeface = customFont
+                    }*/
+                }
+            }
+            show()
+        }
+    }
+
+    private val hasUnsavedChanges: () -> Boolean = {
+        (originalPersianFontSize != persianFontSize ||
+                originalArabicFontSize != arabicFontSize ||
+                originalIsTextBolded != isTextBolded ||
+                originalFontResId != selectedFontResId
+                )
+    }
+
+    private val saveSettingChanges: () -> Unit = {
+        presenterContract.onSaveBoldText(isTextBolded)
+        presenterContract.onSavePersianFontSize(persianFontSize)
+        presenterContract.onSaveArabicFontSize(arabicFontSize)
+        presenterContract.onSaveSelectedFont(selectedFontResId)
+        utils.takeFinishActivity()
+    }
+
 }
