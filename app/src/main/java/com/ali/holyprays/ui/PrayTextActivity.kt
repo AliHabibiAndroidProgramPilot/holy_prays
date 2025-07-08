@@ -26,6 +26,11 @@ class PrayTextActivity : AppCompatActivity(), ActivityUtils {
         presenter.presenterOnCreate()
     }
 
+    override fun onResume() {
+        presenter.presenterOnResume()
+        super.onResume()
+    }
+
     override fun onDestroy() {
         presenter.presenterOnDestroy()
         super.onDestroy()

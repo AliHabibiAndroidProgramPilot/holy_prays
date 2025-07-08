@@ -48,7 +48,7 @@ class ViewSettingActivity(
             persianFontSize = pFontSize
             arabicFontSize = aFontSize
             isTextBolded = boldedText
-           selectedFontResId = selectedFont
+            selectedFontResId = selectedFont
             binding.txtProgressPreviewPersian.text = persianFontSize.toString()
             binding.persianFontSizeSeekBar.progress = persianFontSize!!.toInt()
             binding.txtProgressPreviewArabic.text = arabicFontSize.toString()

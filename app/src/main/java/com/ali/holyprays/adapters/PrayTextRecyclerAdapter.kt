@@ -16,12 +16,13 @@ import com.ali.holyprays.provider.PrayCategories
 class PrayTextRecyclerAdapter(
     private val arabicTextList: List<String>,
     private val persianTextList: List<String>,
-    private val category: PrayCategories?,
-    private val persianFontSize: Float,
-    private val arabicFontSize: Float,
-    private val isBoldText: Boolean,
-    private val selectedFontResId: Int
+    private val category: PrayCategories?
 ) : Adapter<PrayTextRecyclerAdapter.PrayTextViewHolder>() {
+
+    var persianFontSize: Float = 0f
+    var arabicFontSize: Float = 0f
+    var isBoldText: Boolean = false
+    var selectedFontResId: Int = 0
 
     inner class PrayTextViewHolder(private val binding: PrayTextRecyclerItemBinding) :
         ViewHolder(binding.root) {

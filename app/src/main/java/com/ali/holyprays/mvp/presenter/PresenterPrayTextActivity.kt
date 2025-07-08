@@ -22,6 +22,17 @@ class PresenterPrayTextActivity(
     override fun presenterOnCreate() {
         view.setInsetsAndUiColor()
         providePrayText(view.provideFilesPath(), view.providePrayPersianTranslationFilePath())
+        view.navigationBackClickHandler()
+        view.navigationToSettingActivity()
+    }
+
+    override fun presenterOnResume() {
+        view.invalidateRecycler(
+            model.getPersianFontSize(),
+            model.getArabicFontSize(),
+            model.getIsBoldText(),
+            model.getFontResId()
+        )
     }
 
     private fun providePrayText(prayFilePath: String, prayPersianTranslationFilePath: String) {

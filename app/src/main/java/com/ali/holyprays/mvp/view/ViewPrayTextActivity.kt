@@ -1,6 +1,7 @@
 package com.ali.holyprays.mvp.view
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat
@@ -14,6 +15,7 @@ import com.ali.holyprays.adapters.PrayTextRecyclerAdapter
 import com.ali.holyprays.databinding.ActivityPrayTextBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.provider.PrayDataModel
+import com.ali.holyprays.ui.SettingActivity
 
 class ViewPrayTextActivity(
     context: Context,
@@ -71,12 +73,41 @@ class ViewPrayTextActivity(
             arabicTextList,
             persianTextList,
             pray?.prayCategory,
-            pFontSize,
-            aFontSize,
-            isBoldText,
-            selectedFontResId
         )
+        adapter.persianFontSize = pFontSize
+        adapter.arabicFontSize = aFontSize
+        adapter.isBoldText = isBoldText
+        adapter.selectedFontResId = selectedFontResId
         binding.prayTextRecycler.adapter = adapter
+    }
+
+    fun navigationBackClickHandler() {
+        binding.icClose.setOnClickListener {
+            utils.takeBackPressedDispatchers()?.onBackPressed()
+        }
+    }
+
+    fun navigationToSettingActivity() {
+        binding.icSetting.setOnClickListener {
+            context.startActivity(
+                Intent(context, SettingActivity::class.java)
+            )
+        }
+    }
+
+    fun invalidateRecycler(
+        pFontSize: Float,
+        aFontSize: Float,
+        isBoldText: Boolean,
+        selectedFontResId: Int
+    ) {
+        if (::adapter.isInitialized) {
+            adapter.persianFontSize = pFontSize
+            adapter.arabicFontSize = aFontSize
+            adapter.isBoldText = isBoldText
+            adapter.selectedFontResId = selectedFontResId
+            adapter.notifyItemRangeChanged(0, adapter.itemCount)
+        } else return
     }
 
     /*fun manageRecyclerScroll() {
