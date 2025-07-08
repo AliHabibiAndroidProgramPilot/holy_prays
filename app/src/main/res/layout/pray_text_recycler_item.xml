@@ -10,14 +10,15 @@
 
     <TextView
         android:id="@+id/txt_pray_arabic"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/nabi"
+        android:justificationMode="inter_word"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="17sp"
@@ -35,6 +36,7 @@
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/iran_sans_regular"
         android:textAlignment="center"
+        android:justificationMode="inter_word"
         android:textColor="@android:color/secondary_text_light"
         android:textSize="15sp"
         tools:text="یا الله و ال ذی" />
