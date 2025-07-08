@@ -58,4 +58,40 @@
         android:textSize="18sp"
         tools:text="زیارت عاشورا" />
 
+    <ImageButton
+        android:id="@+id/ic_setting"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="70dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/setting_main_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/img_bottom_border" />
+
+    <ImageButton
+        android:id="@+id/ic_play"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ic_setting"
+        app:layout_constraintStart_toEndOf="@+id/ic_close" />
+
+    <ImageButton
+        android:id="@+id/ic_close"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="70dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_close_png"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/img_bottom_border" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
