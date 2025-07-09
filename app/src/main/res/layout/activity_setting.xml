@@ -1,252 +1,359 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_black"
-    android:layoutDirection="ltr"
-    tools:context=".ui.SettingActivity">
+    android:background="@color/background_black">
 
-    <TextView
-        android:id="@+id/txt_header_setting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/iran_sans_medium"
-        android:maxLines="1"
-        android:text="@string/setting"
-        android:textAlignment="textStart"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/ic_toolbar_navigation_back"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/back_navigation_icon"
-        android:src="@drawable/ic_back_rtl_white"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_header_setting"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txt_header_setting" />
-
-    <TextView
-        android:id="@+id/persian_font_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:fontFamily="@font/iran_sans_medium"
-        android:text="@string/persian_font_size"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_header_setting" />
-
-    <TextView
-        android:id="@+id/txt_progress_preview_persian"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:fontFamily="@font/iran_sans_medium"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@id/persian_font_title"
-        app:layout_constraintEnd_toStartOf="@+id/persian_font_title"
-        app:layout_constraintTop_toTopOf="@id/persian_font_title"
-        tools:text="16" />
-
-    <SeekBar
-        android:id="@+id/persian_font_size_seek_bar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="30dp"
-        android:max="30"
-        android:min="5"
-        android:scaleX="1.2"
-        android:scaleY="1.2"
-        android:progress="16"
-        android:progressTint="@color/golden"
-        android:thumbTint="@color/golden"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/persian_font_title" />
+        android:background="@color/background_black"
+        android:layoutDirection="ltr"
+        tools:context=".ui.SettingActivity">
 
-    <View
-        style="@style/Divider.Horizontal"
-        android:layout_marginHorizontal="5dp"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/persian_font_size_seek_bar" />
+        <TextView
+            android:id="@+id/txt_text_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/iran_sans_medium"
+            android:maxLines="1"
+            android:text="@string/text_setting"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/arabic_font_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/iran_sans_medium"
-        android:text="@string/arabic_font_title"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/persian_font_size_seek_bar" />
+        <ImageButton
+            android:id="@+id/ic_toolbar_navigation_back"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back_navigation_icon"
+            android:src="@drawable/ic_back_rtl_white"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_text_setting"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_text_setting" />
 
-    <TextView
-        android:id="@+id/txt_progress_preview_arabic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:fontFamily="@font/iran_sans_medium"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@id/arabic_font_title"
-        app:layout_constraintEnd_toStartOf="@+id/arabic_font_title"
-        app:layout_constraintTop_toTopOf="@id/arabic_font_title"
-        tools:text="16" />
+        <TextView
+            android:id="@+id/persian_font_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/iran_sans_medium"
+            android:text="@string/persian_font_size"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_text_setting" />
 
-    <SeekBar
-        android:id="@+id/arabic_font_size_seek_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="30dp"
-        android:max="40"
-        android:min="5"
-        android:progress="16"
-        android:scaleX="1.2"
-        android:scaleY="1.2"
-        android:progressTint="@color/golden"
-        android:thumbTint="@color/golden"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/arabic_font_title" />
+        <TextView
+            android:id="@+id/txt_progress_preview_persian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/iran_sans_medium"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/persian_font_title"
+            app:layout_constraintEnd_toStartOf="@+id/persian_font_title"
+            app:layout_constraintTop_toTopOf="@id/persian_font_title"
+            tools:text="16" />
 
-    <View
-        android:id="@+id/view"
-        style="@style/Divider.Horizontal"
-        android:layout_marginHorizontal="5dp"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/arabic_font_size_seek_bar" />
+        <SeekBar
+            android:id="@+id/persian_font_size_seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="30dp"
+            android:max="30"
+            android:min="5"
+            android:progress="16"
+            android:progressTint="@color/golden"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:thumbTint="@color/golden"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/persian_font_title" />
 
-    <TextView
-        android:id="@+id/bolded_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/iran_sans_medium"
-        android:text="@string/bolded_text"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/arabic_font_size_seek_bar" />
+        <View
+            style="@style/Divider.Horizontal"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/persian_font_size_seek_bar" />
 
-    <com.google.android.material.materialswitch.MaterialSwitch
-        android:id="@+id/bold_text_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:scaleX="1.2"
-        android:scaleY="1.2"
-        app:layout_constraintBottom_toBottomOf="@+id/bolded_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bolded_text"
-        app:showText="false"
-        app:trackTint="@color/low_white"
-        app:thumbIcon="@drawable/ic_close"
-        app:thumbIconTint="@color/white"
-        app:thumbIconSize="24dp"
-        app:thumbTint="@color/golden" />
+        <TextView
+            android:id="@+id/arabic_font_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/iran_sans_medium"
+            android:text="@string/arabic_font_title"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/persian_font_size_seek_bar" />
 
-    <View
-        style="@style/Divider.Horizontal"
-        android:layout_marginHorizontal="5dp"
-        android:layout_marginVertical="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bolded_text" />
+        <TextView
+            android:id="@+id/txt_progress_preview_arabic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/iran_sans_medium"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/arabic_font_title"
+            app:layout_constraintEnd_toStartOf="@+id/arabic_font_title"
+            app:layout_constraintTop_toTopOf="@id/arabic_font_title"
+            tools:text="16" />
 
-    <TextView
-        android:id="@+id/arabic_typeface_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/iran_sans_medium"
-        android:text="@string/arabic_typeface_title"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bolded_text" />
+        <SeekBar
+            android:id="@+id/arabic_font_size_seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="30dp"
+            android:max="40"
+            android:min="5"
+            android:progress="16"
+            android:progressTint="@color/golden"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:thumbTint="@color/golden"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arabic_font_title" />
 
-    <Spinner
-        android:id="@+id/dropdown_selection"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layoutDirection="rtl"
-        app:layout_constraintBottom_toBottomOf="@+id/arabic_typeface_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/arabic_typeface_title" />
+        <View
+            android:id="@+id/view"
+            style="@style/Divider.Horizontal"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arabic_font_size_seek_bar" />
 
-    <View
-        android:id="@+id/final_divider"
-        style="@style/Divider.Horizontal"
-        android:layout_marginHorizontal="5dp"
-        android:layout_marginVertical="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/arabic_typeface_title" />
+        <TextView
+            android:id="@+id/bolded_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/iran_sans_medium"
+            android:text="@string/bolded_text"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arabic_font_size_seek_bar" />
 
-    <TextView
-        android:id="@+id/txt_arabic_preview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:fontFamily="@font/nabi"
-        android:text="@string/besmellah"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/final_divider" />
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/bold_text_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintBottom_toBottomOf="@+id/bolded_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bolded_text"
+            app:showText="false"
+            app:thumbIcon="@drawable/ic_close"
+            app:thumbIconSize="24dp"
+            app:thumbIconTint="@color/white"
+            app:thumbTint="@color/golden"
+            app:trackTint="@color/low_white" />
 
-    <TextView
-        android:id="@+id/txt_persian_preview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:fontFamily="@font/iran_sans_regular"
-        android:text="@string/besmellah_persian"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_arabic_preview" />
+        <View
+            style="@style/Divider.Horizontal"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bolded_text" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_save_new_settings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="@string/save_new_setting"
-        android:fontFamily="@font/iran_sans_regular"
-        app:backgroundTint="@color/golden"
-        android:textSize="18sp"
-        app:cornerRadius="6dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/arabic_typeface_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/iran_sans_medium"
+            android:text="@string/arabic_typeface_title"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bolded_text" />
+
+        <Spinner
+            android:id="@+id/dropdown_selection"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            app:layout_constraintBottom_toBottomOf="@+id/arabic_typeface_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/arabic_typeface_title" />
+
+        <View
+            android:id="@+id/divider4"
+            style="@style/Divider.Horizontal"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arabic_typeface_title" />
+
+        <TextView
+            android:id="@+id/txt_arabic_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/nabi"
+            android:text="@string/besmellah"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider4" />
+
+        <TextView
+            android:id="@+id/txt_persian_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/iran_sans_regular"
+            android:text="@string/besmellah_persian"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_arabic_preview" />
+
+        <View
+            android:id="@+id/divider5"
+            style="@style/Divider.Horizontal"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_persian_preview" />
+
+        <TextView
+            android:id="@+id/txt_sound_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/iran_sans_medium"
+            android:maxLines="1"
+            android:text="@string/text_setting"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider5" />
+
+        <TextView
+            android:id="@+id/select_singer_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:alpha="0.5"
+            android:enabled="false"
+            android:fontFamily="@font/iran_sans_medium"
+            android:text="@string/selecte_singer"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_sound_setting" />
+
+        <TextView
+            android:id="@+id/singer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginEnd="80dp"
+            android:alpha="0.5"
+            android:enabled="false"
+            android:fontFamily="@font/iran_sans_regular"
+            android:text="عبدالباسط"
+            android:textColor="@color/golden"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/select_singer_title"
+            app:layout_constraintEnd_toStartOf="@+id/select_singer_title"
+            app:layout_constraintTop_toTopOf="@+id/select_singer_title" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView2"
+            android:layout_width="58dp"
+            android:layout_height="55dp"
+            android:alpha="0.5"
+            android:enabled="false"
+            android:src="@drawable/abdolbesat_singer"
+            app:layout_constraintBottom_toBottomOf="@+id/singer_name"
+            app:layout_constraintEnd_toStartOf="@+id/singer_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/singer_name"
+            app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+        <TextView
+            android:id="@+id/select_play_speed_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:alpha="0.5"
+            android:enabled="false"
+            android:fontFamily="@font/iran_sans_medium"
+            android:text="@string/play_speed"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/select_singer_title" />
+
+        <TextView
+            android:id="@+id/txt_play_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:enabled="false"
+            android:fontFamily="@font/iran_sans_medium"
+            android:text="2X"
+            android:textColor="@color/golden"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/select_play_speed_title"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/select_play_speed_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save_new_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/iran_sans_regular"
+            android:text="@string/save_new_setting"
+            android:textSize="18sp"
+            app:backgroundTint="@color/golden"
+            app:cornerRadius="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/select_play_speed_title" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

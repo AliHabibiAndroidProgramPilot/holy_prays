@@ -45,6 +45,7 @@
     <string name="ic_translation">icon persian translation</string>
     <string name="corner_image">corner image</string>
     <string name="app_description">منتخب ادعیه و قرآن</string>
+    <string name="text_setting">تنظیمات متن</string>
     <string name="setting">تنظیمات</string>
     <string name="choose_one">یک گزینه را انتخاب کنید</string>
     <string name="memorial">یاد بود</string>
@@ -58,4 +59,6 @@
     <string name="besmellah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</string>
     <string name="besmellah_persian">به نام خداوند بخشنده و مهربان</string>
     <string name="save_new_setting">ذخیره تنظیمات جدید</string>
+    <string name="selecte_singer">انتخاب قاری</string>
+    <string name="play_speed">سرعت پخش</string>
 </resources>

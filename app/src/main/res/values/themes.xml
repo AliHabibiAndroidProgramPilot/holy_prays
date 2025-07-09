@@ -9,9 +9,9 @@
 
     <style name="Theme.HolyPrays" parent="Base.Theme.HolyPrays" />
 
-    <style name="roundedDayPrayFrameImageView" parent="Base.Theme.HolyPrays">
+    <style name="roundedImageView" parent="Base.Theme.HolyPrays">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">15dp</item>
+        <item name="cornerSize">30dp</item>
     </style>
 
     <style name="Divider">
@@ -21,11 +21,6 @@
     <style name="Divider.Horizontal" parent="Divider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">2dp</item>
-    </style>
-
-    <style name="roundedTextModifiersButton" parent="Base.Theme.HolyPrays">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">30dp</item>
     </style>
 
     <style name="Material.Dialog.Alert" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
