@@ -256,7 +256,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/iran_sans_medium"
             android:maxLines="1"
-            android:text="@string/text_setting"
+            android:text="@string/sound_setting"
             android:textAlignment="textStart"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -270,42 +270,32 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
-            android:alpha="0.5"
-            android:enabled="false"
             android:fontFamily="@font/iran_sans_medium"
             android:text="@string/selecte_singer"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_sound_setting" />
 
-        <TextView
-            android:id="@+id/singer_name"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/dropdown_reciter_selection"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginEnd="80dp"
-            android:alpha="0.5"
-            android:enabled="false"
-            android:fontFamily="@font/iran_sans_regular"
-            android:text="عبدالباسط"
-            android:textColor="@color/golden"
-            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/select_singer_title"
             app:layout_constraintEnd_toStartOf="@+id/select_singer_title"
+            app:layout_constraintStart_toEndOf="@+id/reciter_profile"
             app:layout_constraintTop_toTopOf="@+id/select_singer_title" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/reciter_profile"
             android:layout_width="58dp"
             android:layout_height="55dp"
-            android:alpha="0.5"
-            android:enabled="false"
+            android:layout_marginStart="8dp"
             android:src="@drawable/abdolbesat_singer"
-            app:layout_constraintBottom_toBottomOf="@+id/singer_name"
-            app:layout_constraintEnd_toStartOf="@+id/singer_name"
+            app:layout_constraintBottom_toBottomOf="@+id/dropdown_reciter_selection"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/singer_name"
+            app:layout_constraintTop_toTopOf="@+id/dropdown_reciter_selection"
             app:shapeAppearanceOverlay="@style/roundedImageView" />
 
         <TextView
@@ -334,8 +324,8 @@
             android:textColor="@color/golden"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/select_play_speed_title"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="@+id/reciter_profile"
+            app:layout_constraintStart_toStartOf="@+id/reciter_profile"
             app:layout_constraintTop_toTopOf="@+id/select_play_speed_title" />
 
         <com.google.android.material.button.MaterialButton

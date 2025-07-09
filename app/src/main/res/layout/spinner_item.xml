@@ -4,7 +4,10 @@
     android:layout_height="wrap_content"
     android:padding="8dp"
     android:fontFamily="@font/iran_sans_medium"
-    android:textSize="20sp"
+    android:textSize="16sp"
     android:textColor="@color/golden"
+    android:textAlignment="center"
+    android:maxLines="2"
+    android:ellipsize="end"
     android:background="@color/background_black"
     android:gravity="center" />
