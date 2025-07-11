@@ -16,4 +16,5 @@
     <color name="inactivate_color">#80000000</color>
     <color name="background_black">#303030</color>
     <color name="golden">#c98e4c</color>
+    <color name="red_alert">#DE3E3E</color>
 </resources>

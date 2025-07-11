@@ -277,9 +277,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_sound_setting" />
 
+        <TextView
+            android:id="@+id/reciter_selection_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iran_sans_regular"
+            android:text="@string/reciter_selection_alert"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/red_alert"
+            android:textDirection="rtl"
+            android:textSize="13.5sp"
+            app:layout_constraintBottom_toTopOf="@+id/select_play_speed_title"
+            app:layout_constraintEnd_toEndOf="@+id/select_singer_title"
+            app:layout_constraintTop_toBottomOf="@id/select_singer_title"
+            tools:ignore="HardcodedText" />
+
         <Spinner
             android:id="@+id/dropdown_reciter_selection"
-            android:layout_width="0dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/select_singer_title"
@@ -291,8 +307,9 @@
             android:id="@+id/reciter_profile"
             android:layout_width="58dp"
             android:layout_height="55dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="35dp"
             android:src="@drawable/abdolbesat_singer"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="@+id/dropdown_reciter_selection"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/dropdown_reciter_selection"
@@ -303,7 +320,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:alpha="0.5"
             android:enabled="false"
             android:fontFamily="@font/iran_sans_medium"
@@ -311,7 +328,7 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/select_singer_title" />
+            app:layout_constraintTop_toBottomOf="@id/reciter_selection_alert" />
 
         <TextView
             android:id="@+id/txt_play_speed"

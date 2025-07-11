@@ -14,6 +14,7 @@ import com.ali.holyprays.R
 import com.ali.holyprays.adapters.PrayTextRecyclerAdapter
 import com.ali.holyprays.databinding.ActivityPrayTextBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
+import com.ali.holyprays.mvp.presenter.PresenterPrayTextActivity
 import com.ali.holyprays.provider.PrayDataModel
 import com.ali.holyprays.ui.SettingActivity
 
@@ -36,6 +37,8 @@ class ViewPrayTextActivity(
         intent!!.getParcelableExtra("PRAY_EXTRA", PrayDataModel::class.java)
     else
         intent!!.getParcelableExtra("PRAY_EXTRA")
+
+    lateinit var presenterContract: PresenterPrayTextActivity
 
     val setStatusBarColor = {
         val window = utils.takeWindow()
@@ -92,6 +95,21 @@ class ViewPrayTextActivity(
             context.startActivity(
                 Intent(context, SettingActivity::class.java)
             )
+        }
+    }
+
+    fun playPrayAudioManager() {
+        var playState = false
+        binding.icPlay.setOnClickListener {
+            playState = !playState
+            if (playState) {
+                binding.icPlay.setImageResource(R.drawable.ic_pause)
+                presenterContract.onPlayAudioButtonCLicked(context, R.raw.sore_jomeh)
+            } else {
+                binding.icPlay.setImageResource(R.drawable.ic_play)
+                presenterContract.onStopAudioButtonClicked()
+            }
+
         }
     }
 

@@ -62,4 +62,5 @@
     <string name="save_new_setting">ذخیره تنظیمات جدید</string>
     <string name="selecte_singer">قاری</string>
     <string name="play_speed">سرعت پخش</string>
+    <string name="reciter_selection_alert">انتخاب قاری برای سوره ها امکان پذیر است</string>
 </resources>

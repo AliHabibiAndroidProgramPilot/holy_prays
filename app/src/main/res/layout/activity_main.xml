@@ -359,16 +359,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/authman"
+        android:maxLines="3"
         android:text="@string/person_memorial"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textDirection="rtl"
-        android:textSize="16sp"
-        android:maxLines="3"
-        android:ellipsize="end"
-        android:fontFamily="@font/authman"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/txt_app_description"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_app_description" />
 </androidx.constraintlayout.widget.ConstraintLayout>
