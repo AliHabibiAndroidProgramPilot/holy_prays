@@ -20,6 +20,18 @@
         app:layout_constraintBottom_toTopOf="@id/img_bottom_border"
         tools:listitem="@layout/pray_text_recycler_item" />
 
+    <ProgressBar
+        android:id="@+id/progress_indicator"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:padding="5dp"
+        android:indeterminateTint="@color/golden"
+        android:background="@drawable/low_opacity_bg"
+        android:layout_marginBottom="75dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
     <ImageView
         android:id="@+id/img_top_border"
         android:layout_width="match_parent"
@@ -69,6 +81,7 @@
         android:src="@drawable/setting_main_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/img_bottom_border" />
+
 
     <ImageButton
         android:id="@+id/ic_play"

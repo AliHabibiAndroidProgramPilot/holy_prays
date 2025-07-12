@@ -21,7 +21,8 @@ class PresenterSettingActivity(
             model.getPersianFontSize(),
             model.getArabicFontSize(),
             model.getIsBoldText(),
-            model.getFontResId()
+            model.getFontResId(),
+            model.getSelectedReciter()
         )
     }
 
@@ -43,6 +44,10 @@ class PresenterSettingActivity(
 
     override fun onSaveSelectedFont(fontResId: Int) {
         model.saveFontResId(fontResId)
+    }
+
+    override fun onSaveSelectedReciter(selectedReciterName: String) {
+        model.saveSelectedReciter(selectedReciterName)
     }
 
 }

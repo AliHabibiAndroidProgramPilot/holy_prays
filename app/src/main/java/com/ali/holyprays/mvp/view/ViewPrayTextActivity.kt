@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.view.LayoutInflater
+import android.view.View
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
@@ -15,7 +17,9 @@ import com.ali.holyprays.adapters.PrayTextRecyclerAdapter
 import com.ali.holyprays.databinding.ActivityPrayTextBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.presenter.PresenterPrayTextActivity
+import com.ali.holyprays.provider.PrayCategories
 import com.ali.holyprays.provider.PrayDataModel
+import com.ali.holyprays.provider.Reciter
 import com.ali.holyprays.ui.SettingActivity
 
 class ViewPrayTextActivity(
@@ -104,10 +108,17 @@ class ViewPrayTextActivity(
             playState = !playState
             if (playState) {
                 binding.icPlay.setImageResource(R.drawable.ic_pause)
-                presenterContract.onPlayAudioButtonCLicked(context, R.raw.sore_jomeh)
+                if (!presenterContract.isMediaPlayerPrepared())
+                    binding.progressIndicator.visibility = View.VISIBLE
+                if (pray?.prayCategory == PrayCategories.SORE) {
+                    val reciter: Reciter = presenterContract.findSelectedReciter()
+                    val prayAudioUrl = reciter.getAudioUrl(pray.prayName)
+                    presenterContract.onPlayAudioButtonClicked(prayAudioUrl)
+                }
             } else {
                 binding.icPlay.setImageResource(R.drawable.ic_play)
                 presenterContract.onStopAudioButtonClicked()
+                binding.progressIndicator.visibility = View.GONE
             }
 
         }
@@ -126,6 +137,20 @@ class ViewPrayTextActivity(
             adapter.selectedFontResId = selectedFontResId
             adapter.notifyItemRangeChanged(0, adapter.itemCount)
         } else return
+    }
+
+    val onFailedAudioPlay: () -> Unit = {
+        binding.progressIndicator.visibility = View.GONE
+        binding.icPlay.setImageResource(R.drawable.ic_play)
+        Toast.makeText(
+            context,
+            "پخش صوت با مشکل مواجه شد لطفا اتصال اینترنت خود را بررسی کنید",
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
+    val onSuccessAudioPlay: () -> Unit = {
+        binding.progressIndicator.visibility = View.GONE
     }
 
     /*fun manageRecyclerScroll() {

@@ -21,8 +21,9 @@ class PrayTextActivity : AppCompatActivity(), ActivityUtils {
         enableEdgeToEdge()
         val model = ModelPrayTextActivity(this)
         val view = ViewPrayTextActivity(this, this)
-        setContentView(view.binding.root)
         presenter = PresenterPrayTextActivity(view, model, this)
+        view.presenterContract = presenter
+        setContentView(view.binding.root)
         presenter.presenterOnCreate()
     }
 

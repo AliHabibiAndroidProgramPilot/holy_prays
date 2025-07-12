@@ -16,6 +16,9 @@ class ModelSettingActivity(context: Context) {
 
     fun getFontResId(): Int = prefsManager.getInt("TEXT_FONT_RES_ID", 0)
 
+    fun getSelectedReciter(): String =
+        prefsManager.getString("SELECTED_RECITER", "عبدالباسط") ?: "عبدالباسط"
+
     fun savePersianFontSize(fontSize: Float) {
         prefsManager.edit()
             .putFloat("PERSIAN_FONT_SIZE", fontSize)
@@ -37,6 +40,12 @@ class ModelSettingActivity(context: Context) {
     fun saveFontResId(resId: Int) {
         prefsManager.edit()
             .putInt("TEXT_FONT_RES_ID", resId)
+            .apply()
+    }
+
+    fun saveSelectedReciter(selectedReciterName: String) {
+        prefsManager.edit()
+            .putString("SELECTED_RECITER", selectedReciterName)
             .apply()
     }
 

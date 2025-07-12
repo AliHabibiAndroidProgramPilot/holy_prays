@@ -1,10 +1,12 @@
 package com.ali.holyprays.mvp.presenter
 
+import android.content.Context
 import android.util.Log
 import com.ali.holyprays.mvp.ext.ActivityLifecycle
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.model.ModelPrayTextActivity
 import com.ali.holyprays.mvp.view.ViewPrayTextActivity
+import com.ali.holyprays.provider.Reciter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -24,6 +26,7 @@ class PresenterPrayTextActivity(
         providePrayText(view.provideFilesPath(), view.providePrayPersianTranslationFilePath())
         view.navigationBackClickHandler()
         view.navigationToSettingActivity()
+        view.playPrayAudioManager()
     }
 
     override fun presenterOnResume() {
@@ -34,6 +37,31 @@ class PresenterPrayTextActivity(
             model.getFontResId()
         )
     }
+
+    fun onPlayAudioButtonClicked(audioUrl: String) {
+        model.playPrayAudio(audioUrl) { success ->
+            if (!success)
+                view.onFailedAudioPlay()
+            else
+                view.onSuccessAudioPlay()
+        }
+    }
+
+    fun onPlayAudioButtonCLicked(context: Context, audioResId: Int) {
+        model.playPrayAudio(context, audioResId)
+    }
+
+    fun onStopAudioButtonClicked(): Boolean {
+        return model.stopPrayAudio()
+    }
+
+    fun findSelectedReciter(): Reciter =
+        Reciter.entries.find { it.reciterDisplayName == model.getSelectedReciter() }
+            ?: Reciter.ABDOL_VASET
+
+    fun isAudioPaused(): Boolean = model.isAudioPaused()
+
+    fun isMediaPlayerPrepared(): Boolean = model.isMediaPlayerAlreadyPrepared()
 
     private fun providePrayText(prayFilePath: String, prayPersianTranslationFilePath: String) {
         scope.launch {
@@ -62,6 +90,7 @@ class PresenterPrayTextActivity(
     override fun presenterOnDestroy() {
         if (job.isActive)
             job.cancel()
+        model.releaseMediaPlayer()
     }
 
 }

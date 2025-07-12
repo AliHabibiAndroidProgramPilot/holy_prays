@@ -16,6 +16,7 @@ import com.ali.holyprays.R
 import com.ali.holyprays.databinding.ActivitySettingBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.ext.SaveSettingContract
+import com.ali.holyprays.provider.Reciter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ViewSettingActivity(
@@ -41,26 +42,40 @@ class ViewSettingActivity(
         R.font.shabnam
     )
 
+    private val reciters = arrayOf("عبدالباسط", "شهریار پرهیزکاری", "ماهر المعیقلی", "میثم تمار")
+
     private var persianFontSize: Float = 16f
+
     private var arabicFontSize: Float = 16f
+
     private var isTextBolded: Boolean = false
+
     private var selectedFontResId: Int = R.font.nabi
 
+    private var selectedReciter: String = "عبدالباسط"
+
     private var originalPersianFontSize: Float? = null
+
     private var originalArabicFontSize: Float? = null
+
     private var originalIsTextBolded: Boolean = false
+
     private var originalFontResId: Int? = null
 
-    val setSavedSetting: (Float, Float, Boolean, Int) -> Unit =
-        { pFontSize, aFontSize, boldedText, selectedFont ->
+    private var originalSelectedReciter: String? = null
+
+    val setSavedSetting: (Float, Float, Boolean, Int, String) -> Unit =
+        { pFontSize, aFontSize, boldedText, selectedFont, reciter ->
             persianFontSize = pFontSize
             arabicFontSize = aFontSize
             isTextBolded = boldedText
             selectedFontResId = selectedFont
+            selectedReciter = reciter
             originalPersianFontSize = pFontSize
             originalArabicFontSize = aFontSize
             originalIsTextBolded = boldedText
             originalFontResId = selectedFont
+            originalSelectedReciter = reciter
             binding.txtProgressPreviewPersian.text = persianFontSize.toString()
             binding.persianFontSizeSeekBar.progress = persianFontSize.toInt()
             binding.txtProgressPreviewArabic.text = arabicFontSize.toString()
@@ -76,6 +91,8 @@ class ViewSettingActivity(
             }
             binding.txtArabicPreview.paint.isFakeBoldText = isTextBolded
             binding.dropdownSelection.setSelection(fontResId.indexOf(selectedFontResId))
+            binding.dropdownReciterSelection.setSelection(reciters.indexOf(reciter))
+            setReciterProfile(reciters.indexOf(reciter))
             // Set Preview Text Attributes
             binding.txtPersianPreview.textSize = persianFontSize
             binding.txtArabicPreview.textSize = arabicFontSize
@@ -190,6 +207,32 @@ class ViewSettingActivity(
                 }
 
             }
+        binding.dropdownReciterSelection.adapter = ArrayAdapter(
+            context,
+            R.layout.spinner_item,
+            reciters
+        ).also {
+            it.setDropDownViewResource(R.layout.spinner_item)
+        }
+        binding.dropdownReciterSelection.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    selectedReciter =
+                        Reciter.entries.find { it.reciterDisplayName == reciters[position] }?.reciterDisplayName
+                            ?: Reciter.ABDOL_VASET.reciterDisplayName
+                    setReciterProfile(position)
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+
+                }
+
+            }
     }
 
     fun saveSettingClickHandler() {
@@ -253,11 +296,23 @@ class ViewSettingActivity(
         }
     }
 
+    private fun setReciterProfile(position: Int) {
+        val reciterProfile = binding.reciterProfile
+        when (position) {
+            0 -> reciterProfile.setImageResource(R.drawable.abdolbesat_singer)
+            1 -> reciterProfile.setImageResource(R.drawable.shahriar_prahizkar)
+            2 -> reciterProfile.setImageResource(R.drawable.maher)
+            3 -> reciterProfile.setImageResource(R.drawable.meysam_tamar)
+            else -> reciterProfile.setImageResource(R.drawable.abdolbesat_singer)
+        }
+    }
+
     private val hasUnsavedChanges: () -> Boolean = {
         (originalPersianFontSize != persianFontSize ||
                 originalArabicFontSize != arabicFontSize ||
                 originalIsTextBolded != isTextBolded ||
-                originalFontResId != selectedFontResId
+                originalFontResId != selectedFontResId ||
+                originalSelectedReciter != selectedReciter
                 )
     }
 
@@ -266,6 +321,7 @@ class ViewSettingActivity(
         presenterContract.onSavePersianFontSize(persianFontSize)
         presenterContract.onSaveArabicFontSize(arabicFontSize)
         presenterContract.onSaveSelectedFont(selectedFontResId)
+        presenterContract.onSaveSelectedReciter(selectedReciter)
         utils.takeFinishActivity()
     }
 

@@ -667,7 +667,7 @@ object PrayRepository {
                         null,
                         "sore/jome.txt",
                         "sore/persian/jome_p.txt",
-                        null
+                        "sounds/sore_jomeh"
                     ),
                     PrayDataModel(
                         5,
@@ -699,7 +699,7 @@ object PrayRepository {
                     PrayDataModel(
                         8,
                         PrayCategories.SORE,
-                        "شوره شمس",
+                        "سوره شمس",
                         null,
                         "sore/shams.txt",
                         "sore/persian/shams_p.txt",

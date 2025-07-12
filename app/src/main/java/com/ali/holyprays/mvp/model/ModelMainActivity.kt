@@ -2,6 +2,7 @@ package com.ali.holyprays.mvp.model
 
 import android.content.Context
 import com.ali.holyprays.R
+import com.ali.holyprays.provider.Reciter
 
 class ModelMainActivity(context: Context) {
 
@@ -15,6 +16,8 @@ class ModelMainActivity(context: Context) {
                 edit().putBoolean("IS_BOLD_TEXT", false).apply()
             if (!contains("TEXT_FONT_RES_ID"))
                 edit().putInt("TEXT_FONT_RES_ID", R.font.nabi).apply()
+            if (!contains("SELECTED_RECITER"))
+                edit().putString("SELECTED_RECITER", Reciter.ABDOL_VASET.reciterDisplayName).apply()
         }
     }
 

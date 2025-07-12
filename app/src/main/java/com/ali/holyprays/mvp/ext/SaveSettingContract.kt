@@ -10,4 +10,6 @@ interface SaveSettingContract {
 
     fun onSaveSelectedFont(fontResId: Int)
 
+    fun onSaveSelectedReciter(selectedReciterName: String)
+
 }
