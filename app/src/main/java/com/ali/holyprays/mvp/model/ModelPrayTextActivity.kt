@@ -99,16 +99,20 @@ class ModelPrayTextActivity(context: Context) {
         mediaPlayer?.start()
     }
 
+    fun audioSeekTo(durationPosition: Int) {
+        mediaPlayer?.seekTo(durationPosition)
+    }
+
+    fun saveCurrentPosition(): Int? {
+        return if (mediaPlayer != null && mediaPlayer!!.isPlaying)
+            mediaPlayer?.currentPosition
+        else
+            null
+    }
+
     val stopPrayAudio: () -> Boolean = {
         mediaPlayer?.pause()
         mediaPlayer?.isPlaying ?: false
-    }
-
-    val isAudioPaused: () -> Boolean = {
-        mediaPlayer != null &&
-                !mediaPlayer!!.isPlaying &&
-                mediaPlayer!!.currentPosition > 0 &&
-                mediaPlayer!!.currentPosition in 1 until mediaPlayer!!.duration
     }
 
     val releaseMediaPlayer: () -> Unit = {

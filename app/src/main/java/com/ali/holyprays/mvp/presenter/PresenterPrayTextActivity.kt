@@ -20,6 +20,7 @@ class PresenterPrayTextActivity(
 
     private val job = Job()
     private val scope = CoroutineScope(Dispatchers.IO + job)
+    private var savedAudioPosition: Int? = null
 
     override fun presenterOnCreate() {
         view.setInsetsAndUiColor()
@@ -29,6 +30,12 @@ class PresenterPrayTextActivity(
         view.playPrayAudioManager()
     }
 
+    override fun presenterOnPause() {
+        model.stopPrayAudio()
+        view.onPauseMediaPlayerForceStop()
+        savedAudioPosition = model.saveCurrentPosition()
+    }
+
     override fun presenterOnResume() {
         view.invalidateRecycler(
             model.getPersianFontSize(),
@@ -36,6 +43,8 @@ class PresenterPrayTextActivity(
             model.getIsBoldText(),
             model.getFontResId()
         )
+        if (savedAudioPosition != null)
+            model.audioSeekTo(savedAudioPosition!!)
     }
 
     fun onPlayAudioButtonClicked(audioUrl: String) {
@@ -58,8 +67,6 @@ class PresenterPrayTextActivity(
     fun findSelectedReciter(): Reciter =
         Reciter.entries.find { it.reciterDisplayName == model.getSelectedReciter() }
             ?: Reciter.ABDOL_VASET
-
-    fun isAudioPaused(): Boolean = model.isAudioPaused()
 
     fun isMediaPlayerPrepared(): Boolean = model.isMediaPlayerAlreadyPrepared()
 

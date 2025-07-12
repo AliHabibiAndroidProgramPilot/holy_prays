@@ -27,6 +27,11 @@ class PrayTextActivity : AppCompatActivity(), ActivityUtils {
         presenter.presenterOnCreate()
     }
 
+    override fun onPause() {
+        presenter.presenterOnPause()
+        super.onPause()
+    }
+
     override fun onResume() {
         presenter.presenterOnResume()
         super.onResume()

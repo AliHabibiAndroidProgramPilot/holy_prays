@@ -34,6 +34,8 @@ class ViewPrayTextActivity(
 
     private val intent = utils.takeActivityIntentExtra()
 
+    private var playState = false
+
     private lateinit var adapter: PrayTextRecyclerAdapter
 
     @Suppress("DEPRECATION")
@@ -103,7 +105,6 @@ class ViewPrayTextActivity(
     }
 
     fun playPrayAudioManager() {
-        var playState = false
         binding.icPlay.setOnClickListener {
             playState = !playState
             if (playState) {
@@ -122,6 +123,12 @@ class ViewPrayTextActivity(
             }
 
         }
+    }
+
+    fun onPauseMediaPlayerForceStop() {
+        playState = !playState
+        binding.icPlay.setImageResource(R.drawable.ic_play)
+        binding.progressIndicator.visibility = View.GONE
     }
 
     fun invalidateRecycler(
