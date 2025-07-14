@@ -1,5 +1,7 @@
 package com.ali.holyprays.provider
 
+import com.ali.holyprays.R
+
 object PrayRepository {
 
     fun providePrayByCategory(category: PrayCategories): List<PrayDataModel> {
@@ -22,7 +24,7 @@ object PrayRepository {
                         null,
                         "prays/komeil_pray.txt",
                         "prays/persian/komeil_pray_p.txt",
-                        null
+                        R.raw.komiel_pray
                     ),
                     PrayDataModel(
                         3,
@@ -58,7 +60,7 @@ object PrayRepository {
                         null,
                         "prays/joshan_kabir_pray.txt",
                         "prays/persian/joshan_kabir_pray_p.txt",
-                        null
+                        R.raw.joshan
                     ),
                     PrayDataModel(
                         7,
@@ -67,7 +69,7 @@ object PrayRepository {
                         null,
                         "prays/tavasol_pray.txt",
                         "prays/persian/tavasol_pray_p.txt",
-                        null
+                        R.raw.tavassol
                     ),
                     PrayDataModel(
                         8,
@@ -85,7 +87,7 @@ object PrayRepository {
                         null,
                         "prays/salavat_shabanihe_pray.txt",
                         "prays/persian/salavat_shabanihe_pray_p.txt",
-                        null
+                        R.raw.salavat_shabaniyeh
                     ),
                     PrayDataModel(
                         10,
@@ -437,7 +439,7 @@ object PrayRepository {
                         null,
                         "zirat/zirat_ashura.txt",
                         "zirat/persian/zirat_ashura_p.txt",
-                        null
+                        R.raw.zirat_aushra
                     ),
                     PrayDataModel(
                         4,
@@ -518,7 +520,7 @@ object PrayRepository {
                         null,
                         "zirat/faraj_pray.txt",
                         "zirat/persian/faraj_pray_p.txt",
-                        null
+                        R.raw.faraj
                     ),
                     PrayDataModel(
                         13,
@@ -667,7 +669,7 @@ object PrayRepository {
                         null,
                         "sore/jome.txt",
                         "sore/persian/jome_p.txt",
-                        "sounds/sore_jomeh"
+                        null
                     ),
                     PrayDataModel(
                         5,

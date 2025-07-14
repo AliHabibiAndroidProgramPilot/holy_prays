@@ -105,16 +105,25 @@ class ViewPrayTextActivity(
     }
 
     fun playPrayAudioManager() {
+        val uiChanges: (Boolean) -> Unit = { isNeedLoading ->
+            binding.icPlay.setImageResource(R.drawable.ic_pause)
+            if (!presenterContract.isMediaPlayerPrepared() && isNeedLoading)
+                binding.progressIndicator.visibility = View.VISIBLE
+        }
+        val toastMessage = "نسخه صوتی ${pray?.prayName} فعلا در دسترس نیست"
         binding.icPlay.setOnClickListener {
             playState = !playState
             if (playState) {
-                binding.icPlay.setImageResource(R.drawable.ic_pause)
-                if (!presenterContract.isMediaPlayerPrepared())
-                    binding.progressIndicator.visibility = View.VISIBLE
                 if (pray?.prayCategory == PrayCategories.SORE) {
                     val reciter: Reciter = presenterContract.findSelectedReciter()
                     val prayAudioUrl = reciter.getAudioUrl(pray.prayName)
                     presenterContract.onPlayAudioButtonClicked(prayAudioUrl)
+                    uiChanges(true)
+                } else {
+                    pray?.prayAudioResId?.let {
+                        presenterContract.onPlayAudioButtonCLicked(context, it)
+                        uiChanges(false)
+                    } ?: Toast.makeText(context, toastMessage, Toast.LENGTH_LONG).show()
                 }
             } else {
                 binding.icPlay.setImageResource(R.drawable.ic_play)

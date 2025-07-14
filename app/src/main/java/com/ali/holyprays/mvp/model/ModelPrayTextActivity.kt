@@ -94,9 +94,16 @@ class ModelPrayTextActivity(context: Context) {
     }
 
     fun playPrayAudio(context: Context, audioResId: Int) {
-        mediaPlayer?.release()
-        mediaPlayer = MediaPlayer.create(context, audioResId)
-        mediaPlayer?.start()
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(context, audioResId)
+            mediaPlayer?.start()
+            isMediaPlayerPrepared = false
+            wasMediaPlayerPLaying = false
+        } else {
+            mediaPlayer?.start()
+            isMediaPlayerPrepared = true
+            wasMediaPlayerPLaying = true
+        }
     }
 
     fun audioSeekTo(durationPosition: Int) {
