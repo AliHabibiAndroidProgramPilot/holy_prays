@@ -26,7 +26,7 @@ class PresenterPrayTextActivity(
 
     private val handler = Handler(Looper.getMainLooper())
 
-    private var updateSeekRunnable: Runnable? = null
+    private lateinit var updateSeekRunnable: Runnable
 
     private var savedAudioPosition: Int? = null
 
@@ -90,9 +90,9 @@ class PresenterPrayTextActivity(
         updateSeekRunnable = Runnable {
             val current = model.getAudioCurrentPosition()
             view.seekBarUpdater(current, max)
-            handler.postDelayed(updateSeekRunnable!!, 400)
+            handler.postDelayed(updateSeekRunnable, 400)
         }
-        handler.post(updateSeekRunnable!!)
+        handler.post(updateSeekRunnable)
         view.setAudioDuration(max)
     }
 
@@ -124,7 +124,7 @@ class PresenterPrayTextActivity(
         if (job.isActive)
             job.cancel()
         model.releaseMediaPlayer()
-        handler.removeCallbacks(updateSeekRunnable!!)
+        updateSeekRunnable.let { handler.removeCallbacks(it) }
     }
 
 }
