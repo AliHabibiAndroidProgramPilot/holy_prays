@@ -1,6 +1,8 @@
 package com.ali.holyprays.mvp.presenter
 
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import com.ali.holyprays.mvp.ext.ActivityLifecycle
 import com.ali.holyprays.mvp.ext.ActivityUtils
@@ -19,7 +21,13 @@ class PresenterPrayTextActivity(
 ) : ActivityLifecycle {
 
     private val job = Job()
+
     private val scope = CoroutineScope(Dispatchers.IO + job)
+
+    private val handler = Handler(Looper.getMainLooper())
+
+    private var updateSeekRunnable: Runnable? = null
+
     private var savedAudioPosition: Int? = null
 
     override fun presenterOnCreate() {
@@ -51,13 +59,16 @@ class PresenterPrayTextActivity(
         model.playPrayAudio(audioUrl) { success ->
             if (!success)
                 view.onFailedAudioPlay()
-            else
+            else {
+                onUpdatingSeekBar()
                 view.onSuccessAudioPlay()
+            }
         }
     }
 
     fun onPlayAudioButtonCLicked(context: Context, audioResId: Int) {
         model.playPrayAudio(context, audioResId)
+        onUpdatingSeekBar()
     }
 
     fun onStopAudioButtonClicked(): Boolean {
@@ -69,6 +80,21 @@ class PresenterPrayTextActivity(
             ?: Reciter.ABDOL_VASET
 
     fun isMediaPlayerPrepared(): Boolean = model.isMediaPlayerAlreadyPrepared()
+
+    fun seekTo(position: Int) {
+        model.audioSeekTo(position)
+    }
+
+    private fun onUpdatingSeekBar() {
+        val max = model.getAudioMaxDuration()
+        updateSeekRunnable = Runnable {
+            val current = model.getAudioCurrentPosition()
+            view.seekBarUpdater(current, max)
+            handler.postDelayed(updateSeekRunnable!!, 400)
+        }
+        handler.post(updateSeekRunnable!!)
+        view.setAudioDuration(max)
+    }
 
     private fun providePrayText(prayFilePath: String, prayPersianTranslationFilePath: String) {
         scope.launch {
@@ -98,6 +124,7 @@ class PresenterPrayTextActivity(
         if (job.isActive)
             job.cancel()
         model.releaseMediaPlayer()
+        handler.removeCallbacks(updateSeekRunnable!!)
     }
 
 }

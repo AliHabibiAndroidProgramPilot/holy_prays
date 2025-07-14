@@ -110,6 +110,10 @@ class ModelPrayTextActivity(context: Context) {
         mediaPlayer?.seekTo(durationPosition)
     }
 
+    fun getAudioMaxDuration(): Int = mediaPlayer?.duration ?: 0
+
+    fun getAudioCurrentPosition(): Int = mediaPlayer?.currentPosition ?: 0
+
     fun saveCurrentPosition(): Int? {
         return if (mediaPlayer != null && mediaPlayer!!.isPlaying)
             mediaPlayer?.currentPosition

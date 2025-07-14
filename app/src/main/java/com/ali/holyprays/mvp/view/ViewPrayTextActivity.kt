@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.SeekBar
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -21,6 +22,7 @@ import com.ali.holyprays.provider.PrayCategories
 import com.ali.holyprays.provider.PrayDataModel
 import com.ali.holyprays.provider.Reciter
 import com.ali.holyprays.ui.SettingActivity
+import java.util.Locale
 
 class ViewPrayTextActivity(
     context: Context,
@@ -122,16 +124,38 @@ class ViewPrayTextActivity(
                 } else {
                     pray?.prayAudioResId?.let {
                         presenterContract.onPlayAudioButtonCLicked(context, it)
+                        handleSeekBarVisibility(View.VISIBLE)
                         uiChanges(false)
                     } ?: Toast.makeText(context, toastMessage, Toast.LENGTH_LONG).show()
                 }
             } else {
                 binding.icPlay.setImageResource(R.drawable.ic_play)
                 presenterContract.onStopAudioButtonClicked()
-                binding.progressIndicator.visibility = View.GONE
+            }
+        }
+    }
+
+    fun seekBarUpdater(current: Int, duration: Int) {
+        binding.audioSeekBar.apply {
+            max = duration
+            progress = current
+        }
+        val timeText: String = current.toString()
+        binding.currentChronometerText.text = timeText.formatToTime(current)
+        binding.audioSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(view: SeekBar?, position: Int, fromUser: Boolean) {}
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {}
+
+            override fun onStopTrackingTouch(view: SeekBar?) {
+                presenterContract.seekTo(view!!.progress)
             }
 
-        }
+        })
+    }
+
+    fun setAudioDuration(duration: Int) {
+        binding.maxChronometerText.text = duration.toString().formatToTime(duration)
     }
 
     fun onPauseMediaPlayerForceStop() {
@@ -157,16 +181,19 @@ class ViewPrayTextActivity(
 
     val onFailedAudioPlay: () -> Unit = {
         binding.progressIndicator.visibility = View.GONE
+        handleSeekBarVisibility(View.GONE)
         binding.icPlay.setImageResource(R.drawable.ic_play)
         Toast.makeText(
             context,
             "پخش صوت با مشکل مواجه شد لطفا اتصال اینترنت خود را بررسی کنید",
             Toast.LENGTH_LONG
         ).show()
+        handleSeekBarVisibility(View.GONE)
     }
 
     val onSuccessAudioPlay: () -> Unit = {
         binding.progressIndicator.visibility = View.GONE
+        handleSeekBarVisibility(View.VISIBLE)
     }
 
     /*fun manageRecyclerScroll() {
@@ -187,5 +214,17 @@ class ViewPrayTextActivity(
     fun provideFilesPath(): String = pray?.prayFilePath!!
 
     fun providePrayPersianTranslationFilePath(): String = pray?.prayPersianTranslationFilePath!!
+
+    private fun handleSeekBarVisibility(visibility: Int) {
+        binding.audioSeekBar.visibility = visibility
+        binding.currentChronometerText.visibility = visibility
+        binding.maxChronometerText.visibility = visibility
+    }
+
+    private fun String.formatToTime(milliseconds: Int): String {
+        val seconds: Int = (milliseconds / 1000) % 60
+        val minutes: Int = (milliseconds / (1000 * 60)) % 60
+        return String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds)
+    }
 
 }

@@ -11,34 +11,35 @@
         android:id="@+id/pray_text_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="5dp"
         android:layoutDirection="rtl"
         android:scrollbars="vertical"
-        android:layout_marginHorizontal="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_top_border"
         app:layout_constraintBottom_toTopOf="@id/img_bottom_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_top_border"
         tools:listitem="@layout/pray_text_recycler_item" />
 
     <ProgressBar
         android:id="@+id/progress_indicator"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:padding="5dp"
-        android:indeterminateTint="@color/golden"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/low_opacity_bg"
-        android:layout_marginBottom="75dp"
+        android:indeterminateTint="@color/golden"
+        android:padding="5dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
         android:id="@+id/img_top_border"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:contentDescription="@null"
-        android:src="@drawable/top_border"
         android:scaleType="fitXY"
+        android:src="@drawable/top_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,28 +47,75 @@
     <ImageView
         android:id="@+id/img_bottom_border"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="95dp"
         android:contentDescription="@null"
-        android:src="@drawable/bottom_border"
         android:scaleType="fitXY"
+        android:src="@drawable/bottom_border"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <SeekBar
+        android:id="@+id/audioSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="68dp"
+        android:layout_marginBottom="10dp"
+        android:progressTint="@color/golden"
+        android:scaleY="1.1"
+        android:thumbTint="@color/golden"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/img_bottom_border"
+        app:layout_constraintEnd_toStartOf="@+id/max_chronometer_text"
+        app:layout_constraintStart_toEndOf="@+id/current_chronometer_text" />
+
+    <TextView
+        android:id="@+id/current_chronometer_text"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/iran_sans_medium"
+        android:maxLines="2"
+        android:text="@string/zero_time"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/audioSeekBar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/audioSeekBar" />
+
+    <TextView
+        android:id="@+id/max_chronometer_text"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/iran_sans_medium"
+        android:maxLines="2"
+        android:text="@string/zero_time"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/audioSeekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/audioSeekBar" />
 
     <TextView
         android:id="@+id/txt_pray_name"
         android:layout_width="235dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
         android:fontFamily="@font/iran_sans_medium"
         android:maxLines="2"
-        app:layout_constraintTop_toTopOf="@id/img_top_border"
-        app:layout_constraintStart_toStartOf="@id/img_top_border"
-        app:layout_constraintEnd_toEndOf="@id/img_top_border"
-        app:layout_constraintBottom_toBottomOf="@id/img_top_border"
-        android:layout_marginBottom="25dp"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/img_top_border"
+        app:layout_constraintEnd_toEndOf="@id/img_top_border"
+        app:layout_constraintStart_toStartOf="@id/img_top_border"
+        app:layout_constraintTop_toTopOf="@id/img_top_border"
         tools:text="زیارت عاشورا" />
 
     <ImageButton
@@ -75,11 +123,12 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="70dp"
+        android:layout_marginBottom="6dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@null"
         android:scaleType="fitXY"
         android:src="@drawable/setting_main_layout"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/audioSeekBar"
         app:layout_constraintEnd_toEndOf="@+id/img_bottom_border" />
 
 
@@ -87,11 +136,12 @@
         android:id="@+id/ic_play"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="6dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@null"
         android:scaleType="fitXY"
         android:src="@drawable/ic_play"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/audioSeekBar"
         app:layout_constraintEnd_toStartOf="@+id/ic_setting"
         app:layout_constraintStart_toEndOf="@+id/ic_close" />
 
@@ -100,11 +150,12 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="70dp"
+        android:layout_marginBottom="6dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@null"
         android:scaleType="fitXY"
         android:src="@drawable/ic_close_png"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/audioSeekBar"
         app:layout_constraintStart_toStartOf="@+id/img_bottom_border" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
