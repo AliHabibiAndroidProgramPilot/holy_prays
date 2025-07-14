@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.HolyPrays" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize theme here. -->
-        <item name="android:statusBarColor">@color/new_dark_green</item>
+        <item name="android:statusBarColor">@color/background_black</item>
         <item name="android:colorEdgeEffect">@color/stroke_green</item>
         <item name="colorControlHighlight">@color/ripple_dark_color</item>
     </style>
