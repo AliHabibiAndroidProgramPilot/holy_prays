@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.ali.holyprays.R
 import com.ali.holyprays.databinding.ActivitySettingBinding
@@ -106,6 +107,7 @@ class ViewSettingActivity(
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        setStatusBarColor()
     }
 
     fun navigationBackHandler() {
@@ -323,6 +325,12 @@ class ViewSettingActivity(
         presenterContract.onSaveSelectedFont(selectedFontResId)
         presenterContract.onSaveSelectedReciter(selectedReciter)
         utils.takeFinishActivity()
+    }
+
+    private val setStatusBarColor = {
+        val window = utils.takeWindow()
+        val insetsController = WindowCompat.getInsetsController(window!!, window.decorView)
+        insetsController.isAppearanceLightStatusBars = false
     }
 
 }

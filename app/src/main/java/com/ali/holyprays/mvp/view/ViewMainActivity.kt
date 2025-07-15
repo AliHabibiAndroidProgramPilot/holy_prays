@@ -23,18 +23,19 @@ class ViewMainActivity(
 
     private val context = utils.takeContext()
 
+    private val setStatusBarColor = {
+        val window = utils.takeWindow()
+        val insetsController = WindowCompat.getInsetsController(window!!, window.decorView)
+        insetsController.isAppearanceLightStatusBars = false
+    }
+
     fun setInsetsAndUiColor() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        if (isDarkModeEnabled()) {
-            val window = utils.takeWindow()!!
-            val insetsController = WindowCompat.getInsetsController(window, window.decorView)
-            insetsController.isAppearanceLightStatusBars = true
-            insetsController.isAppearanceLightNavigationBars = true
-        }
+       setStatusBarColor()
     }
 
     fun intentToCategoryPrayActivity(packageContext: Context) {

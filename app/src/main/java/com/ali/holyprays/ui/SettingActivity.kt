@@ -1,6 +1,7 @@
 package com.ali.holyprays.ui
 
 import android.os.Bundle
+import android.view.Window
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
@@ -34,6 +35,8 @@ class SettingActivity : AppCompatActivity(), ActivityUtils {
     override fun takeLifecycleOwner(): LifecycleOwner = this
 
     override fun takeBackPressedDispatchers() = onBackPressedDispatcher
+
+    override fun takeWindow(): Window = window
 
     override fun takeFinishActivity() {
         finish()

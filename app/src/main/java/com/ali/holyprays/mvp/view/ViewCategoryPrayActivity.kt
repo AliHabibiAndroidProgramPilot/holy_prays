@@ -36,11 +36,9 @@ class ViewCategoryPrayActivity(
     private var category: PrayCategories =
         PrayCategories.provideCategoryFromText(categoryTitle.name)!!
 
-    val setStatusBarColor = {
+    private val setStatusBarColor = {
         val window = utils.takeWindow()
         val insetsController = WindowCompat.getInsetsController(window!!, window.decorView)
-        window.statusBarColor = ContextCompat.getColor(context, R.color.background_black)
-        window.navigationBarColor = ContextCompat.getColor(context, R.color.background_black)
         insetsController.isAppearanceLightStatusBars = false
     }
 
