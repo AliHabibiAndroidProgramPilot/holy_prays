@@ -26,7 +26,7 @@ class PresenterPrayTextActivity(
 
     private val handler = Handler(Looper.getMainLooper())
 
-    private lateinit var updateSeekRunnable: Runnable
+    private var updateSeekRunnable: Runnable = Runnable {}
 
     private var savedAudioPosition: Int? = null
 
