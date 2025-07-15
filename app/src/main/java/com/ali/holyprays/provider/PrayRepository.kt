@@ -15,7 +15,7 @@ object PrayRepository {
                         null,
                         "prays/sabah_pray.txt",
                         "prays/persian/sabah_pray_p.txt",
-                        null
+                        R.raw.sabah
                     ),
                     PrayDataModel(
                         2,
@@ -33,7 +33,7 @@ object PrayRepository {
                         null,
                         "prays/nadabe_pray.txt",
                         "prays/persian/nadabe_pray_p.txt",
-                        null
+                        R.raw.nadabe
                     ),
                     PrayDataModel(
                         4,
@@ -42,7 +42,7 @@ object PrayRepository {
                         null,
                         "prays/samat_pray.txt",
                         "prays/persian/samat_pray_p.txt",
-                        null
+                        R.raw.samat
                     ),
                     PrayDataModel(
                         5,
@@ -128,7 +128,7 @@ object PrayRepository {
                         null,
                         "ramadan_prays/iftetah_pray.txt",
                         "ramadan_prays/persian/iftetah_pray_p.txt",
-                        null
+                        R.raw.eftetah
                     ),
                     PrayDataModel(
                         4,
@@ -137,7 +137,7 @@ object PrayRepository {
                         null,
                         "ramadan_prays/sahar_pray.txt",
                         "ramadan_prays/persian/sahar_pray_p.txt",
-                        null
+                        R.raw.sahar
                     ),
                     PrayDataModel(
                         5,
@@ -457,7 +457,7 @@ object PrayRepository {
                         null,
                         "zirat/zirat_arbaien.txt",
                         "zirat/persian/zirat_arbaien_p.txt",
-                        null
+                        R.raw.ziarat_arbaein
                     ),
                     PrayDataModel(
                         6,
@@ -502,7 +502,7 @@ object PrayRepository {
                         null,
                         "zirat/zirat_al_yasin.txt",
                         "zirat/persian/zirat_al_yasin_p.txt",
-                        null
+                        R.raw.al_yasin
                     ),
                     PrayDataModel(
                         11,
@@ -529,7 +529,7 @@ object PrayRepository {
                         null,
                         "zirat/ahd_pray.txt",
                         "zirat/persian/ahd_pray_p.txt",
-                        null
+                        R.raw.ahd
                     ),
                     PrayDataModel(
                         14,
@@ -583,7 +583,7 @@ object PrayRepository {
                         null,
                         "zirat/noor_pray.txt",
                         "zirat/persian/noor_pray_p.txt",
-                        null
+                        R.raw.noor
                     ),
                     PrayDataModel(
                         20,
@@ -592,7 +592,7 @@ object PrayRepository {
                         null,
                         "zirat/maknoon_pray.txt",
                         "zirat/persian/maknoon_pray_p.txt",
-                        null
+                        R.raw.maknoon
                     ),
                     PrayDataModel(
                         21,
