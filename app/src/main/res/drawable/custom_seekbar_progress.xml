@@ -3,16 +3,16 @@
 
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
-            <solid android:color="@color/golden" />
-            <corners android:radius="5dp" />
+            <solid android:color="@color/background_white" />
+            <corners android:radius="2dp" />
         </shape>
     </item>
 
     <item android:id="@android:id/progress">
         <clip>
             <shape android:shape="rectangle">
-                <solid android:color="@color/ripple_dark_color" />
-                <corners android:radius="5dp" />
+                <solid android:color="@color/golden" />
+                <corners android:radius="2dp" />
             </shape>
         </clip>
     </item>
