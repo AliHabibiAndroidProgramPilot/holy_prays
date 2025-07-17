@@ -19,6 +19,7 @@ import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.ext.SaveSettingContract
 import com.ali.holyprays.provider.Reciter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlin.properties.Delegates
 
 class ViewSettingActivity(
     context: Context,
@@ -45,25 +46,27 @@ class ViewSettingActivity(
 
     private val reciters = arrayOf("عبدالباسط", "شهریار پرهیزکاری", "ماهر المعیقلی", "میثم تمار")
 
-    private var persianFontSize: Float = 16f
+    private var isDirty: Boolean = false
 
-    private var arabicFontSize: Float = 16f
+    private var persianFontSize: Float by Delegates.observable(16f) { _, old, new ->
+        if (old != new) isDirty = true
+    }
 
-    private var isTextBolded: Boolean = false
+    private var arabicFontSize: Float by Delegates.observable(16f) { _, old, new ->
+        if (old != new) isDirty = true
+    }
 
-    private var selectedFontResId: Int = R.font.nabi
+    private var isTextBolded: Boolean by Delegates.observable(false) { _, old, new ->
+        if (old != new) isDirty = true
+    }
 
-    private var selectedReciter: String = "عبدالباسط"
+    private var selectedFontResId: Int by Delegates.observable(R.font.nabi) { _, old, new ->
+        if (old != new) isDirty = true
+    }
 
-    private var originalPersianFontSize: Float? = null
-
-    private var originalArabicFontSize: Float? = null
-
-    private var originalIsTextBolded: Boolean = false
-
-    private var originalFontResId: Int? = null
-
-    private var originalSelectedReciter: String? = null
+    private var selectedReciter: String by Delegates.observable("عبدالباسط") { _, old, new ->
+        if (old != new) isDirty = true
+    }
 
     val setSavedSetting: (Float, Float, Boolean, Int, String) -> Unit =
         { pFontSize, aFontSize, boldedText, selectedFont, reciter ->
@@ -72,11 +75,6 @@ class ViewSettingActivity(
             isTextBolded = boldedText
             selectedFontResId = selectedFont
             selectedReciter = reciter
-            originalPersianFontSize = pFontSize
-            originalArabicFontSize = aFontSize
-            originalIsTextBolded = boldedText
-            originalFontResId = selectedFont
-            originalSelectedReciter = reciter
             binding.txtProgressPreviewPersian.text = persianFontSize.toString()
             binding.persianFontSizeSeekBar.progress = persianFontSize.toInt()
             binding.txtProgressPreviewArabic.text = arabicFontSize.toString()
@@ -99,6 +97,7 @@ class ViewSettingActivity(
             binding.txtArabicPreview.textSize = arabicFontSize
             binding.txtArabicPreview.typeface =
                 ResourcesCompat.getFont(context, selectedFontResId)
+            isDirty = false
         }
 
     fun setUiInsets() {
@@ -112,13 +111,13 @@ class ViewSettingActivity(
 
     fun navigationBackHandler() {
         binding.icToolbarNavigationBack.setOnClickListener {
-            if (hasUnsavedChanges()) {
+            if (hasUnsavedChanges) {
                 showAlertDialog()
             } else
                 utils.takeBackPressedDispatchers()?.onBackPressed()
         }
         utils.takeBackPressedDispatchers()?.addCallback(utils.takeLifecycleOwner()!!) {
-            if (hasUnsavedChanges())
+            if (hasUnsavedChanges)
                 showAlertDialog()
             else {
                 isEnabled = false
@@ -239,7 +238,9 @@ class ViewSettingActivity(
 
     fun saveSettingClickHandler() {
         binding.btnSaveNewSettings.setOnClickListener {
-            saveSettingChanges()
+            if (hasUnsavedChanges)
+                saveSettingChanges()
+            utils.takeFinishActivity()
         }
     }
 
@@ -309,14 +310,8 @@ class ViewSettingActivity(
         }
     }
 
-    private val hasUnsavedChanges: () -> Boolean = {
-        (originalPersianFontSize != persianFontSize ||
-                originalArabicFontSize != arabicFontSize ||
-                originalIsTextBolded != isTextBolded ||
-                originalFontResId != selectedFontResId ||
-                originalSelectedReciter != selectedReciter
-                )
-    }
+    private val hasUnsavedChanges: Boolean
+        get() = isDirty
 
     private val saveSettingChanges: () -> Unit = {
         presenterContract.onSaveBoldText(isTextBolded)
@@ -324,7 +319,6 @@ class ViewSettingActivity(
         presenterContract.onSaveArabicFontSize(arabicFontSize)
         presenterContract.onSaveSelectedFont(selectedFontResId)
         presenterContract.onSaveSelectedReciter(selectedReciter)
-        utils.takeFinishActivity()
     }
 
     private val setStatusBarColor = {
