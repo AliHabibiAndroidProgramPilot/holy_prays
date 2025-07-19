@@ -9,6 +9,7 @@ import android.os.VibratorManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
@@ -40,6 +41,7 @@ class FragmentZekrCounter : Fragment(), FragmentZekrCounterContract.View {
         initializeViewTexts()
         count()
         reset()
+        navigationBackHandler()
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -120,6 +122,21 @@ class FragmentZekrCounter : Fragment(), FragmentZekrCounterContract.View {
                 }
             }
             show()
+        }
+    }
+
+    override fun navigationBackHandler() {
+        val backPressedDispatchers = requireActivity().onBackPressedDispatcher
+        backPressedDispatchers.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    parentFragmentManager.popBackStack()
+                }
+            }
+        )
+        binding.icNavigationBack.setOnClickListener {
+            backPressedDispatchers.onBackPressed()
         }
     }
 

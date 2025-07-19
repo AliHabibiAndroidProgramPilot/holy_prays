@@ -47,8 +47,8 @@
         android:layout_height="40dp"
         android:layout_marginBottom="10dp"
         android:contentDescription="@null"
-        android:scaleType="fitXY"
         android:rotation="180"
+        android:scaleType="fitXY"
         android:src="@drawable/line"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,12 +75,12 @@
         android:id="@+id/ic_navigation_back"
         android:layout_width="36dp"
         android:layout_height="36dp"
+        android:layout_marginStart="28dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/back_navigation_icon"
-        app:layout_constraintTop_toTopOf="@id/txt_pray_name"
+        android:src="@drawable/ic_close"
         app:layout_constraintBottom_toBottomOf="@id/txt_pray_name"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="28dp"
-        android:src="@drawable/ic_close" />
+        app:layout_constraintTop_toTopOf="@id/txt_pray_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
