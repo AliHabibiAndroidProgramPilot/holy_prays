@@ -1,6 +1,11 @@
 package com.ali.holyprays.ui
 
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +20,8 @@ class FragmentZekrCounter : Fragment(), FragmentZekrCounterContract.View {
 
     private lateinit var presenter: FragmentZekrCounterContract.Presenter
 
+    private var count = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,12 +34,49 @@ class FragmentZekrCounter : Fragment(), FragmentZekrCounterContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initializeViewTexts()
+        count()
+        reset()
         super.onViewCreated(view, savedInstanceState)
     }
 
     override fun initializeViewTexts() {
         binding.txtDayOfWeek.text = arguments?.getString("DAY_OF_THE_WEEK")
         binding.txtDayPray.text = arguments?.getString("PRAY_OF_THE_WEEK")
+    }
+
+    override fun count() {
+        binding.icAdd.setOnClickListener {
+            binding.txtCounterNumber.text = (++count).toString()
+            vibration()
+        }
+    }
+
+    override fun reset() {
+        binding.icReset.setOnClickListener {
+            count = 0
+            binding.txtCounterNumber.text = count.toString()
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    override fun vibration() {
+        val vibrator =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                val vibratorManager =
+                    requireContext().getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
+                vibratorManager.defaultVibrator
+            } else {
+                requireContext().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            }
+        if (vibrator.hasVibrator()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                vibrator.vibrate(
+                    VibrationEffect.createOneShot(90, VibrationEffect.EFFECT_CLICK)
+                )
+            } else {
+                vibrator.vibrate(90)
+            }
+        }
     }
 
     override fun onDestroyView() {

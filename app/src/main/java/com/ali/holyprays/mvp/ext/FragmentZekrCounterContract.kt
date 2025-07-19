@@ -4,6 +4,9 @@ interface FragmentZekrCounterContract {
 
     interface View {
         fun initializeViewTexts()
+        fun count()
+        fun reset()
+        fun vibration()
     }
 
     interface Presenter {
