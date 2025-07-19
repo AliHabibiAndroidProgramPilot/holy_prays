@@ -64,4 +64,6 @@
     <string name="play_speed">سرعت پخش</string>
     <string name="reciter_selection_alert">انتخاب قاری برای سوره ها امکان پذیر است</string>
     <string name="zero_time">00:00</string>
+    <string name="count">شمارش</string>
+    <string name="reset">بازنشانی</string>
 </resources>

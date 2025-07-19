@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_black"
+    tools:context=".ui.FragmentZekrCounter">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.2"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/background_pattern"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/header_text_frame"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/header_text_frame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="36dp"
+        android:fontFamily="@font/nastaliq"
+        android:text="@string/counter"
+        android:textAlignment="center"
+        android:textColor="@color/golden"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toBottomOf="@+id/header_text_frame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_day_of_week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/iran_sans_medium"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textDirection="rtl"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_title"
+        tools:text="ذکر روز یک شنبه" />
+
+    <ImageView
+        android:id="@+id/corner_top"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/zekr_corners"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_day_of_week" />
+
+    <ImageView
+        android:id="@+id/corner_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginHorizontal="10dp"
+        android:contentDescription="@null"
+        android:rotation="180"
+        android:scaleType="fitXY"
+        android:src="@drawable/zekr_corners"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_day_pray"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/nabi"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/corner_top"
+        app:layout_constraintEnd_toEndOf="@+id/corner_top"
+        app:layout_constraintStart_toStartOf="@+id/corner_top"
+        app:layout_constraintTop_toTopOf="@+id/corner_top"
+        tools:text="یا الله و ال ذی" />
+
+    <ImageView
+        android:id="@+id/number_counter_bg"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="36dp"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/zekr_number_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_day_pray" />
+
+    <TextView
+        android:id="@+id/txt_counter_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/iran_sans_medium"
+        android:text="0"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/number_counter_bg"
+        app:layout_constraintEnd_toEndOf="@+id/number_counter_bg"
+        app:layout_constraintStart_toStartOf="@+id/number_counter_bg"
+        app:layout_constraintTop_toTopOf="@+id/number_counter_bg" />
+
+    <ImageButton
+        android:id="@+id/ic_reset"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/reset"
+        app:layout_constraintStart_toStartOf="@id/number_counter_bg"
+        app:layout_constraintTop_toBottomOf="@id/number_counter_bg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/iran_sans_medium"
+        android:text="@string/reset"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/ic_reset"
+        app:layout_constraintStart_toStartOf="@+id/ic_reset"
+        app:layout_constraintTop_toBottomOf="@+id/ic_reset" />
+
+    <ImageButton
+        android:id="@+id/ic_add"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/add"
+        app:layout_constraintEnd_toEndOf="@id/number_counter_bg"
+        app:layout_constraintTop_toBottomOf="@id/number_counter_bg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/iran_sans_medium"
+        android:text="@string/count"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/ic_add"
+        app:layout_constraintStart_toStartOf="@+id/ic_add"
+        app:layout_constraintTop_toBottomOf="@+id/ic_add" />
+</androidx.constraintlayout.widget.ConstraintLayout>
