@@ -25,9 +25,31 @@ class FragmentZekrCounter : Fragment(), FragmentZekrCounterContract.View {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initializeViewTexts()
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun initializeViewTexts() {
+        binding.txtDayOfWeek.text = arguments?.getString("DAY_OF_THE_WEEK")
+        binding.txtDayPray.text = arguments?.getString("PRAY_OF_THE_WEEK")
+    }
+
     override fun onDestroyView() {
         presenter.onDetach()
         super.onDestroyView()
+    }
+
+    companion object {
+        fun newInstance(dayOfTheWeek: String, prayOfTheDay: String): FragmentZekrCounter {
+            return FragmentZekrCounter().apply {
+                arguments =
+                    Bundle().apply {
+                        putString("DAY_OF_THE_WEEK", dayOfTheWeek)
+                        putString("PRAY_OF_THE_WEEK", prayOfTheDay)
+                    }
+            }
+        }
     }
 
 }

@@ -4,13 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.view.LayoutInflater
+import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import com.ali.holyprays.R
 import com.ali.holyprays.databinding.ActivityMainBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.provider.PrayCategories
 import com.ali.holyprays.ui.CategoryPrayActivity
+import com.ali.holyprays.ui.FragmentZekrCounter
 import com.ali.holyprays.ui.SettingActivity
 
 class ViewMainActivity(
@@ -64,10 +67,18 @@ class ViewMainActivity(
         }
     }
 
-    private fun isDarkModeEnabled(): Boolean {
-        val currentNightMode =
-            context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        return currentNightMode == Configuration.UI_MODE_NIGHT_YES
+    fun setFragments(dayOfTheWeek: String, prayOfTheDay: String) {
+        binding.icTasbih.setOnClickListener {
+            val fragmentManager = utils.takeFragmentManager()!!
+            binding.fragmentContainer.visibility = View.VISIBLE
+            if (fragmentManager.fragments.isEmpty()) {
+                val fragment = FragmentZekrCounter.newInstance(dayOfTheWeek, prayOfTheDay)
+                fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
     }
 
 }

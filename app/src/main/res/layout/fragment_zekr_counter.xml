@@ -59,7 +59,7 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textDirection="rtl"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_title"
@@ -93,24 +93,26 @@
 
     <TextView
         android:id="@+id/txt_day_pray"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/nabi"
+        android:letterSpacing="0.2"
+        android:maxLines="3"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/corner_top"
         app:layout_constraintEnd_toEndOf="@+id/corner_top"
         app:layout_constraintStart_toStartOf="@+id/corner_top"
         app:layout_constraintTop_toTopOf="@+id/corner_top"
-        tools:text="یا الله و ال ذی" />
+        tools:text="الّلهُمَّ صَلِّ عَلَی مُحَمَّدٍ وَآلِ مُحَمَّد" />
 
     <ImageView
         android:id="@+id/number_counter_bg"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="36dp"
         android:contentDescription="@null"
         android:scaleType="centerInside"

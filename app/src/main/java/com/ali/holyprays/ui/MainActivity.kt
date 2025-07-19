@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Window
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.model.ModelMainActivity
 import com.ali.holyprays.mvp.presenter.PresenterMainActivity
@@ -29,6 +30,8 @@ class MainActivity : AppCompatActivity(), ActivityUtils {
     }
 
     override fun takeWindow(): Window = this.window
+
+    override fun takeFragmentManager(): FragmentManager = supportFragmentManager
 
     override fun takeContext() = this
 }
