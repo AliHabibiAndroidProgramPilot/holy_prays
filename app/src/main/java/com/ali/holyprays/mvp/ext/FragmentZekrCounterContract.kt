@@ -7,6 +7,7 @@ interface FragmentZekrCounterContract {
         fun count()
         fun reset()
         fun vibration()
+        fun showAlertDialog()
     }
 
     interface Presenter {
