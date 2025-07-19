@@ -2,7 +2,6 @@ package com.ali.holyprays.mvp.view
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
 import android.view.LayoutInflater
 import android.view.View
 import androidx.core.view.ViewCompat
@@ -38,7 +37,7 @@ class ViewMainActivity(
             view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-       setStatusBarColor()
+        setStatusBarColor()
     }
 
     fun intentToCategoryPrayActivity(packageContext: Context) {
@@ -74,8 +73,14 @@ class ViewMainActivity(
             if (fragmentManager.fragments.isEmpty()) {
                 val fragment = FragmentZekrCounter.newInstance(dayOfTheWeek, prayOfTheDay)
                 fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
                     .addToBackStack(null)
+                    .setCustomAnimations(
+                        R.anim.fade_in,
+                        R.anim.fade_out,
+                        R.anim.fade_in,
+                        R.anim.fade_out
+                    )
+                    .replace(R.id.fragment_container, fragment)
                     .commit()
             }
         }

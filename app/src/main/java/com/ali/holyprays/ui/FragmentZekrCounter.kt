@@ -79,7 +79,7 @@ class FragmentZekrCounter : Fragment(), FragmentZekrCounterContract.View {
         if (vibrator.hasVibrator()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 vibrator.vibrate(
-                    VibrationEffect.createOneShot(90, VibrationEffect.EFFECT_CLICK)
+                    VibrationEffect.createOneShot(90, VibrationEffect.DEFAULT_AMPLITUDE)
                 )
             } else {
                 vibrator.vibrate(90)
