@@ -18,6 +18,8 @@ class ModelPrayTextActivity(context: Context) {
 
     private var wasMediaPlayerPLaying = false
 
+    private var isFirstTimePlaying = true
+
     suspend fun readPrayTextFileFromAsset(context: Context, filePath: String): List<String> {
         return withContext(Dispatchers.IO) {
             try {
@@ -81,6 +83,7 @@ class ModelPrayTextActivity(context: Context) {
                 mediaPlayer!!.setOnCompletionListener {
                     wasMediaPlayerPLaying = false
                     isMediaPlayerPrepared = false
+                    isFirstTimePlaying = false
                 }
             } catch (e: Exception) {
                 Log.e("MEDIA_PLAYER", "Exception: ${e.message}")
@@ -113,6 +116,8 @@ class ModelPrayTextActivity(context: Context) {
     fun getAudioMaxDuration(): Int = mediaPlayer?.duration ?: 0
 
     fun getAudioCurrentPosition(): Int = mediaPlayer?.currentPosition ?: 0
+
+    fun isFirstTimePlaying(): Boolean = isFirstTimePlaying
 
     fun saveCurrentPosition(): Int? {
         return if (mediaPlayer != null && mediaPlayer!!.isPlaying)

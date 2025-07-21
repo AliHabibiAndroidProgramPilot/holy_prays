@@ -323,6 +323,7 @@
             android:layout_margin="20dp"
             android:fontFamily="@font/iran_sans_regular"
             android:text="@string/save_new_setting"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:backgroundTint="@color/golden"
             app:cornerRadius="6dp"

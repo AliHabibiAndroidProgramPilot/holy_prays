@@ -81,6 +81,8 @@ class PresenterPrayTextActivity(
 
     fun isMediaPlayerPrepared(): Boolean = model.isMediaPlayerAlreadyPrepared()
 
+    fun isFirstTimePlaying(): Boolean = model.isFirstTimePlaying()
+
     fun seekTo(position: Int) {
         model.audioSeekTo(position)
     }

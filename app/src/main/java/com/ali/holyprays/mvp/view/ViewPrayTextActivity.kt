@@ -108,7 +108,6 @@ class ViewPrayTextActivity(
 
     fun playPrayAudioManager() {
         val uiChanges: (Boolean) -> Unit = { isNeedLoading ->
-            binding.icPlay.setImageResource(R.drawable.ic_pause)
             if (!presenterContract.isMediaPlayerPrepared() && isNeedLoading)
                 binding.progressIndicator.visibility = View.VISIBLE
         }
@@ -120,11 +119,14 @@ class ViewPrayTextActivity(
                     val reciter: Reciter = presenterContract.findSelectedReciter()
                     val prayAudioUrl = reciter.getAudioUrl(pray.prayName)
                     presenterContract.onPlayAudioButtonClicked(prayAudioUrl)
-                    uiChanges(true)
+                    binding.icPlay.setImageResource(R.drawable.ic_pause)
+                    if (presenterContract.isFirstTimePlaying())
+                        uiChanges(true)
                 } else {
                     pray?.prayAudioResId?.let {
                         presenterContract.onPlayAudioButtonCLicked(context, it)
                         handleSeekBarVisibility(View.VISIBLE)
+                        binding.icPlay.setImageResource(R.drawable.ic_play)
                         uiChanges(false)
                     } ?: Toast.makeText(context, toastMessage, Toast.LENGTH_LONG).show()
                 }
