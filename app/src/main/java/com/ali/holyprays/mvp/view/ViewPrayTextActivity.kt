@@ -20,7 +20,7 @@ import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.presenter.PresenterPrayTextActivity
 import com.ali.holyprays.provider.PrayCategories
 import com.ali.holyprays.provider.PrayDataModel
-import com.ali.holyprays.provider.Reciter
+import com.ali.holyprays.provider.SoreReciters
 import com.ali.holyprays.ui.SettingActivity
 import java.util.Locale
 
@@ -116,8 +116,8 @@ class ViewPrayTextActivity(
             playState = !playState
             if (playState) {
                 if (pray?.prayCategory == PrayCategories.SORE) {
-                    val reciter: Reciter = presenterContract.findSelectedReciter()
-                    val prayAudioUrl = reciter.getAudioUrl(pray.prayName)
+                    val soreReciters: SoreReciters = presenterContract.findSelectedReciter()
+                    val prayAudioUrl = soreReciters.getAudioUrl(pray.prayName)
                     presenterContract.onPlayAudioButtonClicked(prayAudioUrl)
                     binding.icPlay.setImageResource(R.drawable.ic_pause)
                     if (presenterContract.isFirstTimePlaying())

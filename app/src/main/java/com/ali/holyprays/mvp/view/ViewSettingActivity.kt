@@ -17,7 +17,8 @@ import com.ali.holyprays.R
 import com.ali.holyprays.databinding.ActivitySettingBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.ext.SaveSettingContract
-import com.ali.holyprays.provider.Reciter
+import com.ali.holyprays.provider.PrayReciters
+import com.ali.holyprays.provider.SoreReciters
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlin.properties.Delegates
 
@@ -44,7 +45,10 @@ class ViewSettingActivity(
         R.font.shabnam
     )
 
-    private val reciters = arrayOf("عبدالباسط", "شهریار پرهیزکاری", "ماهر المعیقلی", "میثم تمار")
+    private val quranReciters =
+        arrayOf("عبدالباسط", "شهریار پرهیزکاری", "ماهر المعیقلی", "میثم تمار")
+
+    private val prayReciters = arrayOf("محسن فرهمند", "میثم مطیعی", "اباذر الحلواجی")
 
     private var isDirty: Boolean = false
 
@@ -64,7 +68,11 @@ class ViewSettingActivity(
         if (old != new) isDirty = true
     }
 
-    private var selectedReciter: String by Delegates.observable("عبدالباسط") { _, old, new ->
+    private var selectedQuranReciter: String by Delegates.observable("عبدالباسط") { _, old, new ->
+        if (old != new) isDirty = true
+    }
+
+    private var selectedPrayReciter: String by Delegates.observable("محسن فرهمند") { _, old, new ->
         if (old != new) isDirty = true
     }
 
@@ -74,7 +82,7 @@ class ViewSettingActivity(
             arabicFontSize = aFontSize
             isTextBolded = boldedText
             selectedFontResId = selectedFont
-            selectedReciter = reciter
+            selectedQuranReciter = reciter
             binding.txtProgressPreviewPersian.text = persianFontSize.toString()
             binding.persianFontSizeSeekBar.progress = persianFontSize.toInt()
             binding.txtProgressPreviewArabic.text = arabicFontSize.toString()
@@ -90,8 +98,8 @@ class ViewSettingActivity(
             }
             binding.txtArabicPreview.paint.isFakeBoldText = isTextBolded
             binding.dropdownSelection.setSelection(fontResId.indexOf(selectedFontResId))
-            binding.dropdownReciterSelection.setSelection(reciters.indexOf(reciter))
-            setReciterProfile(reciters.indexOf(reciter))
+            binding.dropdownQuranReciterSelection.setSelection(quranReciters.indexOf(reciter))
+            setQuranRecitersProfile(quranReciters.indexOf(reciter))
             // Set Preview Text Attributes
             binding.txtPersianPreview.textSize = persianFontSize
             binding.txtArabicPreview.textSize = arabicFontSize
@@ -208,14 +216,14 @@ class ViewSettingActivity(
                 }
 
             }
-        binding.dropdownReciterSelection.adapter = ArrayAdapter(
+        binding.dropdownQuranReciterSelection.adapter = ArrayAdapter(
             context,
             R.layout.spinner_item,
-            reciters
+            quranReciters
         ).also {
             it.setDropDownViewResource(R.layout.spinner_item)
         }
-        binding.dropdownReciterSelection.onItemSelectedListener =
+        binding.dropdownQuranReciterSelection.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
@@ -223,15 +231,37 @@ class ViewSettingActivity(
                     position: Int,
                     id: Long
                 ) {
-                    selectedReciter =
-                        Reciter.entries.find { it.reciterDisplayName == reciters[position] }?.reciterDisplayName
-                            ?: Reciter.ABDOL_VASET.reciterDisplayName
-                    setReciterProfile(position)
+                    selectedQuranReciter =
+                        SoreReciters.entries.find { it.reciterDisplayName == quranReciters[position] }?.reciterDisplayName
+                            ?: SoreReciters.ABDOL_VASET.reciterDisplayName
+                    setQuranRecitersProfile(position)
                 }
 
-                override fun onNothingSelected(p0: AdapterView<*>?) {
+                override fun onNothingSelected(p0: AdapterView<*>?) {}
 
+            }
+        binding.dropdownPraysReciterSelection.adapter = ArrayAdapter(
+            context,
+            R.layout.spinner_item,
+            prayReciters
+        ).also {
+            it.setDropDownViewResource(R.layout.spinner_item)
+        }
+        binding.dropdownPraysReciterSelection.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    selectedPrayReciter =
+                        PrayReciters.entries.find { it.reciterDisplayName == prayReciters[position] }?.reciterDisplayName
+                            ?: PrayReciters.MOHSEN_FARAHMAND.reciterDisplayName
+                    setPraysRecitersProfile(position)
                 }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {}
 
             }
     }
@@ -299,14 +329,24 @@ class ViewSettingActivity(
         }
     }
 
-    private fun setReciterProfile(position: Int) {
-        val reciterProfile = binding.reciterProfile
+    private fun setQuranRecitersProfile(position: Int) {
+        val reciterProfile = binding.quranReciterProfile
         when (position) {
             0 -> reciterProfile.setImageResource(R.drawable.abdolbesat_singer)
             1 -> reciterProfile.setImageResource(R.drawable.shahriar_prahizkar)
             2 -> reciterProfile.setImageResource(R.drawable.maher)
             3 -> reciterProfile.setImageResource(R.drawable.meysam_tamar)
             else -> reciterProfile.setImageResource(R.drawable.abdolbesat_singer)
+        }
+    }
+
+    private fun setPraysRecitersProfile(position: Int) {
+        val reciterProfile = binding.praysReciterProfile
+        when (position) {
+            0 -> reciterProfile.setImageResource(R.drawable.mohsen_farahmand)
+            1 -> reciterProfile.setImageResource(R.drawable.meysam_motie)
+            2 -> reciterProfile.setImageResource(R.drawable.abazar)
+            else -> reciterProfile.setImageResource(R.drawable.mohsen_farahmand)
         }
     }
 
@@ -318,7 +358,7 @@ class ViewSettingActivity(
         presenterContract.onSavePersianFontSize(persianFontSize)
         presenterContract.onSaveArabicFontSize(arabicFontSize)
         presenterContract.onSaveSelectedFont(selectedFontResId)
-        presenterContract.onSaveSelectedReciter(selectedReciter)
+        presenterContract.onSaveSelectedReciter(selectedQuranReciter)
     }
 
     private val setStatusBarColor = {

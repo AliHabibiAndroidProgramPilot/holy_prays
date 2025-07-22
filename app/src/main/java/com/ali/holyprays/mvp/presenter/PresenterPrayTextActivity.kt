@@ -8,7 +8,7 @@ import com.ali.holyprays.mvp.ext.ActivityLifecycle
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.model.ModelPrayTextActivity
 import com.ali.holyprays.mvp.view.ViewPrayTextActivity
-import com.ali.holyprays.provider.Reciter
+import com.ali.holyprays.provider.SoreReciters
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -82,9 +82,9 @@ class PresenterPrayTextActivity(
         return model.stopPrayAudio()
     }
 
-    fun findSelectedReciter(): Reciter =
-        Reciter.entries.find { it.reciterDisplayName == model.getSelectedReciter() }
-            ?: Reciter.ABDOL_VASET
+    fun findSelectedReciter(): SoreReciters =
+        SoreReciters.entries.find { it.reciterDisplayName == model.getSelectedReciter() }
+            ?: SoreReciters.ABDOL_VASET
 
     fun isMediaPlayerPrepared(): Boolean = model.isMediaPlayerAlreadyPrepared()
 

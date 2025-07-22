@@ -265,54 +265,73 @@
             app:layout_constraintTop_toBottomOf="@id/divider5" />
 
         <TextView
-            android:id="@+id/select_singer_title"
+            android:id="@+id/select_quran_singer_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/iran_sans_medium"
-            android:text="@string/selecte_singer"
+            android:text="@string/select_quran_singer"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_sound_setting" />
 
-        <TextView
-            android:id="@+id/reciter_selection_alert"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/iran_sans_regular"
-            android:text="@string/reciter_selection_alert"
-            android:textAlignment="center"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/red_alert"
-            android:textDirection="rtl"
-            android:textSize="13.5sp"
-            app:layout_constraintBottom_toTopOf="@id/btn_save_new_settings"
-            app:layout_constraintEnd_toEndOf="@+id/select_singer_title"
-            app:layout_constraintTop_toBottomOf="@id/select_singer_title"
-            tools:ignore="HardcodedText" />
-
         <Spinner
-            android:id="@+id/dropdown_reciter_selection"
+            android:id="@+id/dropdown_quran_reciter_selection"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/select_singer_title"
-            app:layout_constraintEnd_toStartOf="@+id/select_singer_title"
-            app:layout_constraintStart_toEndOf="@+id/reciter_profile"
-            app:layout_constraintTop_toTopOf="@+id/select_singer_title" />
+            app:layout_constraintBottom_toBottomOf="@+id/select_quran_singer_title"
+            app:layout_constraintEnd_toStartOf="@+id/select_quran_singer_title"
+            app:layout_constraintStart_toEndOf="@+id/quran_reciter_profile"
+            app:layout_constraintTop_toTopOf="@+id/select_quran_singer_title" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/reciter_profile"
+            android:id="@+id/quran_reciter_profile"
             android:layout_width="58dp"
             android:layout_height="55dp"
             android:layout_marginStart="35dp"
-            android:src="@drawable/abdolbesat_singer"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="@+id/dropdown_reciter_selection"
+            android:src="@drawable/abdolbesat_singer"
+            app:layout_constraintBottom_toBottomOf="@+id/dropdown_quran_reciter_selection"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/dropdown_reciter_selection"
+            app:layout_constraintTop_toTopOf="@+id/dropdown_quran_reciter_selection"
+            app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+        <TextView
+            android:id="@+id/select_prays_singer_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/iran_sans_medium"
+            android:text="@string/select_pray_singer"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/select_quran_singer_title" />
+
+        <Spinner
+            android:id="@+id/dropdown_prays_reciter_selection"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/select_prays_singer_title"
+            app:layout_constraintEnd_toStartOf="@+id/select_prays_singer_title"
+            app:layout_constraintStart_toEndOf="@+id/quran_reciter_profile"
+            app:layout_constraintTop_toTopOf="@+id/select_prays_singer_title" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/prays_reciter_profile"
+            android:layout_width="58dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="35dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mohsen_farahmand"
+            app:layout_constraintBottom_toBottomOf="@+id/dropdown_prays_reciter_selection"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dropdown_prays_reciter_selection"
             app:shapeAppearanceOverlay="@style/roundedImageView" />
 
 
@@ -324,14 +343,14 @@
             android:fontFamily="@font/iran_sans_regular"
             android:text="@string/save_new_setting"
             android:textColor="@color/white"
-            app:rippleColor="@color/ripple_dark_color"
             android:textSize="18sp"
             app:backgroundTint="@color/golden"
             app:cornerRadius="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/reciter_selection_alert" />
+            app:layout_constraintTop_toBottomOf="@id/select_prays_singer_title"
+            app:rippleColor="@color/ripple_dark_color" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
