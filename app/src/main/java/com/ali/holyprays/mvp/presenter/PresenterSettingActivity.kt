@@ -36,11 +36,11 @@ class PresenterSettingActivity(
     }
 
     override fun onSavePersianFontSize(persianFontSize: Float) {
-        model.savePersianFontSize(persianFontSize.toFloat())
+        model.savePersianFontSize(persianFontSize)
     }
 
     override fun onSaveArabicFontSize(arabicFontSize: Float) {
-        model.saveArabicFontSize(arabicFontSize.toFloat())
+        model.saveArabicFontSize(arabicFontSize)
     }
 
     override fun onSaveSelectedFont(fontResId: Int) {

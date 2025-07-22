@@ -1,6 +1,5 @@
 package com.ali.holyprays.mvp.presenter
 
-import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
@@ -8,6 +7,8 @@ import com.ali.holyprays.mvp.ext.ActivityLifecycle
 import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.model.ModelPrayTextActivity
 import com.ali.holyprays.mvp.view.ViewPrayTextActivity
+import com.ali.holyprays.provider.PrayCategories
+import com.ali.holyprays.provider.PrayReciters
 import com.ali.holyprays.provider.SoreReciters
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,7 +31,9 @@ class PresenterPrayTextActivity(
 
     private var savedAudioPosition: Int? = null
 
-    private var selectedSavedReciter: String? = null
+    private var savedQuranReciter: String? = null
+
+    private var savedPrayReciter: String? = null
 
     override fun presenterOnCreate() {
         view.setInsetsAndUiColor()
@@ -44,7 +47,8 @@ class PresenterPrayTextActivity(
         model.stopPrayAudio()
         view.onPauseMediaPlayerForceStop()
         savedAudioPosition = model.saveCurrentPosition()
-        selectedSavedReciter = model.getSelectedQuranReciter()
+        savedQuranReciter = model.getSelectedQuranReciter()
+        savedPrayReciter = model.getSelectedPrayReciter()
     }
 
     override fun presenterOnResume() {
@@ -54,11 +58,22 @@ class PresenterPrayTextActivity(
             model.getIsBoldText(),
             model.getFontResId()
         )
-        if (model.getSelectedQuranReciter() == selectedSavedReciter) {
-            if (savedAudioPosition != null)
-                model.audioSeekTo(savedAudioPosition!!)
-        } else {
-            model.releaseMediaPlayer()
+        when (view.providePrayCategory()) {
+            PrayCategories.SORE -> {
+                if (model.getSelectedQuranReciter() == savedQuranReciter) {
+                    if (savedAudioPosition != null)
+                        model.audioSeekTo(savedAudioPosition!!)
+                } else
+                    model.releaseMediaPlayer()
+            }
+
+            else -> {
+                if (model.getSelectedPrayReciter() == savedPrayReciter) {
+                    if (savedAudioPosition != null)
+                        model.audioSeekTo(savedAudioPosition!!)
+                } else
+                    model.releaseMediaPlayer()
+            }
         }
     }
 
@@ -73,18 +88,17 @@ class PresenterPrayTextActivity(
         }
     }
 
-    fun onPlayAudioButtonCLicked(context: Context, audioResId: Int) {
-        model.playPrayAudio(context, audioResId)
-        onUpdatingSeekBar()
-    }
-
     fun onStopAudioButtonClicked(): Boolean {
         return model.stopPrayAudio()
     }
 
-    fun findSelectedReciter(): SoreReciters =
+    fun findSelectedQuranReciter(): SoreReciters =
         SoreReciters.entries.find { it.reciterDisplayName == model.getSelectedQuranReciter() }
             ?: SoreReciters.ABDOL_VASET
+
+    fun findSelectedPrayReciter(): PrayReciters =
+        PrayReciters.entries.find { it.reciterDisplayName == model.getSelectedPrayReciter() }
+            ?: PrayReciters.MOHSEN_FARAHMAND
 
     fun isMediaPlayerPrepared(): Boolean = model.isMediaPlayerAlreadyPrepared()
 

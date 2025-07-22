@@ -111,24 +111,28 @@ class ViewPrayTextActivity(
             if (!presenterContract.isMediaPlayerPrepared() && isNeedLoading)
                 binding.progressIndicator.visibility = View.VISIBLE
         }
-        val toastMessage = "نسخه صوتی ${pray?.prayName} فعلا در دسترس نیست"
         binding.icPlay.setOnClickListener {
             playState = !playState
             if (playState) {
                 if (pray?.prayCategory == PrayCategories.SORE) {
-                    val soreReciters: SoreReciters = presenterContract.findSelectedReciter()
+                    val soreReciters: SoreReciters = presenterContract.findSelectedQuranReciter()
                     val prayAudioUrl = soreReciters.getAudioUrl(pray.prayName)
                     presenterContract.onPlayAudioButtonClicked(prayAudioUrl)
                     binding.icPlay.setImageResource(R.drawable.ic_pause)
                     if (presenterContract.isFirstTimePlaying())
                         uiChanges(true)
                 } else {
-                    pray?.prayAudioResId?.let {
-                        presenterContract.onPlayAudioButtonCLicked(context, it)
-                        handleSeekBarVisibility(View.VISIBLE)
-                        binding.icPlay.setImageResource(R.drawable.ic_play)
-                        uiChanges(false)
-                    } ?: Toast.makeText(context, toastMessage, Toast.LENGTH_LONG).show()
+                    val prayReciter = presenterContract.findSelectedPrayReciter()
+                    val prayAudioUrl: String? = prayReciter.getAudioUrl(pray!!.prayName)
+                    if (prayAudioUrl != null) {
+                        presenterContract.onPlayAudioButtonClicked(prayAudioUrl)
+                        if (presenterContract.isFirstTimePlaying())
+                            uiChanges(true)
+                        binding.icPlay.setImageResource(R.drawable.ic_pause)
+                    } else {
+                        val toastMessage = "نسخه صوتی ${pray.prayName} فعلا در دسترس نیست"
+                        Toast.makeText(context, toastMessage, Toast.LENGTH_LONG).show()
+                    }
                 }
             } else {
                 binding.icPlay.setImageResource(R.drawable.ic_play)
@@ -217,16 +221,32 @@ class ViewPrayTextActivity(
 
     fun providePrayPersianTranslationFilePath(): String = pray?.prayPersianTranslationFilePath ?: ""
 
+    fun providePrayCategory(): PrayCategories = pray!!.prayCategory
+
     private fun handleSeekBarVisibility(visibility: Int) {
         binding.audioSeekBar.visibility = visibility
         binding.currentChronometerText.visibility = visibility
         binding.maxChronometerText.visibility = visibility
     }
 
+    /**
+     * This Function is Provided By AI.
+     * @author Grok Ai
+     * @since versioncode = 2
+     * Converts total duration came from media player to time showing format.
+     * @sample 3,661,000 -> 01:01:01
+     * @sample 59,000 -> 00:59
+     */
     private fun String.formatToTime(milliseconds: Int): String {
-        val seconds: Int = (milliseconds / 1000) % 60
-        val minutes: Int = (milliseconds / (1000 * 60)) % 60
-        return String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds)
+        val totalSeconds = milliseconds / 1000
+        val hours = totalSeconds / 3600
+        val minutes = (totalSeconds % 3600) / 60
+        val seconds = totalSeconds % 60
+        return if (hours > 0) {
+            String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds)
+        } else {
+            String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds)
+        }
     }
 
 }

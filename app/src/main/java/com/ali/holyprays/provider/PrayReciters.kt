@@ -67,7 +67,5 @@ enum class PrayReciters(
         )
     );
 
-    fun getAudioUrl(prayKey: String): String =
-        audioMap[prayKey] ?: throw IllegalArgumentException("No URL for '$prayKey' in $name")
-
+    fun getAudioUrl(prayKey: String): String? = audioMap[prayKey]
 }
