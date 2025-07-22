@@ -1,6 +1,6 @@
 package com.ali.holyprays.provider
 
-enum class Reciter(
+enum class SoreReciters(
     val reciterDisplayName: String,
     private val audioMap: Map<String, String>
 ) {
