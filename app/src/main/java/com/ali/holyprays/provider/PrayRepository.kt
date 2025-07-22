@@ -97,7 +97,16 @@ object PrayRepository {
                         "prays/monajat_shabanihe_pray.txt",
                         "prays/persian/monajat_shabanihe_pray_p.txt",
                         null
-                    )
+                    ),
+                    PrayDataModel(
+                        11,
+                        PrayCategories.PRAYS,
+                        "دعای طلب رزق",
+                        null,
+                        "namaz/talab_rezgh_pray.txt",
+                        "namaz/persian/talab_rezgh_pray_p.txt",
+                        null
+                    ),
                 )
             }
 
@@ -1031,15 +1040,6 @@ object PrayRepository {
                     PrayDataModel(
                         1,
                         PrayCategories.NAMAZ,
-                        "دعای طلب رزق",
-                        null,
-                        "namaz/talab_rezgh_pray.txt",
-                        "namaz/persian/talab_rezgh_pray_p.txt",
-                        null
-                    ),
-                    PrayDataModel(
-                        2,
-                        PrayCategories.NAMAZ,
                         "آداب نماز حاجت مهم",
                         null,
                         "namaz/namaz_hajat_mohem.txt",
@@ -1047,7 +1047,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        3,
+                        2,
                         PrayCategories.NAMAZ,
                         "نماز توسعه رزق",
                         null,
@@ -1056,7 +1056,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        4,
+                        3,
                         PrayCategories.NAMAZ,
                         "نماز در شدت و سختی",
                         null,
@@ -1065,7 +1065,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        5,
+                        4,
                         PrayCategories.NAMAZ,
                         "نماز شب اول قبر",
                         null,
@@ -1074,7 +1074,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        6,
+                        5,
                         PrayCategories.NAMAZ,
                         "نماز جعفر طیار",
                         null,
@@ -1083,7 +1083,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        7,
+                        6,
                         PrayCategories.NAMAZ,
                         "نماز اول هر ماه",
                         null,
@@ -1092,7 +1092,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        8,
+                        7,
                         PrayCategories.NAMAZ,
                         "نماز شب",
                         null,
@@ -1101,7 +1101,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        9,
+                        8,
                         PrayCategories.NAMAZ,
                         "نماز امام جواد",
                         null,
@@ -1110,7 +1110,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        10,
+                        9,
                         PrayCategories.NAMAZ,
                         "نماز دهه اول ذی الحجه",
                         null,
@@ -1119,7 +1119,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        11,
+                        10,
                         PrayCategories.NAMAZ,
                         "نماز والدین",
                         null,
@@ -1128,7 +1128,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        12,
+                        11,
                         PrayCategories.NAMAZ,
                         "نماز استغاثه به حضرت زهرا(س)",
                         null,
@@ -1137,7 +1137,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        13,
+                        12,
                         PrayCategories.NAMAZ,
                         "نماز مسجد جمکران",
                         null,
@@ -1146,7 +1146,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        14,
+                        13,
                         PrayCategories.NAMAZ,
                         "نماز میت",
                         null,
@@ -1155,7 +1155,7 @@ object PrayRepository {
                         null
                     ),
                     PrayDataModel(
-                        15,
+                        14,
                         PrayCategories.NAMAZ,
                         "نماز آیات",
                         null,
