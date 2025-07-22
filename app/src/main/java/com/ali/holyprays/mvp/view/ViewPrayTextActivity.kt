@@ -215,7 +215,7 @@ class ViewPrayTextActivity(
 
     fun provideFilesPath(): String = pray?.prayFilePath!!
 
-    fun providePrayPersianTranslationFilePath(): String = pray?.prayPersianTranslationFilePath!!
+    fun providePrayPersianTranslationFilePath(): String = pray?.prayPersianTranslationFilePath ?: ""
 
     private fun handleSeekBarVisibility(visibility: Int) {
         binding.audioSeekBar.visibility = visibility

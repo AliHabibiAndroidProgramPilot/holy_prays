@@ -683,7 +683,7 @@ object PrayRepository {
                     PrayDataModel(
                         6,
                         PrayCategories.SORE,
-                        "سوره نبا",
+                        "سوره نبأ",
                         null,
                         "sore/naba.txt",
                         "sore/persian/naba_p.txt",
@@ -850,7 +850,7 @@ object PrayRepository {
                     PrayDataModel(
                         7,
                         PrayCategories.NAMAZ_TAGHIBAT,
-                        "تعقیبات نماز اعشا",
+                        "تعقیبات نماز عشا",
                         null,
                         "namaz_taghibat/taghibat_namaz_asha.txt",
                         "namaz_taghibat/persian/taghibat_namaz_asha_p.txt",
@@ -1152,6 +1152,15 @@ object PrayRepository {
                         null,
                         "namaz/namaz_myat.txt",
                         "namaz/persian/namaz_myat_p.txt",
+                        null
+                    ),
+                    PrayDataModel(
+                        15,
+                        PrayCategories.NAMAZ,
+                        "نماز آیات",
+                        null,
+                        "namaz/namaz_ayaat.txt",
+                        null,
                         null
                     )
                 )

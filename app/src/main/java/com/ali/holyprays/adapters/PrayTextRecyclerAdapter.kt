@@ -97,6 +97,7 @@ class PrayTextRecyclerAdapter(
             || category == PrayCategories.ZIARAT
             || category == PrayCategories.NAMAZ
         ) {
+            // Handle Null Pointer Exception For Unequal Persian Segments With Arabic Segments
             val persianText = persianTextList.getOrNull(position) ?: ""
             holder.bindPrayTextWithPersianSegments(arabicTextList[position], persianText)
         } else {
