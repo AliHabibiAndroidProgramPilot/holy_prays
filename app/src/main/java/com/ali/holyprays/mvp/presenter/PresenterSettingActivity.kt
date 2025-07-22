@@ -1,7 +1,6 @@
 package com.ali.holyprays.mvp.presenter
 
 import com.ali.holyprays.mvp.ext.ActivityLifecycle
-import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.mvp.ext.SaveSettingContract
 import com.ali.holyprays.mvp.model.ModelSettingActivity
 import com.ali.holyprays.mvp.view.ViewSettingActivity
