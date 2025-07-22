@@ -324,6 +324,7 @@
             android:fontFamily="@font/iran_sans_regular"
             android:text="@string/save_new_setting"
             android:textColor="@color/white"
+            app:rippleColor="@color/ripple_dark_color"
             android:textSize="18sp"
             app:backgroundTint="@color/golden"
             app:cornerRadius="6dp"

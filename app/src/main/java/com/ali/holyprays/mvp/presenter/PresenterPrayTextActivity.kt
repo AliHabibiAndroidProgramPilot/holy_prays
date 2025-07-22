@@ -30,6 +30,8 @@ class PresenterPrayTextActivity(
 
     private var savedAudioPosition: Int? = null
 
+    private var selectedSavedReciter: String? = null
+
     override fun presenterOnCreate() {
         view.setInsetsAndUiColor()
         providePrayText(view.provideFilesPath(), view.providePrayPersianTranslationFilePath())
@@ -42,6 +44,7 @@ class PresenterPrayTextActivity(
         model.stopPrayAudio()
         view.onPauseMediaPlayerForceStop()
         savedAudioPosition = model.saveCurrentPosition()
+        selectedSavedReciter = model.getSelectedReciter()
     }
 
     override fun presenterOnResume() {
@@ -51,8 +54,12 @@ class PresenterPrayTextActivity(
             model.getIsBoldText(),
             model.getFontResId()
         )
-        if (savedAudioPosition != null)
-            model.audioSeekTo(savedAudioPosition!!)
+        if (model.getSelectedReciter() == selectedSavedReciter) {
+            if (savedAudioPosition != null)
+                model.audioSeekTo(savedAudioPosition!!)
+        } else {
+            model.releaseMediaPlayer()
+        }
     }
 
     fun onPlayAudioButtonClicked(audioUrl: String) {
