@@ -44,7 +44,7 @@ class PresenterPrayTextActivity(
         model.stopPrayAudio()
         view.onPauseMediaPlayerForceStop()
         savedAudioPosition = model.saveCurrentPosition()
-        selectedSavedReciter = model.getSelectedReciter()
+        selectedSavedReciter = model.getSelectedQuranReciter()
     }
 
     override fun presenterOnResume() {
@@ -54,7 +54,7 @@ class PresenterPrayTextActivity(
             model.getIsBoldText(),
             model.getFontResId()
         )
-        if (model.getSelectedReciter() == selectedSavedReciter) {
+        if (model.getSelectedQuranReciter() == selectedSavedReciter) {
             if (savedAudioPosition != null)
                 model.audioSeekTo(savedAudioPosition!!)
         } else {
@@ -83,7 +83,7 @@ class PresenterPrayTextActivity(
     }
 
     fun findSelectedReciter(): SoreReciters =
-        SoreReciters.entries.find { it.reciterDisplayName == model.getSelectedReciter() }
+        SoreReciters.entries.find { it.reciterDisplayName == model.getSelectedQuranReciter() }
             ?: SoreReciters.ABDOL_VASET
 
     fun isMediaPlayerPrepared(): Boolean = model.isMediaPlayerAlreadyPrepared()

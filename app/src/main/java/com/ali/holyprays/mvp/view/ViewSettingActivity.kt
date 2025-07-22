@@ -48,7 +48,7 @@ class ViewSettingActivity(
     private val quranReciters =
         arrayOf("عبدالباسط", "شهریار پرهیزکاری", "ماهر المعیقلی", "میثم تمار")
 
-    private val prayReciters = arrayOf("محسن فرهمند", "میثم مطیعی", "اباذر الحلواجی")
+    private val prayReciters = arrayOf("محسن فرهمند", "میثم مطیعی", "اباذر حلواجی")
 
     private var isDirty: Boolean = false
 
@@ -76,13 +76,14 @@ class ViewSettingActivity(
         if (old != new) isDirty = true
     }
 
-    val setSavedSetting: (Float, Float, Boolean, Int, String) -> Unit =
-        { pFontSize, aFontSize, boldedText, selectedFont, reciter ->
+    val setSavedSetting: (Float, Float, Boolean, Int, String, String) -> Unit =
+        { pFontSize, aFontSize, boldedText, selectedFont, soreReciter, prayReciter ->
             persianFontSize = pFontSize
             arabicFontSize = aFontSize
             isTextBolded = boldedText
             selectedFontResId = selectedFont
-            selectedQuranReciter = reciter
+            selectedQuranReciter = soreReciter
+            selectedPrayReciter = prayReciter
             binding.txtProgressPreviewPersian.text = persianFontSize.toString()
             binding.persianFontSizeSeekBar.progress = persianFontSize.toInt()
             binding.txtProgressPreviewArabic.text = arabicFontSize.toString()
@@ -98,8 +99,10 @@ class ViewSettingActivity(
             }
             binding.txtArabicPreview.paint.isFakeBoldText = isTextBolded
             binding.dropdownSelection.setSelection(fontResId.indexOf(selectedFontResId))
-            binding.dropdownQuranReciterSelection.setSelection(quranReciters.indexOf(reciter))
-            setQuranRecitersProfile(quranReciters.indexOf(reciter))
+            binding.dropdownQuranReciterSelection.setSelection(quranReciters.indexOf(soreReciter))
+            binding.dropdownPraysReciterSelection.setSelection(prayReciters.indexOf(prayReciter))
+            setQuranRecitersProfile(quranReciters.indexOf(soreReciter))
+            setPraysRecitersProfile(prayReciters.indexOf(prayReciter))
             // Set Preview Text Attributes
             binding.txtPersianPreview.textSize = persianFontSize
             binding.txtArabicPreview.textSize = arabicFontSize
@@ -144,9 +147,7 @@ class ViewSettingActivity(
                 }
             }
 
-            override fun onStartTrackingTouch(p0: SeekBar?) {
-
-            }
+            override fun onStartTrackingTouch(p0: SeekBar?) {}
 
             override fun onStopTrackingTouch(view: SeekBar?) {
                 persianFontSize = view?.progress!!.toFloat()
@@ -211,9 +212,7 @@ class ViewSettingActivity(
                     selectedFontResId = fontResId
                 }
 
-                override fun onNothingSelected(view: AdapterView<*>?) {
-
-                }
+                override fun onNothingSelected(view: AdapterView<*>?) {}
 
             }
         binding.dropdownQuranReciterSelection.adapter = ArrayAdapter(
@@ -308,21 +307,6 @@ class ViewSettingActivity(
                         it.textSize = 16f
                         it.typeface = customFont
                     }
-                    /*getButton(AlertDialog.BUTTON_POSITIVE).apply {
-                        setTextColor(context.resources.getColor(R.color.golden, null))
-                        textSize = 16f
-                        typeface = customFont
-                    }
-                    getButton(AlertDialog.BUTTON_NEUTRAL).apply {
-                        setTextColor(context.resources.getColor(R.color.golden, null))
-                        textSize = 16f
-                        typeface = customFont
-                    }
-                    getButton(AlertDialog.BUTTON_NEGATIVE).apply {
-                        setTextColor(context.resources.getColor(R.color.golden, null))
-                        textSize = 16f
-                        typeface = customFont
-                    }*/
                 }
             }
             show()
@@ -333,7 +317,7 @@ class ViewSettingActivity(
         val reciterProfile = binding.quranReciterProfile
         when (position) {
             0 -> reciterProfile.setImageResource(R.drawable.abdolbesat_singer)
-            1 -> reciterProfile.setImageResource(R.drawable.shahriar_prahizkar)
+            1 -> reciterProfile.setImageResource(R.drawable.shariar_parhizkar)
             2 -> reciterProfile.setImageResource(R.drawable.maher)
             3 -> reciterProfile.setImageResource(R.drawable.meysam_tamar)
             else -> reciterProfile.setImageResource(R.drawable.abdolbesat_singer)
@@ -358,7 +342,8 @@ class ViewSettingActivity(
         presenterContract.onSavePersianFontSize(persianFontSize)
         presenterContract.onSaveArabicFontSize(arabicFontSize)
         presenterContract.onSaveSelectedFont(selectedFontResId)
-        presenterContract.onSaveSelectedReciter(selectedQuranReciter)
+        presenterContract.onSaveSelectedQuranReciter(selectedQuranReciter)
+        presenterContract.onSaveSelectedPrayReciter(selectedPrayReciter)
     }
 
     private val setStatusBarColor = {

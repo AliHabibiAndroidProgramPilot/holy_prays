@@ -10,6 +10,8 @@ interface SaveSettingContract {
 
     fun onSaveSelectedFont(fontResId: Int)
 
-    fun onSaveSelectedReciter(selectedReciterName: String)
+    fun onSaveSelectedQuranReciter(selectedReciterName: String)
+
+    fun onSaveSelectedPrayReciter(selectedReciterName: String)
 
 }

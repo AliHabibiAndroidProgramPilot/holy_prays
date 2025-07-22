@@ -2,6 +2,8 @@ package com.ali.holyprays.mvp.model
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.ali.holyprays.provider.PrayReciters
+import com.ali.holyprays.provider.SoreReciters
 
 class ModelSettingActivity(context: Context) {
 
@@ -16,8 +18,17 @@ class ModelSettingActivity(context: Context) {
 
     fun getFontResId(): Int = prefsManager.getInt("TEXT_FONT_RES_ID", 0)
 
-    fun getSelectedReciter(): String =
-        prefsManager.getString("SELECTED_RECITER", "عبدالباسط") ?: "عبدالباسط"
+    fun getSelectedQuranReciter(): String =
+        prefsManager.getString(
+            "SELECTED_QURAN_RECITER",
+            SoreReciters.ABDOL_VASET.reciterDisplayName
+        ) ?: SoreReciters.ABDOL_VASET.reciterDisplayName
+
+    fun getSelectedPrayReciter(): String =
+        prefsManager.getString(
+            "SELECTED_PRAY_RECITER",
+            PrayReciters.MOHSEN_FARAHMAND.reciterDisplayName
+        ) ?: PrayReciters.MOHSEN_FARAHMAND.reciterDisplayName
 
     fun savePersianFontSize(fontSize: Float) {
         prefsManager.edit()
@@ -43,9 +54,15 @@ class ModelSettingActivity(context: Context) {
             .apply()
     }
 
-    fun saveSelectedReciter(selectedReciterName: String) {
+    fun saveSelectedQuranReciter(selectedReciterName: String) {
         prefsManager.edit()
-            .putString("SELECTED_RECITER", selectedReciterName)
+            .putString("SELECTED_QURAN_RECITER", selectedReciterName)
+            .apply()
+    }
+
+    fun saveSelectedPrayReciter(selectedReciterName: String) {
+        prefsManager.edit()
+            .putString("SELECTED_PRAY_RECITER", selectedReciterName)
             .apply()
     }
 

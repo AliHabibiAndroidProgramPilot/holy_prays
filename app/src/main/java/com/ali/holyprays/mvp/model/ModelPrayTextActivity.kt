@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.util.Log
+import com.ali.holyprays.provider.PrayReciters
+import com.ali.holyprays.provider.SoreReciters
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -146,7 +148,16 @@ class ModelPrayTextActivity(context: Context) {
 
     fun getFontResId(): Int = prefs.getInt("TEXT_FONT_RES_ID", 0)
 
-    fun getSelectedReciter(): String =
-        prefs.getString("SELECTED_RECITER", "عبدالباسط") ?: "عبدالباسط"
+    fun getSelectedQuranReciter(): String =
+        prefs.getString(
+            "SELECTED_QURAN_RECITER",
+            SoreReciters.ABDOL_VASET.reciterDisplayName
+        ) ?: SoreReciters.ABDOL_VASET.reciterDisplayName
+
+    fun getSelectedPrayReciter(): String =
+        prefs.getString(
+            "SELECTED_PRAY_RECITER",
+            PrayReciters.MOHSEN_FARAHMAND.reciterDisplayName
+        ) ?: PrayReciters.MOHSEN_FARAHMAND.reciterDisplayName
 
 }

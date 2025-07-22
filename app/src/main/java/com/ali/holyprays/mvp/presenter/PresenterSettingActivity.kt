@@ -22,7 +22,8 @@ class PresenterSettingActivity(
             model.getArabicFontSize(),
             model.getIsBoldText(),
             model.getFontResId(),
-            model.getSelectedReciter()
+            model.getSelectedQuranReciter(),
+            model.getSelectedPrayReciter()
         )
     }
 
@@ -46,8 +47,12 @@ class PresenterSettingActivity(
         model.saveFontResId(fontResId)
     }
 
-    override fun onSaveSelectedReciter(selectedReciterName: String) {
-        model.saveSelectedReciter(selectedReciterName)
+    override fun onSaveSelectedQuranReciter(selectedReciterName: String) {
+        model.saveSelectedQuranReciter(selectedReciterName)
+    }
+
+    override fun onSaveSelectedPrayReciter(selectedReciterName: String) {
+        model.saveSelectedPrayReciter(selectedReciterName)
     }
 
 }

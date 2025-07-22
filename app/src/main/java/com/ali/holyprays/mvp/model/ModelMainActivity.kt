@@ -2,6 +2,7 @@ package com.ali.holyprays.mvp.model
 
 import android.content.Context
 import com.ali.holyprays.R
+import com.ali.holyprays.provider.PrayReciters
 import com.ali.holyprays.provider.SoreReciters
 import java.time.LocalDate
 
@@ -17,8 +18,16 @@ class ModelMainActivity(context: Context) {
                 edit().putBoolean("IS_BOLD_TEXT", false).apply()
             if (!contains("TEXT_FONT_RES_ID"))
                 edit().putInt("TEXT_FONT_RES_ID", R.font.nabi).apply()
-            if (!contains("SELECTED_RECITER"))
-                edit().putString("SELECTED_RECITER", SoreReciters.ABDOL_VASET.reciterDisplayName).apply()
+            if (!contains("SELECTED_QURAN_RECITER"))
+                edit().putString(
+                    "SELECTED_QURAN_RECITER",
+                    SoreReciters.ABDOL_VASET.reciterDisplayName
+                ).apply()
+            if (!contains("SELECTED_PRAY_RECITER"))
+                edit().putString(
+                    "SELECTED_QURAN_RECITER",
+                    PrayReciters.MOHSEN_FARAHMAND.reciterDisplayName
+                ).apply()
         }
     }
 
@@ -38,7 +47,7 @@ class ModelMainActivity(context: Context) {
     }
 
     fun getEachDayPray(): String {
-        return when(dayOfTheWeek) {
+        return when (dayOfTheWeek) {
             1 -> "یا قاضیَ الحاجات"
             2 -> "یا أَرْحَمَ الرَّاحِمِین"
             3 -> "یا حَیُّ یا قَیّومُ"
