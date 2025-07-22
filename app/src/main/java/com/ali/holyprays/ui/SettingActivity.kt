@@ -19,7 +19,7 @@ class SettingActivity : AppCompatActivity(), ActivityUtils {
         enableEdgeToEdge()
         val model = ModelSettingActivity(this)
         val view = ViewSettingActivity(this, this)
-        presenter = PresenterSettingActivity(view, model, this)
+        presenter = PresenterSettingActivity(view, model)
         view.presenterContract = presenter
         setContentView(view.binding.root)
         presenter.presenterOnCreate()

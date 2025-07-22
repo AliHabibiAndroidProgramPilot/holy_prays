@@ -9,7 +9,6 @@ import com.ali.holyprays.mvp.view.ViewSettingActivity
 class PresenterSettingActivity(
     private val view: ViewSettingActivity,
     private val model: ModelSettingActivity,
-    private val utils: ActivityUtils
 ) : ActivityLifecycle, SaveSettingContract {
 
     override fun presenterOnCreate() {
