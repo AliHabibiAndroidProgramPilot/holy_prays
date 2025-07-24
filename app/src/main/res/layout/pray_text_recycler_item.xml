@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:layoutDirection="rtl"
     android:orientation="vertical"
-    android:background="@color/white"
     android:textDirection="rtl">
 
     <TextView
@@ -19,6 +19,7 @@
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/nabi"
         android:justificationMode="inter_word"
+        android:lineSpacingExtra="10dp"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="17sp"
@@ -35,8 +36,9 @@
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/iran_sans_regular"
-        android:textAlignment="center"
         android:justificationMode="inter_word"
+        android:lineSpacingExtra="10dp"
+        android:textAlignment="center"
         android:textColor="@android:color/secondary_text_light"
         android:textSize="15sp"
         tools:text="یا الله و ال ذی" />
