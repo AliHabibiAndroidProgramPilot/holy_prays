@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -83,6 +84,9 @@ class ViewMainActivity(
                     .replace(R.id.fragment_container, fragment)
                     .commit()
             }
+        }
+        binding.icMemorial.setOnClickListener {
+            Toast.makeText(context, "بخش یاد بود فعلا در دسترس نیست", Toast.LENGTH_SHORT).show()
         }
     }
 
