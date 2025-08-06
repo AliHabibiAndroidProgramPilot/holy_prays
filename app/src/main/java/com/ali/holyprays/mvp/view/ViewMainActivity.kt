@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -14,6 +13,7 @@ import com.ali.holyprays.mvp.ext.ActivityUtils
 import com.ali.holyprays.provider.PrayCategories
 import com.ali.holyprays.ui.CategoryPrayActivity
 import com.ali.holyprays.ui.FragmentZekrCounter
+import com.ali.holyprays.ui.MemorialFragment
 import com.ali.holyprays.ui.SettingActivity
 
 class ViewMainActivity(
@@ -30,6 +30,7 @@ class ViewMainActivity(
         val window = utils.takeWindow()
         val insetsController = WindowCompat.getInsetsController(window!!, window.decorView)
         insetsController.isAppearanceLightStatusBars = false
+        insetsController.isAppearanceLightNavigationBars = false
     }
 
     fun setInsetsAndUiColor() {
@@ -68,8 +69,8 @@ class ViewMainActivity(
     }
 
     fun setFragments(dayOfTheWeek: String, prayOfTheDay: String) {
+        val fragmentManager = utils.takeFragmentManager()!!
         binding.icTasbih.setOnClickListener {
-            val fragmentManager = utils.takeFragmentManager()!!
             binding.fragmentContainer.visibility = View.VISIBLE
             if (fragmentManager.fragments.isEmpty()) {
                 val fragment = FragmentZekrCounter.newInstance(dayOfTheWeek, prayOfTheDay)
@@ -86,7 +87,21 @@ class ViewMainActivity(
             }
         }
         binding.icMemorial.setOnClickListener {
-            Toast.makeText(context, "بخش یاد بود فعلا در دسترس نیست", Toast.LENGTH_SHORT).show()
+            binding.fragmentContainer.visibility = View.VISIBLE
+            if (fragmentManager.fragments.isEmpty()) {
+                val fragment = MemorialFragment()
+                fragmentManager.beginTransaction()
+                    .addToBackStack(null)
+                    .setCustomAnimations(
+                        R.anim.fade_in,
+                        R.anim.fade_out,
+                        R.anim.fade_in,
+                        R.anim.fade_out
+                    )
+                    .replace(R.id.fragment_container, fragment)
+                    .commit()
+            }
+
         }
     }
 
