@@ -40,6 +40,7 @@ class ViewCategoryPrayActivity(
         val window = utils.takeWindow()
         val insetsController = WindowCompat.getInsetsController(window!!, window.decorView)
         insetsController.isAppearanceLightStatusBars = false
+        insetsController.isAppearanceLightNavigationBars = false
     }
 
     fun setInsetsAndUiColors() {
