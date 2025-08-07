@@ -15,9 +15,12 @@ class PresenterMainActivity(
         view.setInsetsAndUiColor()
         view.intentToCategoryPrayActivity(utils.takeContext())
         view.intentToSettingActivity(utils.takeContext())
+        view.registerFragmentsCallback()
         view.setFragments(model.getDayOfTheWeek(), model.getEachDayPray())
     }
 
-    override fun presenterOnDestroy() {}
+    override fun presenterOnDestroy() {
+        view.unregisterFragmentsCallback()
+    }
 
 }

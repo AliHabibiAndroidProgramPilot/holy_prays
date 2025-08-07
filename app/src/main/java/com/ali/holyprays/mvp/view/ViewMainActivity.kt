@@ -7,6 +7,8 @@ import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.ali.holyprays.R
 import com.ali.holyprays.databinding.ActivityMainBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
@@ -31,6 +33,14 @@ class ViewMainActivity(
         val insetsController = WindowCompat.getInsetsController(window!!, window.decorView)
         insetsController.isAppearanceLightStatusBars = false
         insetsController.isAppearanceLightNavigationBars = false
+    }
+
+    private val fragmentsCallBack = object : FragmentManager.FragmentLifecycleCallbacks() {
+        override fun onFragmentDetached(fragmentManager: FragmentManager, fragment: Fragment) {
+            if (fragment is FragmentZekrCounter || fragment is MemorialFragment)
+                binding.fragmentContainer.visibility = View.GONE
+            super.onFragmentDetached(fragmentManager, fragment)
+        }
     }
 
     fun setInsetsAndUiColor() {
@@ -103,6 +113,13 @@ class ViewMainActivity(
             }
 
         }
+    }
+
+    val registerFragmentsCallback = {
+        utils.takeFragmentManager()?.registerFragmentLifecycleCallbacks(fragmentsCallBack, true)
+    }
+    val unregisterFragmentsCallback = {
+        utils.takeFragmentManager()?.unregisterFragmentLifecycleCallbacks(fragmentsCallBack)
     }
 
 }
