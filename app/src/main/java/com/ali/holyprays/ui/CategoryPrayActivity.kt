@@ -2,6 +2,7 @@ package com.ali.holyprays.ui
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.Window
@@ -25,6 +26,13 @@ class CategoryPrayActivity : AppCompatActivity(), ActivityUtils {
         presente = PresenterCategoryPrayActivity(view, model)
         presente.presenterOnCreate()
         setContentView(view.binding.root)
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        val config = Configuration(newBase?.resources?.configuration)
+        config.fontScale = 1.2f
+        val context = newBase?.createConfigurationContext(config)
+        super.attachBaseContext(context)
     }
 
     override fun onDestroy() {

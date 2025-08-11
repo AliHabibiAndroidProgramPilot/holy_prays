@@ -2,13 +2,11 @@ package com.ali.holyprays.mvp.view
 
 import android.content.Context
 import android.view.LayoutInflater
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ali.holyprays.R
 import com.ali.holyprays.adapters.PrayListRecyclerAdapter
 import com.ali.holyprays.databinding.ActivityCategoryPrayBinding
 import com.ali.holyprays.mvp.ext.ActivityUtils
